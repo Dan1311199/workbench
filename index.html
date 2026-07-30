@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="每日工作台">
+<meta name="theme-color" content="#4096FF">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/jpeg;base64,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">
+<link rel="icon" href="data:image/jpeg;base64,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">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="每日工作台 - 待办/脚本/巡检/记账">
+<title>每日工作台</title>
+<style>
+:root{
+--p:#4096FF;--pd:#1d6fe0;--s:#36D399;--sd:#1ba978;
+--bg:#fff;--bg2:#f5f7fa;--txt:#2b2f36;--tx2:#5b626e;--tx3:#8a909c;
+--bd:#eef0f3;--wr:#fff3e0;--wt:#e8740c;--wb:#ffd9a8;
+--r:12px;--sh:0 1px 3px rgba(43,47,54,.04),0 4px 12px rgba(43,47,54,.04);
+--sh2:0 1px 2px rgba(43,47,54,.03);
+--th:62px;--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow-x:hidden;}
+body{
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;
+background:var(--bg2);color:var(--txt);font-size:15px;line-height:1.5;
+-webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit;}
+input,textarea{outline:none;}ul{list-style:none;}
+#app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--bg2);position:relative;padding-bottom:calc(var(--th)+var(--sb)+12px);}
+.page{display:none;padding:14px 14px 6px;animation:fIn .18s ease;}
+.page.active{display:block;}
+@keyframes fIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.page-header{padding:calc(var(--st)+16px) 18px 12px;background:var(--bg);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--bd);}
+.page-header h1{font-size:20px;font-weight:600;letter-spacing:-.2px;}
+.page-header .sub{font-size:12px;color:var(--tx3);margin-top:2px;}
+
+.card{background:var(--bg);border-radius:var(--r);padding:16px;margin-bottom:12px;box-shadow:var(--sh);}
+.card-title{font-size:14px;font-weight:600;color:var(--txt);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.card-title .more{margin-left:auto;font-size:12px;color:var(--p);font-weight:400;cursor:pointer;}
+
+.tabbar{
+position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:440px;
+height:calc(var(--th)+var(--sb));padding-bottom:var(--sb);
+background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(16px);
+-webkit-backdrop-filter:saturate(180%) blur(16px);
+border-top:1px solid var(--bd);display:flex;z-index:100;
+}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--tx3);font-size:10px;cursor:pointer;transition:color .15s;user-select:none;}
+.tab-item svg{width:23px;height:23px;}
+.tab-item.active{color:var(--p);}
+.tab-item.active svg{stroke:var(--p);}
+.tab-item.green.active{color:var(--s);}
+.tab-item.green.active svg{stroke:var(--s);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:9px 16px;border-radius:10px;border:none;font-size:14px;font-weight:500;cursor:pointer;transition:opacity .12s,transform .06s;white-space:nowrap;}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--p);color:#fff;}
+.btn-primary:active{background:var(--pd);}
+.btn-secondary{background:var(--s);color:#fff;}
+.btn-secondary:active{background:var(--sd);}
+.btn-ghost{background:#eef4ff;color:var(--p);}
+.btn-warn{background:var(--wr);color:var(--wt);}
+.btn-sm{padding:6px 12px;font-size:12px;border-radius:8px;}
+.btn-block{width:100%;padding:12px;}
+.btn-xs{padding:4px 8px;font-size:11px;border-radius:6px;}
+
+.input,.select,.textarea{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;background:#fff;font-size:14px;transition:border-color .15s;}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--p);}
+.textarea{resize:none;line-height:1.5;}
+.field{margin-bottom:12px;}
+.field label{display:block;font-size:12px;color:var(--tx2);margin-bottom:5px;font-weight:500;}
+
+.tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:500;background:#eef4ff;color:var(--p);}
+.tag-green{background:#e8faf2;color:var(--sd);}
+.tag-orange{background:var(--wr);color:var(--wt);}
+.tag-gray{background:#f0f1f4;color:var(--tx3);}
+.tag-red{background:#fff0f0;color:#ff5c5c;}
+
+.alert{background:var(--wr);border:1px solid var(--wb);color:var(--wt);padding:10px 12px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:6px;margin-bottom:10px;}
+
+.modal-mask{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;display:none;align-items:flex-end;justify-content:center;}
+.modal-mask.show{display:flex;animation:fIn .15s ease;}
+.modal{width:100%;max-width:440px;background:#fff;border-radius:18px 18px 0 0;padding:16px 16px calc(20px+var(--sb));max-height:88vh;overflow-y:auto;animation:sUp .2s ease;}
+@keyframes sUp{from{transform:translateY(100%)}to{transform:none}}
+.modal-head{display:flex;align-items:center;margin-bottom:14px;position:sticky;top:0;background:#fff;padding-bottom:10px;z-index:1;}
+.modal-head h3{font-size:16px;font-weight:600;flex:1;}
+.modal-head .close{font-size:14px;color:var(--tx3);background:none;border:none;cursor:pointer;}
+
+.toast{position:fixed;top:calc(var(--st)+60px);left:50%;transform:translateX(-50%);background:rgba(43,47,54,.92);color:#fff;padding:9px 18px;border-radius:20px;font-size:13px;z-index:300;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap;}
+.toast.show{opacity:1;}
+
+.row{display:flex;align-items:center;gap:8px;}
+.row-b{display:flex;align-items:center;justify-content:space-between;}
+.col{display:flex;flex-direction:column;}
+.f1{flex:1;min-width:0;}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mb8{margin-bottom:8px}
+.muted{color:var(--tx3);font-size:12px;}
+.center{text-align:center;}
+.empty{text-align:center;padding:30px 10px;color:var(--tx3);font-size:13px;}
+.empty svg{width:42px;height:42px;margin-bottom:8px;opacity:.4;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#4096FF 0%,#36D399 100%);border-radius:var(--r);padding:18px 16px;color:#fff;margin-bottom:12px;box-shadow:0 6px 18px rgba(64,150,255,.22);}
+.hero .greet{font-size:13px;opacity:.9;}
+.hero .date{font-size:12px;opacity:.8;margin-top:2px;}
+.hero .stat-row{display:flex;gap:8px;margin-top:14px;}
+.hero .stat{flex:1;background:rgba(255,255,255,.18);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;}
+.hero .stat:active{background:rgba(255,255,255,.28)}
+.hero .stat .num{font-size:22px;font-weight:600;}
+.hero .stat .lbl{font-size:11px;opacity:.85;margin-top:2px;}
+
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.quick-item{background:#fff;border-radius:10px;padding:12px 4px;text-align:center;box-shadow:var(--sh2);cursor:pointer;}
+.quick-item:active{transform:scale(.96)}
+.quick-item svg{width:22px;height:22px;margin-bottom:4px;}
+.quick-item .t{font-size:11px;color:var(--tx2);}
+
+.overview-item{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd);}
+.overview-item:last-child{border-bottom:none;}
+.overview-item .dot{width:8px;height:8px;border-radius:50%;margin-right:10px;flex-shrink:0;}
+.overview-item .txt{flex:1;min-width:0;font-size:13px;}
+.overview-item .val{font-size:13px;font-weight:600;}
+
+/* 待办 */
+.todo-tabs{display:flex;gap:6px;margin-bottom:12px;}
+.todo-tab{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:13px;background:#fff;color:var(--tx2);cursor:pointer;box-shadow:var(--sh2);}
+.todo-tab.active{background:var(--p);color:#fff;}
+
+.todo-item{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--bd);}
+.todo-item:last-child{border-bottom:none;}
+.checkbox{width:22px;height:22px;border:2px solid #d6dae0;border-radius:6px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;margin-top:1px;}
+.checkbox.checked{background:var(--s);border-color:var(--s);}
+.checkbox.checked svg{display:block;}
+.checkbox svg{display:none;width:14px;height:14px;color:#fff;}
+.todo-content{flex:1;min-width:0;}
+.todo-content .t{font-size:14px;color:var(--txt);}
+.todo-item.done .todo-content .t{text-decoration:line-through;color:var(--tx3);}
+.todo-content .meta{font-size:11px;color:var(--tx3);margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.todo-content .act-btn{background:none;border:none;color:var(--tx3);font-size:12px;cursor:pointer;padding:2px 4px;}
+
+.week-stat{display:flex;gap:6px;margin-top:4px;}
+.week-stat .bar{flex:1;text-align:center;}
+.week-stat .bar .h{background:#eef4ff;border-radius:4px 4px 0 0;height:60px;display:flex;align-items:flex-end;overflow:hidden;}
+.week-stat .bar .h span{display:block;width:100%;background:var(--p);border-radius:4px 4px 0 0;transition:height .3s;}
+.week-stat .bar.today .h span{background:var(--s);}
+.week-stat .bar.today .d{color:var(--sd);font-weight:600;}
+.week-stat .bar .d{font-size:10px;color:var(--tx3);margin-top:3px;}
+
+/* 短视频 */
+.script-tpl{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.tpl-chip{padding:6px 10px;border-radius:8px;background:#eef4ff;color:var(--p);font-size:12px;cursor:pointer;}
+.tpl-chip:active{background:#d6e8ff;}
+.script-block{background:#f8fafc;border-radius:8px;padding:10px;margin-bottom:8px;}
+.script-block .lbl{font-size:11px;color:var(--tx3);margin-bottom:4px;font-weight:500;}
+
+/* 选题卡片 */
+.topic-card{background:#f8fafc;border-radius:10px;padding:14px;margin-bottom:10px;position:relative;border:1px solid var(--bd);}
+.topic-card .badge{position:absolute;top:8px;right:8px;}
+.topic-card .title-line{font-size:15px;font-weight:600;margin-bottom:4px;padding-right:50px;}
+.topic-card .subtitles{font-size:12px;color:var(--tx2);margin-bottom:6px;line-height:1.6;}
+.topic-card .subtitles span{display:block;}
+.topic-card .meta-row{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0;}
+.topic-card .meta-row .tag{font-size:10px;}
+.topic-card .actions-row{display:flex;gap:6px;margin-top:10px;}
+
+/* 热点表格 */
+.hot-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd);gap:8px;}
+.hot-row:last-child{border-bottom:none;}
+.hot-row .kw{font-weight:500;font-size:13px;flex:1;min-width:0;}
+.hot-row .topic{font-size:11px;color:var(--tx2);}
+.hot-row .actions{display:flex;gap:4px;}
+
+/* 爆款灵感 */
+.inspo-card{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:8px;}
+.inspo-card .head{font-weight:600;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.inspo-card .logic{font-size:11px;color:var(--tx2);line-height:1.5;}
+
+/* 巡检 */
+.insp-row{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:4px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:12px;align-items:center;}
+.insp-row.head{font-weight:600;color:var(--tx2);font-size:11px;border-bottom:2px solid var(--bd);}
+.insp-row .cell{padding:2px 4px;}
+.insp-row .cell.err{background:var(--wr);color:var(--wt);border-radius:4px;font-weight:500;}
+.insp-row .cell.ok{color:var(--sd);}
+.insp-row .cell.warn{background:#fff0f0;color:#ff5c5c;border-radius:4px;}
+
+.time-set-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd);}
+.time-set-item:last-child{border-bottom:none;}
+.time-set-item input[type=time]{font-size:15px;border:none;color:var(--p);font-weight:600;background:none;}
+
+.seg{display:inline-flex;background:#f0f1f4;border-radius:8px;padding:2px;}
+.seg button{border:none;background:none;padding:5px 12px;border-radius:6px;font-size:12px;color:var(--tx2);cursor:pointer;}
+.seg button.active{background:#fff;color:var(--p);box-shadow:var(--sh2);}
+
+/* 记账 */
+.acct-tabs{display:flex;gap:6px;margin-bottom:12px;}
+.acct-tab{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:13px;background:#fff;color:var(--tx2);cursor:pointer;box-shadow:var(--sh2);}
+.acct-tab.active.income{background:var(--s);color:#fff;}
+.acct-tab.active.expense{background:var(--p);color:#fff;}
+
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0;}
+.cat-item{padding:10px 4px;border-radius:8px;background:var(--bg2);text-align:center;font-size:11px;cursor:pointer;}
+.cat-item.active{background:var(--p);color:#fff;}
+.cat-item.active.income{background:var(--s);}
+
+.acct-summary{display:flex;gap:10px;margin-bottom:12px;}
+.acct-summary .box{flex:1;background:#fff;border-radius:10px;padding:12px;box-shadow:var(--sh2);}
+.acct-summary .box .lbl{font-size:11px;color:var(--tx3);}
+.acct-summary .box .val{font-size:18px;font-weight:600;margin-top:3px;}
+.acct-summary .box .val.in{color:var(--sd);}
+.acct-summary .box .val.out{color:var(--pd);}
+
+.acct-item{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd);gap:10px;}
+.acct-item:last-child{border-bottom:none;}
+.acct-item .ico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.acct-item .ico.out{background:#eef4ff;}
+.acct-item .ico.in{background:#e8faf2;}
+.acct-item .info{flex:1;min-width:0;}
+.acct-item .info .t{font-size:13px;}
+.acct-item .info .d{font-size:11px;color:var(--tx3);}
+.acct-item .amt{font-size:14px;font-weight:600;}
+.acct-item .amt.in{color:var(--sd);}
+.acct-item .amt.out{color:var(--txt);}
+
+.chart-wrap{position:relative;height:140px;margin-top:8px;}
+
+.fab{position:fixed;right:16px;bottom:calc(var(--th)+var(--sb)+16px);width:50px;height:50px;border-radius:50%;background:var(--p);color:#fff;border:none;box-shadow:0 4px 14px rgba(64,150,255,.4);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:50;display:none;}
+.fab svg{width:24px;height:24px;}
+.fab:active{transform:scale(.92)}
+
+.switch{position:relative;width:44px;height:26px;flex-shrink:0;}
+.switch input{display:none;}
+.switch .slider{position:absolute;inset:0;background:#d6dae0;border-radius:13px;transition:.2s;cursor:pointer;}
+.switch .slider:before{content:'';position:absolute;width:22px;height:22px;left:2px;top:2px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.15);}
+.switch input:checked+.slider{background:var(--s);}
+.switch input:checked+.slider:before{transform:translateX(18px);}
+
+.heat-1{background:#e8faf2!important;color:#1ba978!important;}
+.heat-2{background:#eef4ff!important;color:var(--p)!important;}
+.heat-3{background:#f0f1f4!important;color:var(--tx2)!important;}
+
+/* 聊天面板 */
+.chat-panel{display:flex;flex-direction:column;}
+.chat-messages{max-height:380px;overflow-y:auto;padding:4px 0;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth;}
+.chat-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:13px;line-height:1.6;word-break:break-word;animation:msgIn .2s ease;}
+.chat-msg.user{align-self:flex-end;background:var(--p);color:#fff;border-bottom-right-radius:4px;}
+.chat-msg.assistant{align-self:flex-start;background:#fff;border:1px solid var(--bd);border-bottom-left-radius:4px;box-shadow:var(--sh2);}
+.chat-msg .msg-time{font-size:10px;opacity:.6;margin-top:4px;text-align:right;}
+.chat-msg.assistant .msg-time{color:var(--tx3);}
+.chat-msg .strategy-tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:6px;}
+.chat-msg .strategy-urgent{background:#fff0f0;color:#e74c3c;}
+.chat-msg .strategy-discount{background:#fff8e1;color:#e8740c;}
+.chat-msg .strategy-adjust{background:#eef4ff;color:var(--p);}
+.chat-msg .strategy-hold{background:#e8faf2;color:var(--sd);}
+.chat-msg .strategy-raise{background:#ede7f6;color:#7c4dff;}
+.chat-msg .strategy-combo{background:#fce4ec;color:#e91e63;}
+.chat-msg .action-btn-inline{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:7px;font-size:11px;font-weight:500;cursor:pointer;border:none;margin:4px 4px 0 0;transition:all .12s;}
+.chat-msg .action-btn-inline:active{transform:scale(.95);}
+.chat-msg.assistant .action-btn-inline.primary{background:var(--p);color:#fff;}
+.chat-msg.assistant .action-btn-inline.secondary{background:#eef4ff;color:var(--p);}
+.chat-msg .data-row{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0;}
+.chat-msg .data-item{background:rgba(64,150,255,.08);padding:4px 8px;border-radius:6px;font-size:11px;color:var(--p);font-weight:500;}
+.chat-msg.assistant .data-item{background:rgba(64,150,255,.06);}
+.chat-msg .highlight{font-weight:700;color:var(--p);}
+.chat-msg.assistant .highlight{color:var(--pd);}
+.chat-quick-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+.chat-quick-chip{padding:5px 10px;border-radius:16px;font-size:11px;border:1px solid var(--bd);background:#fff;color:var(--tx2);cursor:pointer;white-space:nowrap;transition:all .12s;}
+.chat-quick-chip:active{background:var(--p);color:#fff;border-color:var(--p);}
+.chat-input-area{display:flex;gap:6px;align-items:center;}
+.chat-input-area input{flex:1;padding:9px 12px;border:1px solid var(--bd);border-radius:20px;font-size:13px;background:#f8fafc;outline:none;transition:border-color .15s;}
+.chat-input-area input:focus{border-color:var(--p);background:#fff;}
+.chat-input-area .send-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .12s;}
+.chat-input-area .send-btn:active{transform:scale(.9);background:var(--pd);}
+.chat-input-area .send-btn svg{width:18px;height:18px;}
+.chat-empty{text-align:center;padding:16px 8px;color:var(--tx3);font-size:12px;}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.chat-typing{display:flex;gap:4px;padding:10px 13px;align-self:flex-start;}
+.chat-typing span{width:7px;height:7px;border-radius:50%;background:var(--tx3);animation:dotBounce 1.2s infinite;}
+.chat-typing span:nth-child(2){animation-delay:.2s;}
+.chat-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes dotBounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+
+::-webkit-scrollbar{width:0;height:0;}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="status-bar-spacer"></div>
+
+<!-- ===== 首页 ===== -->
+<section class="page active" id="page-home">
+<div class="page-header"><h1>每日工作台</h1><div class="sub" id="hd-date"></div></div>
+<div class="hero">
+<div class="greet" id="hd-greet"></div><div class="date" id="hd-full"></div>
+<div class="stat-row">
+<div class="stat" onclick="switchTab('todo')"><div class="num" id="hs-todo">0</div><div class="lbl">今日待办</div></div>
+<div class="stat" onclick="switchTab('ops')"><div class="num" id="hs-profit-hero">¥0</div><div class="lbl">预估毛利</div></div>
+<div class="stat" onclick="switchTab('account')"><div class="num" id="hs-inspect">--</div><div class="lbl">今日开销</div></div>
+</div></div>
+
+<div class="card"><div class="card-title">快捷入口</div><div class="quick-grid">
+<div class="quick-item" onclick="switchTab('todo');openDailyAdd()"><svg viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><div class="t">新增待办</div></div>
+<div class="quick-item" onclick="switchTab('video')"><svg viewBox="0 0 24 24" fill="none" stroke="#36D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="t">写脚本</div></div>
+<div class="quick-item" onclick="switchTab('inspect')"><svg viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><div class="t">OTA巡检</div></div>
+<div class="quick-item" onclick="switchTab('ops')"><svg viewBox="0 0 24 24" fill="none" stroke="#36D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="t">智能调价</div></div>
+</div></div>
+
+<div class="card"><div class="card-title">今日选题 TOP3 <span class="more" onclick="switchTab('video')">全部 ›</span></div><div id="home-topics"></div></div>
+
+<div class="card"><div class="card-title">今日脚本 & 调价 <span class="more" onclick="switchTab('ops')">调价 ›</span></div>
+<div class="acct-summary" style="margin-bottom:0"><div class="box"><div class="lbl">今日脚本</div><div class="val" id="hs-script-state">--</div></div><div class="box"><div class="lbl">最近调价</div><div class="val" id="hs-tp-last">--</div></div></div></div>
+
+<div class="card"><div class="card-title">运营概览</div><div id="home-overview"></div></div>
+
+<div class="card" id="home-alert-card" style="display:none"><div class="card-title">⚠ 需要关注</div><div id="home-alerts"></div></div>
+</section>
+
+<!-- ===== 待办任务 ===== -->
+<section class="page" id="page-todo">
+<div class="page-header"><h1>待办任务</h1><div class="sub">每日代办自动重置 · 近期代办按截止日排序</div></div>
+<div class="todo-tabs"><div class="todo-tab active" onclick="switchTodoTab('daily',this)">每日代办</div><div class="todo-tab" onclick="switchTodoTab('near',this)">近期代办</div></div>
+<div id="todo-daily" class="todo-pane">
+<div class="card"><div class="card-title">今日清单 <span class="more" id="daily-progress">0/0</span></div><div id="daily-list"></div></div>
+<div class="card"><div class="card-title">本周完成统计</div><div class="week-stat" id="week-stat"></div></div>
+</div>
+<div id="todo-near" class="todo-pane" style="display:none">
+<div class="card"><div class="card-title">标签筛选</div><div id="tag-filter" style="display:flex;flex-wrap:wrap;gap:6px;"></div></div>
+<div class="card"><div class="card-title">近期任务 <span class="more" id="near-count">0项</span></div><div id="near-list"></div></div>
+</div>
+</section>
+
+<!-- ===== 短视频创作 ===== -->
+<section class="page" id="page-video">
+<div class="page-header"><h1>短视频创作</h1><div class="sub">每日选题推荐 · 脚本编辑 · 热点追踪 · 爆款灵感</div></div>
+
+<div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>今日选题推荐 <span class="more" onclick="refreshTopics()">刷新选题</span></div><div id="topic-list"></div></div>
+
+<div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>今日脚本 <span class="more" id="script-date-label"></span></div>
+<div class="script-tpl" id="script-templates"></div>
+<div id="script-content"></div>
+<div class="row mt12"><button class="btn btn-primary btn-sm f1" onclick="saveScript()">保存脚本</button><button class="btn btn-secondary btn-sm" onclick="exportScript()">📤 导出</button><button class="btn btn-ghost btn-sm" onclick="newScript()">新建</button></div>
+</div>
+
+<div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#36D399" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>抖音热点追踪 <span class="more" onclick="openHotModal()">+ 新增</span></div><div id="hot-list"></div></div>
+
+<div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8740c" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>爆款灵感库 <span class="more" onclick="openInspoModal()">+ 收藏</span></div><div id="inspo-list"></div></div>
+
+<div class="card"><div class="card-title">脚本历史</div><div id="script-history"></div></div>
+</section>
+
+<!-- ===== OTA平台巡检 ===== -->
+<section class="page" id="page-inspect">
+<div class="page-header"><h1>OTA平台巡检</h1><div class="sub">竞圈价格 · 房态 · 活动监控 · 异常高亮</div></div>
+<div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>OTA巡检提醒设置</div>
+<div class="time-set-item"><span style="font-size:14px">早班巡检</span><input type="time" id="insp-time-1" onchange="saveInspTimes()"></div>
+<div class="time-set-item"><span style="font-size:14px">晚班巡检</span><input type="time" id="insp-time-2" onchange="saveInspTimes()"></div>
+<div class="time-set-item"><span style="font-size:14px">推送提醒</span><label class="switch"><input type="checkbox" id="insp-notify" onchange="saveInspTimes()"><span class="slider"></span></label></div>
+<div class="muted mt8" id="insp-next"></div></div>
+<div class="card"><div class="card-title">今日竞圈核对 <span class="more" onclick="openInspRecordModal()">+ 新增核对</span></div>
+<div class="insp-row head"><div class="cell">OTA平台</div><div class="cell">竞圈价格</div><div class="cell">房态</div><div class="cell">活动</div></div><div id="insp-today"></div></div>
+<div class="card"><div class="card-title">历史巡检记录</div>
+<div class="seg" id="insp-hist-seg"><button class="active" onclick="setInspHistView('list',this)">列表</button><button onclick="setInspHistView('date',this)">按日期</button></div><div id="insp-history" class="mt12"></div></div>
+</section>
+
+<!-- ===== 智能调价 ===== -->
+<section class="page" id="page-ops">
+<div class="page-header"><h1>OTA智能调价</h1><div class="sub">竞圈比价分析 · 动态定价建议</div></div>
+
+<!-- 我方库存与定价参数 -->
+<div class="card">
+<div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>我方定价参数</div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>总房量</label><input type="number" class="input" id="tp-total" placeholder="总房数" inputmode="numeric" onchange="saveTPConfig()"></div>
+<div class="field f1"><label>已预订</label><input type="number" class="input" id="tp-booked" placeholder="0" inputmode="numeric" onchange="saveTPConfig()"></div>
+</div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>标准门市价 ¥</label><input type="number" class="input" id="tp-base-price" placeholder="如：388" inputmode="numeric" onchange="saveTPConfig()"></div>
+<div class="field f1"><label>当前OTA卖价 ¥</label><input type="number" class="input" id="tp-current-price" placeholder="如：298" inputmode="numeric" onchange="saveTPConfig()"></div>
+</div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>当前活动</label><select class="select" id="tp-activity" onchange="saveTPConfig()"><option>无活动</option><option>早鸟价</option><option>连住优惠</option><option>新客立减</option><option>限时折扣</option><option>会员专享</option><option>套餐捆绑</option></select></div>
+<div class="field f1"><label>今日星期</label><select class="select" id="tp-weekday" onchange="saveTPConfig()"><option value="0">周日</option><option value="1">周一</option><option value="2">周二</option><option value="3">周三</option><option value="4">周四</option><option value="5">周五</option><option value="6">周六</option></select></div>
+</div>
+<div class="field"><label>竞圈价格（从巡检记录自动汇总 / 手动补充）</label>
+<textarea class="textarea" id="tp-compete" rows="3" placeholder="格式：携程¥258·有房·无活动&#10;美团¥268·紧张·新客立减&#10;飞猪¥248·有房·无活动" onchange="saveTPConfig()"></textarea></div>
+<div class="row" style="gap:8px">
+<button class="btn btn-primary f1" onclick="genPriceAdvice()">🔍 生成调价建议</button>
+<button class="btn btn-ghost btn-sm" onclick="loadInspToTP()">📋 从巡检导入</button>
+</div>
+</div>
+
+<!-- OTA运营顾问 对话面板 -->
+<div class="card" id="chat-card">
+<div class="card-title" style="justify-content:space-between"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c4dff" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> OTA运营顾问</span><span class="more" onclick="clearChat()" id="chat-clear-btn" style="display:none">清空</span></div>
+<div class="chat-panel">
+<div class="chat-messages" id="chat-messages"></div>
+<div class="chat-quick-chips" id="chat-quick-chips"></div>
+<div class="chat-input-area">
+<input type="text" id="chat-input" placeholder="告诉顾问当前情况，如：剩5间卖298竞圈268..." onkeydown="if(event.key==='Enter')sendMessage()">
+<button class="send-btn" onclick="sendMessage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+</div>
+</div>
+</div>
+
+<!-- 调价建议结果 -->
+<div class="card" id="tp-result-card" style="display:none">
+<div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#36D399" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>调价建议报告 <span class="more muted" id="tp-time"></span></div>
+<div id="tp-advice"></div>
+<div class="row mt12" style="gap:8px">
+<button class="btn btn-secondary btn-sm f1" onclick="copyTPAdvice()">📋 复制建议</button>
+<button class="btn btn-ghost btn-sm" onclick="saveTPHistory()">💾 保存记录</button>
+</div>
+</div>
+
+<!-- 历史调价记录 -->
+<div class="card">
+<div class="card-title">历史调价记录 <span class="more" id="tp-clear" style="display:none;cursor:pointer" onclick="clearTPHistory()">清空</span></div>
+<div id="tp-history"></div>
+</div>
+</section>
+
+<!-- ===== 记账 ===== -->
+<section class="page" id="page-account">
+<div class="page-header"><h1>记账</h1><div class="sub">每日开销记录 · 月度汇总看板</div></div>
+
+<!-- 快捷记账 -->
+<div class="card">
+<div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>记一笔</div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>金额 ¥</label><input type="number" class="input" id="ac-amount" placeholder="0.00" inputmode="decimal" step="0.01"></div>
+<div class="field f1"><label>分类</label><select class="select" id="ac-cat"><option>餐饮</option><option>交通</option><option>日用品</option><option>采购补货</option><option>设备维修</option><option>人力成本</option><option>水电租金</option><option>营销推广</option><option>其他</option></select></div>
+</div>
+<div class="field"><label>备注（选填）</label><input class="input" id="ac-note" placeholder="如：午餐外卖、补货矿泉水"></div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>日期</label><input type="date" class="input" id="ac-date"></div>
+</div>
+<button class="btn btn-primary btn-block" onclick="addAccount()">记录开销</button>
+</div>
+
+<!-- 今日记录 -->
+<div class="card">
+<div class="card-title">今日开销 <span class="more" id="ac-today-total">¥0.00</span></div>
+<div id="ac-today-list"></div>
+</div>
+
+<!-- 月度看板 -->
+<div class="card">
+<div class="card-title">📊 月度开销看板 <span class="more" id="ac-month-label"></span></div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>查看月份</label><input type="month" class="input" id="ac-month-picker" onchange="renderMonthBoard()"></div>
+</div>
+<div class="acct-summary" style="margin-bottom:8px">
+<div class="box"><div class="lbl">月度总开销</div><div class="val out" id="ac-month-total">¥0.00</div></div>
+<div class="box"><div class="lbl">日均开销</div><div class="val" id="ac-month-avg" style="color:var(--txt)">¥0.00</div></div>
+<div class="box"><div class="lbl">记录笔数</div><div class="val" id="ac-month-count" style="color:var(--txt)">0</div></div>
+</div>
+<div class="chart-wrap" id="ac-chart-wrap"><canvas id="ac-chart"></canvas></div>
+<div id="ac-month-breakdown" style="margin-top:8px"></div>
+</div>
+
+<!-- 历史记录 -->
+<div class="card">
+<div class="card-title">近期记录 <span class="more" onclick="clearAccountHistory()" style="cursor:pointer">清空</span></div>
+<div id="ac-history"></div>
+</div>
+</section>
+</div>
+
+<!-- 底部导航 -->
+<nav class="tabbar">
+<div class="tab-item active" data-tab="home" onclick="switchTab('home')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>首页</span></div>
+<div class="tab-item" data-tab="todo" onclick="switchTab('todo')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>待办</span></div>
+<div class="tab-item green" data-tab="video" onclick="switchTab('video')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><span>短视频</span></div>
+<div class="tab-item" data-tab="inspect" onclick="switchTab('inspect')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><span>OTA巡检</span></div>
+<div class="tab-item green" data-tab="ops" onclick="switchTab('ops')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span>调价</span></div>
+<div class="tab-item" data-tab="account" onclick="switchTab('account')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="12" y2="16"/></svg><span>记账</span></div>
+</nav>
+</div>
+
+<div class="modal-mask" id="modal-mask"><div class="modal" id="modal-body"></div></div>
+<div class="toast" id="toast"></div>
+
+<button class="fab" id="fab" onclick="fabAction()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+
+<script>
+"use strict";
+const $=(s,p=document)=>p.querySelector(s);
+const $$=(s,p=document)=>[...p.querySelectorAll(s)];
+const ts=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
+const fD=d=>new Date(d).getMonth()+1+'月'+new Date(d).getDate()+'日';
+const dB=(a,b)=>Math.round((new Date(b)-new Date(a))/86400000);
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function st(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1800);}
+function om(html){$('#modal-body').innerHTML=html;$('#modal-mask').classList.add('show');}
+function cm(){$('#modal-mask').classList.remove('show');}
+$('#modal-mask').addEventListener('click',e=>{if(e.target===$('#modal-mask'))cm();});
+
+const DB={get(k,d){try{const v=localStorage.getItem('mk_'+k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){localStorage.setItem('mk_'+k,JSON.stringify(v));}};
+
+let curTab='home';
+function switchTab(t){
+curTab=t;$$('.page').forEach(p=>p.classList.remove('active'));$('#page-'+t).classList.add('active');
+$$('.tab-item').forEach(el=>{el.classList.toggle('active',el.dataset.tab===t);
+const sv=el.querySelector('svg');sv.setAttribute('stroke',el.classList.contains('active')?(t==='video'||t==='ops'||t==='account'?'#36D399':'#4096FF'):'#8a909c');});
+$('#fab').style.display=(t==='todo'||t==='ops'||t==='video'||t==='inspect'||t==='account')?'flex':'none';
+if(t==='home')rHome();if(t==='todo')rTodo();if(t==='video')rVideo();if(t==='inspect')rInsp();if(t==='ops')rOps();if(t==='account')rAccount();
+window.scrollTo(0,0);
+}
+function fabAction(){
+if(curTab==='todo'){todoSub==='daily'?openDailyAdd():openNearAdd();}
+if(curTab==='ops')$('#chat-input').focus();
+if(curTab==='video')openHotModal();
+if(curTab==='inspect')openInspRecordModal();
+if(curTab==='account'){$('#ac-amount').focus();}
+}
+</script>
+
+<script>
+/* ============================================================
+   每日工作台 - 完整业务逻辑 v2.0
+   ============================================================ */
+
+/* ===== 选题词库与推荐引擎 v3.0 ===== */
+const TOPIC_POOL={
+  '特价爆款':[
+    {title:'同城超市今日炸价清单！几款生鲜直接打到底价',sub:['① 进店直奔特价区，今天这几样比批发市场还便宜','② 老板亲自划价：原价vs现价逐项对比','③ 限时特价时段曝光，错过等明天'],hook:'今天超市生鲜区的价格牌全换了，顾客来了直接惊呼"这么便宜？"',shoot:'【价格牌特写】逐项放大对比；【购物车实拍】顾客囤货量；【限时提醒】大字标注时段',tags:['#超市特价','#同城超市团购','#本地买菜省钱攻略'],script:[["【标题】", "同城超市今日炸价清单！几款生鲜直接打到底价"], ["【备选标题】", "① 今天超市生鲜打骨折，顾客推车来囤\n② 超市老板疯了？这几样直接降到底价"], ["【开场hook】", "今天超市生鲜区的价格牌全换了，顾客来了直接惊呼\"这么便宜？\"带你看看到底有多炸！"], ["【第一件炸价品】", "先看这个，原价XX，今天直接XX。每天早上现到现摆，新鲜度一眼就能看出来。镜头给个特写，看看这个色泽。"], ["【第二件炸价品】", "再看这个，平时舍不得买的，今天价格直接对半砍。隔壁菜市场都比我们贵，不信你去比。"], ["【第三件炸价品】", "最后这个，是今天最炸的。老板说亏本引流，一人限购两份，卖完就没。"], ["【价格总览】", "来，镜头拉远看全貌。今天这5样生鲜，加一起才多少钱？在菜市场买至少翻倍。"], ["【结尾引导】", "每天特价清单不一样，关注我，每天早上更新今天什么值得买。点定位直接来店里，手慢无！"], ["【话题标签】", "#超市特价 #同城超市团购 #本地买菜省钱攻略"], ["【拍摄备注】", "BGM：轻快有节奏感。镜头：特价牌大字特写+产品近景+购物车实拍。时长：40-50秒。发布时段：上午9-11点。"]]},
+    {title:'别再原价买菜！这家超市每日限时特价时段曝光',sub:['① 内部员工透露：每天这两个时段最划算','② 早市和晚市的价差竟然这么大','③ 学会踩点买菜，一个月省出一顿火锅'],hook:'在这干了3年的理货员偷偷告诉我，每天只有这两个小时来买菜最划算',shoot:'【时段对比】早晚价格牌并列展示；【顾客采访】老顾客分享经验；【时间轴动画】标注特价时段',tags:['#超市特价','#买菜省钱','#同城生活'],script:[["【标题】", "别再原价买菜！这家超市每日限时特价时段曝光"], ["【备选标题】", "① 超市员工偷偷告诉我，每天这两个时段来最划算\n② 同样一家超市，不同时间来价格差这么多？"], ["【开场hook】", "在这干了3年的理货员偷偷告诉我，每天只有这两个小时来买菜最划算，大部分人还不知道！"], ["【时段一揭秘】", "第一个黄金时段，每天早上开门后一小时。这时候生鲜刚到，品质最好，而且很多品有早市特价。你看这个价格牌，跟中午来的完全不一样。"], ["【时段二揭秘】", "第二个捡漏时段，傍晚6点以后。生鲜区开始贴新一轮折扣签，同样的东西比白天便宜快一半。不是因为不新鲜，是当天要清掉，明天来新的。"], ["【实操演示】", "我现在是傍晚6点半，带你们实际走一圈。看这个价签，刚才还是XX，现在变成XX了。品质你们自己看，完全没问题。"], ["【省钱计算】", "如果你每周采购两次，都踩准这两个时段，一个月至少省出一顿火锅钱。而且东西都是一样新鲜的。"], ["【结尾引导】", "学会了没？点个关注，下次带你踩点来买。觉得有用转发给家里买菜的那个人！"], ["【话题标签】", "#超市特价 #买菜省钱 #同城生活"], ["【拍摄备注】", "BGM：轻快揭秘感。镜头：时段对比分屏+价格牌特写+时钟元素。时长：50-55秒。发布时段：傍晚17-18点。"]]},
+    {title:'超市晚市隐藏福利！傍晚6点生鲜折扣攻略',sub:['① 下班顺路逛超市，这几样晚上打骨折','② 晚市生鲜区实拍，新鲜度完全不打折','③ 团购价+晚市折扣叠加，双重优惠'],hook:'傍晚6点超市生鲜区开始贴新价签，同样的东西比白天便宜一半',shoot:'【晚市全景】生鲜区实况；【价签更替】新旧价格对比；【到店体验】下班客流实拍',tags:['#超市晚市','#生鲜折扣','#下班买菜'],script:[["【标题】", "超市晚市隐藏福利！傍晚6点生鲜折扣攻略"], ["【备选标题】", "① 下班顺路逛超市，晚上这些生鲜打骨折\n② 超市晚市捡漏攻略，同样的东西晚上便宜一半"], ["【开场hook】", "傍晚6点超市生鲜区开始贴新价签，同样的东西比白天便宜一半，下班路过千万别错过！"], ["【晚市实况】", "现在是傍晚6点05分，生鲜区已经开始换价签了。你看工作人员正在一个个贴，我来带你们看看哪些品类折扣最大。"], ["【折扣品类一】", "绿叶菜区，晚上折扣最大。因为绿叶菜隔夜就蔫了，所以当天必须出清。品质你自己看，跟早上来买的一样新鲜，价格只要一半。"], ["【折扣品类二】", "熟食区和烘焙区。当天的面包、凉菜、卤味，晚上统统打折。买回去当明天早餐或者夜宵，比便利店便宜多了。"], ["【叠加优惠】", "重点来了！如果你是团购用户，晚市折扣+团购价可以叠加。等于折上折，但很多人不知道这个操作。"], ["【结尾引导】", "下班路过记得来逛逛，6点以后生鲜区就是宝藏区。关注我，每天分享超市省钱攻略！"], ["【话题标签】", "#超市晚市 #生鲜折扣 #下班买菜"], ["【拍摄备注】", "BGM：轻松探店风。镜头：时钟特写+价签更替过程+生鲜区全景。时长：40-50秒。发布时段：17:30-18:30。"]]},
+    {title:'团购专属价！到店不能享受，线上直接囤',sub:['① 同款商品到店vs团购价差惊人','② 线上下单到店提货，全程不用排队','③ 团购用户专享，普通顾客看不到的价格'],hook:'今天在收银台发现，同样的购物车，用团购的顾客少付了将近一半',shoot:'【价格对比】到店价vs团购价分屏展示；【下单演示】团购流程实拍；【提货体验】到店核销',tags:['#超市团购','#线上优惠','#到店提货'],script:[["【标题】", "团购专属价！到店不能享受，线上直接囤"], ["【备选标题】", "① 同款商品到店vs团购价差惊人\n② 线上下单到店提货，全程不用排队"], ["【开场hook】", "今天在收银台发现，同样的购物车，用团购的顾客少付了将近一半！这个秘密今天必须告诉你们！"], ["【价格对比】", "来，镜头看这里。同样一箱牛奶，到店扫码价XX元，打开团购页面只要XX元。一样的商品，一样的日期，价格差这么多。"], ["【为什么便宜】", "很多人问为什么团购比到店便宜？因为团购是线上集中走量，我们直接跟供应商谈大批量价，中间环节全砍掉。省下来的钱直接让利给你们。"], ["【操作演示】", "操作很简单。打开抖音团购页面，搜我们超市名字，选你要的商品，下单付款。然后选一个你方便的提货时间，到店出示核销码就行。全程不用排队。"], ["【热门团购品推荐】", "目前团购卖得最好的几个品：XX、XX、XX。都是日常刚需，囤着不亏。"], ["【结尾引导】", "团购入口在主页置顶，点进去就能看到。没关注的点个关注，每次上新团购第一时间通知你！"], ["【话题标签】", "#超市团购 #线上优惠 #到店提货"], ["【拍摄备注】", "BGM：轻快种草风。镜头：价格分屏对比+团购页面录屏+提货实拍。时长：45-55秒。发布时段：全天适用。"]]},
+    {title:'挑战50元填满购物袋｜超市高性价比好物清单',sub:['① 50块钱在这家超市能买多少东西？','② 精挑细选8件刚需品，总价刚好50','③ 打工人省钱攻略，照着买不踩坑'],hook:'我拿了50块现金进超市，看看到底能装满多大的购物袋，结果出乎意料',shoot:'【挑战开始】展示50元现金；【逐件挑选】每件商品价格展示；【结账环节】收银台实拍；【成果展示】全部商品铺开',tags:['#超市挑战','#省钱攻略','#高性价比好物'],script:[["【标题】", "挑战50元填满购物袋｜超市高性价比好物清单"], ["【备选标题】", "① 50块钱在超市能买多少东西？结果出乎意料\n② 打工人省钱攻略，照着买不踩坑"], ["【开场hook】", "我拿了50块现金进超市，看看到底能装满多大的购物袋。结果我自己都惊了！"], ["【挑战规则】", "规则很简单：50块钱，只能买吃的喝的，看能装满多大的袋子。现在开始！"], ["【选品过程】", "第一件，XX，只要X元。第二件，XX，X元。我一边挑一边算账，必须精打细算。每拿一件，镜头给价格特写。"], ["【结账环节】", "好了，选完了，去收银台结账。紧张时刻——到底超没超？滴、滴、滴……最后一件扫完，来看总价！"], ["【成果展示】", "XX元！还剩XX元！来，全部铺开给你们看。8样东西，够一个人吃两三天了。每一样都是刚需，没有凑数的。"], ["【结尾引导】", "你们觉得划算吗？评论区告诉我。还想看我挑战多少钱的购物袋？关注我，下期安排！"], ["【话题标签】", "#超市挑战 #省钱攻略 #高性价比好物"], ["【拍摄备注】", "BGM：挑战感节奏+揭晓时刻悬念音效。镜头：第一人称挑选+收银台实拍+成果俯拍。时长：50-60秒。发布时段：晚上19-21点。"]]},
+    {title:'货架寻宝！超市最值得买的平价刚需品',sub:['① 藏在货架底层的宝藏商品，价格低到离谱','② 超市员工都在偷偷买的自营品牌','③ 比网红推荐更实在的平价替代品'],hook:'超市最不显眼的位置，藏着全网都在找的平价好货，超市员工自己都在买',shoot:'【货架探索】低层/角落货架特写；【价格特写】平价vs品牌对比；【员工推荐】内部人士分享',tags:['#超市寻宝','#平价好物','#超市探店'],script:[["【标题】", "货架寻宝！超市最值得买的平价刚需品"], ["【备选标题】", "① 藏在货架底层的宝藏商品，价格低到离谱\n② 超市员工都在偷偷买的自营品牌"], ["【开场hook】", "超市最不显眼的位置，藏着全网都在找的平价好货。今天带你货架寻宝，专找那些价格低到离谱的刚需品！"], ["【宝藏一】", "第一个宝藏，在货架最底层。这个自营品牌的XX，跟大牌同一个代工厂，价格只有三分之一。超市员工自己都在买。"], ["【宝藏二】", "第二个，调料区角落。这个品牌的XX，配料表比大牌还干净，价格便宜一半。我对比给你看，成分几乎一样。"], ["【宝藏三】", "第三个，日用品区。这个XX，超市自有品牌，量大价低。算下来比网购囤货还划算。"], ["【宝藏四】", "第四个，零食区。这个XX，进口平替，口味几乎一样，价格只要进口的三分之一。"], ["【结尾引导】", "这四样加一起才多少钱？比买大牌省了一半都不止。关注我，下期继续带你挖宝藏！"], ["【话题标签】", "#超市寻宝 #平价好物 #超市探店"], ["【拍摄备注】", "BGM：探秘寻宝感。镜头：货架低角度拍摄+价格标签特写+品牌对比并列。时长：45-50秒。发布时段：周末上午。"]]},
+  ],
+  '生鲜实拍':[
+    {title:'每日新鲜到货实拍｜西瓜/海鲜/鲜肉开箱',sub:['① 凌晨5点到货现场，第一手新鲜实拍','② 开箱验货全过程，品质一目了然','③ 今日到货清单，想买新鲜的看过来'],hook:'凌晨5点卡车刚到，我带你看今天超市到的第一批生鲜，水珠都还在',shoot:'【卸货实拍】卡车开箱过程；【新鲜特写】微距拍摄水滴/色泽；【到货清单】今日品类一览',tags:['#生鲜实拍','#每日鲜到','#本地生鲜超市'],script:[["【标题】", "每日新鲜到货实拍｜西瓜/海鲜/鲜肉开箱"], ["【备选标题】", "① 凌晨5点到货现场，第一手新鲜实拍\n② 开箱验货全过程，品质一目了然"], ["【开场hook】", "凌晨5点卡车刚到，我带你看今天超市到的第一批生鲜。水珠都还在，新鲜到发光！"], ["【到货场景】", "现在是凌晨5点15，送货卡车刚到。师傅正在卸货，我带你们看看今天都到了什么好东西。"], ["【水果开箱】", "先开水果。今天到的西瓜，来听这个声音——（敲西瓜）脆！再看这个纹路，标准的冰糖瓜。切开一个验证，看这个瓤，红得发亮。"], ["【海鲜开箱】", "再看海鲜。今天到的虾，还在跳。你看这个透明度，新鲜虾才有这个光泽。价格牌已经挂上了，今天的到货价。"], ["【鲜肉开箱】", "最后看鲜肉。今天的排骨，看这个颜色，粉嫩粉嫩的。肥瘦比例刚好，拿回去红烧、炖汤都行。"], ["【结尾引导】", "这就是今天到货的第一批。想买最新鲜的，早上来。关注我，每天更新到货实拍，看中什么直接来！"], ["【话题标签】", "#生鲜实拍 #每日鲜到 #本地生鲜超市"], ["【拍摄备注】", "BGM：清晨宁静+轻快过渡。镜头：卸货过程+微距特写+切开验证。时长：50-60秒。发布时段：早上7-8点。"]]},
+    {title:'30秒教学：怎么挑选甜西瓜、嫩玉米、新鲜排骨',sub:['① 30秒学会挑西瓜，看这个部位就知道甜不甜','② 玉米老嫩看这里，菜贩子不会告诉你的技巧','③ 新鲜排骨三个标准，肉贩都夸你内行'],hook:'在超市干了5年的生鲜区主管，手把手教你30秒挑出最甜的西瓜',shoot:'【教学演示】手指特写+文字标注；【对比展示】好vs坏并列对比；【现场验证】切开验证甜度',tags:['#挑水果技巧','#买菜技巧','#超市干货'],script:[["【标题】", "30秒教学：怎么挑选甜西瓜、嫩玉米、新鲜排骨"], ["【备选标题】", "① 30秒学会挑西瓜，看这个部位就知道甜不甜\n② 超市生鲜主管手把手教挑菜，再也不怕买错了"], ["【开场hook】", "在超市干了5年的生鲜区主管，手把手教你30秒挑出最甜的西瓜、最嫩的玉米、最新鲜的排骨！"], ["【挑西瓜】", "挑西瓜看三点。第一看瓜藤，绿的新鲜。第二看瓜纹，越清晰越甜。第三听声音，手指弹——（弹）这个声音清脆就是好瓜。10秒搞定。"], ["【挑玉米】", "挑玉米看这里。剥开一点皮看玉米粒，饱满透亮的嫩，干瘪发黄的老。再掐一下玉米粒，出浆的嫩，不出的老。又一个10秒。"], ["【挑排骨】", "挑排骨记住三个标准。颜色粉嫩不发暗、肥瘦均匀不偏肥、闻起来是肉香没有异味。最后10秒。"], ["【总结】", "三个技巧加一起刚好30秒。学会了吗？"], ["【结尾引导】", "觉得有用的话点个赞收藏起来，下次买菜照着看。关注我，超市干货天天有！"], ["【话题标签】", "#挑水果技巧 #买菜技巧 #超市干货"], ["【拍摄备注】", "BGM：轻快教学风。镜头：手指特写+文字标注+好坏对比并列。时长：35-45秒。发布时段：周末上午。"]]},
+    {title:'原相机无滤镜！看看超市果蔬新鲜度',sub:['① 关掉美颜滤镜，果蔬真实状态实拍','② 为什么超市果蔬比菜市场更新鲜？冷链揭秘','③ 每日上架标准，不新鲜的绝不摆出来'],hook:'今天用原相机直出，不调色不滤镜，带你看超市果蔬最真实的样子',shoot:'【原相机】全程无滤镜拍摄；【冷链展示】后台冷库实拍；【上架标准】品控流程展示',tags:['#无滤镜实拍','#果蔬新鲜度','#超市品控'],script:[["【标题】", "原相机无滤镜！看看超市果蔬新鲜度"], ["【备选标题】", "① 关掉美颜滤镜，果蔬真实状态实拍\n② 为什么超市果蔬比菜市场更新鲜？冷链揭秘"], ["【开场hook】", "今天用原相机直出，不调色不滤镜，带你看超市果蔬最真实的样子。敢这么拍的超市没几家！"], ["【果蔬实拍】", "先看水果区。苹果、橙子、葡萄，原相机怼脸拍。你看这个光泽，不是打蜡，是冷链运输保持了水分。再看蔬菜区，绿叶菜的叶子支棱着，不蔫不黄。"], ["【冷链揭秘】", "很多人问为什么超市果蔬比菜市场新鲜？因为我们从产地到货架全程冷链。来，带你们看看后台冷库。温度恒定4度，蔬菜进来什么样，摆出去还是什么样。"], ["【品控标准】", "我们的上架标准很严格。你看这个员工正在挑，叶子有一点点黄的就拿掉。不新鲜的绝对不上架。"], ["【结尾引导】", "原相机实拍，就是这么自信。下次你来店里自己看，跟视频里一模一样。关注我，带你了解更多超市幕后！"], ["【话题标签】", "#无滤镜实拍 #果蔬新鲜度 #超市品控"], ["【拍摄备注】", "BGM：干净清新的纯音乐。镜头：原相机直出+冷库内部实拍+品控过程。时长：45-50秒。发布时段：上午10-12点。"]]},
+    {title:'夏日解暑生鲜合集，随手做出一桌家常菜',sub:['① 夏季时令生鲜一站买齐，不用跑菜市场','② 清凉解暑食材推荐，附简单做法','③ 一家三口50元吃一顿丰盛晚餐'],hook:'天气太热不想做饭？超市这几样生鲜买回去，10分钟搞定一桌消暑家常菜',shoot:'【食材展示】全部食材铺开；【烹饪演示】简单做法快速展示；【成品特写】一桌菜俯拍',tags:['#夏日解暑','#家常菜食材','#超市采购'],script:[["【标题】", "夏日解暑生鲜合集，随手做出一桌家常菜"], ["【备选标题】", "① 天热不想做饭？超市这几样买回去10分钟搞定\n② 一家三口50元吃一顿丰盛消暑晚餐"], ["【开场hook】", "天气太热不想做饭？超市这几样生鲜买回去，10分钟搞定一桌消暑家常菜，比外卖还快！"], ["【食材推荐】", "先来生鲜区。凉拌黄瓜、糖拌西红柿、蒜泥白肉，三个菜需要什么？黄瓜、西红柿、五花肉。全在这一个区域搞定。"], ["【价格计算】", "来算账。黄瓜两根X元，西红柿三个X元，五花肉一小块X元。再加一把小葱、一头蒜，总共才XX元。一家三口够吃了。"], ["【简单做法】", "回去怎么做？黄瓜拍碎拌蒜泥、西红柿切片撒糖、五花肉煮熟切片蘸料。三道菜从洗到上桌不超过15分钟。"], ["【结尾引导】", "夏天不知道吃什么就来超市逛逛，随手就能凑出一桌好菜。关注我，每天分享逛超市灵感！"], ["【话题标签】", "#夏日解暑 #家常菜食材 #超市采购"], ["【拍摄备注】", "BGM：清爽夏日感。镜头：食材逐一展示+价格叠加计算+成品俯拍。时长：40-50秒。发布时段：下午16-18点。"]]},
+    {title:'现开榴莲实录，看看团购榴莲品质怎么样',sub:['① 团购榴莲到货开箱，颗颗现开验品质','② 出肉率实测，到底值不值团购价','③ 金枕vs猫山王，超市选品标准揭秘'],hook:'今天团购榴莲到货，我现场开给你看，出肉率到底有多少，值不值这个价',shoot:'【开箱实拍】整箱榴莲展示；【现开过程】逐颗打开；【称重对比】出肉率计算',tags:['#榴莲开箱','#团购水果','#现开现卖'],script:[["【标题】", "现开榴莲实录，看看团购榴莲品质怎么样"], ["【备选标题】", "① 团购榴莲到货开箱，颗颗现开验品质\n② 出肉率实测，到底值不值团购价"], ["【开场hook】", "今天团购榴莲到货，我现场开给你看。出肉率到底有多少？值不值这个价？全程无剪辑！"], ["【开箱展示】", "刚到的一整箱金枕榴莲，先看外观。每个都在4-5斤，果型饱满，刺密而尖，说明成熟度刚好。"], ["【现开第一颗】", "现场开第一颗。来，小心撬开——看这个果肉，金黄色的，饱满厚实。上秤称一下出肉率，这颗出了XX%的肉，相当不错。"], ["【现开第二颗】", "再开一颗验证。这颗更大一些，看看怎么样——开了！果肉更饱满。两颗出肉率都在标准以上。"], ["【价格对比】", "算一下。团购价XX元一颗，出了XX斤肉。外面水果店同样品质至少要XX元。团购确实划算。"], ["【结尾引导】", "品质你们自己看，觉得值不值？团购在主页，数量有限。关注我，下次团什么你说了算！"], ["【话题标签】", "#榴莲开箱 #团购水果 #现开现卖"], ["【拍摄备注】", "BGM：期待感+满足感音效。镜头：开箱过程完整记录+果肉特写+称重验证。时长：50-60秒。发布时段：下午或晚上。"]]},
+    {title:'生鲜储存小技巧，买回家不容易坏',sub:['① 绿叶菜这样保存，一周都不会蔫','② 肉类分装冷冻法，解冻不浪费','③ 水果分类存放，延长保鲜期'],hook:'超市生鲜主管分享5个储存小技巧，买回家的菜多放一周没问题',shoot:'【分装演示】不同食材分类处理；【对比实验】正确vs错误储存；【一周后验证】保鲜效果对比',tags:['#生鲜储存','#厨房技巧','#生活小妙招'],script:[["【标题】", "生鲜储存小技巧，买回家不容易坏"], ["【备选标题】", "① 绿叶菜这样保存，一周都不会蔫\n② 超市生鲜主管分享5个储存技巧"], ["【开场hook】", "超市生鲜主管分享5个储存小技巧，买回家的菜多放一周没问题。最后一个99%的人都做错了！"], ["【绿叶菜保存】", "绿叶菜买回来别直接塞冰箱。先用厨房纸包一下，吸掉表面水汽，再放进保鲜袋。这样放一周都不蔫。"], ["【肉类分装】", "肉买回来别整块冻。按每次吃的量分装成小份，用保鲜膜裹紧再冷冻。解冻的时候拿一份就行，不浪费。"], ["【水果分类】", "水果别混放。苹果香蕉会释放乙烯，催熟其他水果。把它们单独放，其他水果能多放好几天。"], ["【鸡蛋存放】", "鸡蛋要大头朝上放，气室在上面更新鲜。别放冰箱门上，门开开关关温度不稳，放里面更耐放。"], ["【结尾引导】", "学会了吗？转发给家里管冰箱的那个人！关注我，超市干货每周更新。"], ["【话题标签】", "#生鲜储存 #厨房技巧 #生活小妙招"], ["【拍摄备注】", "BGM：轻快实用风。镜头：分步骤特写+文字标注要点+对比实验。时长：40-50秒。发布时段：周末。"]]},
+  ],
+  '囤货攻略':[
+    {title:'夏季家庭必备囤货清单｜冷饮、食材、日用品',sub:['① 夏天冰箱该囤什么？照着这份清单买','② 冷饮区+生鲜区+日用品一站配齐','③ 三口之家一周采购量，不浪费刚好够'],hook:'夏天最怕冰箱空空，这份夏季囤货清单帮你把一周的量安排得明明白白',shoot:'【清单展示】手写/打印清单特写；【分区采购】冷饮→生鲜→日用品；【冰箱收纳】买回来如何放',tags:['#超市囤货攻略','#家庭采购清单','#省钱买菜'],script:[["【标题】", "夏季家庭必备囤货清单｜冷饮、食材、日用品"], ["【备选标题】", "① 夏天冰箱该囤什么？照着这份清单买\n② 三口之家一周采购量，不浪费刚好够"], ["【开场hook】", "夏天最怕冰箱空空！这份夏季囤货清单帮你把一周的量安排得明明白白，照着买就行！"], ["【冷饮区】", "先逛冷饮区。整箱矿泉水、酸奶、冰淇淋，夏天消耗量巨大。整箱买比单瓶便宜三分之一。"], ["【生鲜食材】", "再看食材。夏天开火少，多囤凉拌菜食材和速冻食品。饺子、馄饨、手抓饼，不想做饭的时候救急。"], ["【日用品】", "最后日用品。纸巾、洗衣液、洗发水、沐浴露。夏天洗澡频率高，这些消耗比冬天快一倍。整箱囤最划算。"], ["【总价计算】", "三大类买齐，总共XX元。平均到一周每天不到XX元，一家三口吃得饱、用得好。"], ["【结尾引导】", "截图保存这份清单，下次来超市照着买。关注我，每季更新囤货攻略！"], ["【话题标签】", "#超市囤货攻略 #家庭采购清单 #省钱买菜"], ["【拍摄备注】", "BGM：节奏感轻快。镜头：分区扫货+清单特写+购物车俯拍。时长：45-50秒。发布时段：周末上午。"]]},
+    {title:'一周家常食材采购方案，照着买不浪费',sub:['① 周一至周日每天菜单+对应采购清单','② 精准采购，杜绝买多浪费','③ 一周只逛一次超市，省时省力'],hook:'花10分钟规划一周菜单，照着这份采购清单买，每天不重样还不浪费',shoot:'【菜单展示】一周菜谱列表；【采购清单】逐项对照；【分装保存】买回预处理',tags:['#一周采购','#家庭菜单','#不浪费买菜'],script:[["【标题】", "一周家常食材采购方案，照着买不浪费"], ["【备选标题】", "① 周一至周日每天菜单+对应采购清单\n② 精准采购，杜绝买多浪费"], ["【开场hook】", "花10分钟规划一周菜单，照着这份采购清单买，每天不重样还不浪费。厨房小白也能搞定！"], ["【规划思路】", "一周7天，按荤素搭配+隔天换口味的原则。周一周二吃新鲜易坏的，周三四吃耐放的，周末吃丰盛的。"], ["【采购清单】", "肉类：排骨、鸡腿、五花肉、肉馅，分装好每天的量。蔬菜：绿叶菜买2天的量，根茎类买一周的量。干货调料家里常备。"], ["【省钱技巧】", "肉类买整块回来自己分装，比买切好的便宜。蔬菜傍晚来买折扣大。调料买大包装自己分装，比小包装便宜一半。"], ["【结尾引导】", "完整清单截图保存。每周照着买，一个月至少省500。关注我，下周更新新菜单！"], ["【话题标签】", "#一周采购 #家庭菜单 #不浪费买菜"], ["【拍摄备注】", "BGM：高效规划感。镜头：菜单文字展示+采购过程+冰箱收纳。时长：45-55秒。发布时段：周末。"]]},
+    {title:'上班族懒人囤货！快手做饭食材合集',sub:['① 下班10分钟搞定晚饭，全靠囤对这些食材','② 速冻区+调料区+半成品区扫货攻略','③ 比外卖便宜还健康，打工人必看'],hook:'打工人下班不想做饭？超市这几个区的食材囤对了，10分钟就能吃上热乎的',shoot:'【速冻区实拍】快手食材推荐；【调料区】万能调料搭配；【实操演示】10分钟出餐',tags:['#上班族囤货','#快手菜','#打工人做饭'],script:[["【标题】", "上班族懒人囤货！快手做饭食材合集"], ["【备选标题】", "① 下班10分钟搞定晚饭，全靠囤对这些食材\n② 比外卖便宜还健康，打工人必看"], ["【开场hook】", "打工人下班不想做饭？超市这几个区的食材囤对了，10分钟就能吃上热乎的，比外卖便宜还健康！"], ["【速冻区】", "第一站速冻区。速冻水饺、手抓饼、速冻蔬菜粒、速冻虾仁。这些都是快手菜救星。水饺煮5分钟，手抓饼煎2分钟，蔬菜粒微波3分钟。"], ["【调料区】", "第二站调料区。买几瓶万能酱料：蒜蓉辣酱、黑椒汁、照烧汁。随便什么食材加一勺酱料，味道就出来了。不用自己调。"], ["【半成品区】", "第三站半成品区。卤好的牛肉、切好的净菜、腌好的肉片。比自己从头做省了80%的时间，价格也没贵多少。"], ["【实操】", "来演示一下：速冻水饺下锅，同时微波蔬菜粒，手抓饼放锅里。10分钟，一饭一菜一汤搞定。"], ["【结尾引导】", "打工人收藏起来！关注我，每周更新懒人做饭灵感。"], ["【话题标签】", "#上班族囤货 #快手菜 #打工人做饭"], ["【拍摄备注】", "BGM：快节奏高效感。镜头：分区扫货+实操烹饪+成品展示。时长：45-55秒。发布时段：晚上19-21点。"]]},
+    {title:'超市避雷：这几样东西不建议大量囤货',sub:['① 超市员工说实话：这些商品不建议囤','② 保质期短的商品清单，买多了就是浪费','③ 促销区这几类商品谨慎购买'],hook:'在超市干了5年，这几样东西我从来不建议顾客大量囤，买了就是浪费钱',shoot:'【避雷清单】逐项展示+原因说明；【反面案例】囤坏的真实案例；【正确示范】应该怎么买',tags:['#超市避雷','#囤货指南','#理性消费'],script:[["【标题】", "超市避雷：这几样东西不建议大量囤货"], ["【备选标题】", "① 超市员工说实话：这些商品不建议囤\n② 促销区这几类商品谨慎购买"], ["【开场hook】", "在超市干了5年，这几样东西我从来不建议顾客大量囤。买了就是浪费钱！今天说点实话。"], ["【避雷一：大包装生鲜】", "第一个，大包装生鲜。促销的时候一大盒便宜，但你吃不完。冷冻之后再解冻口感完全变了。建议买小份，吃多少买多少。"], ["【避雷二：临期促销品】", "第二个，临期促销品。看着便宜，但你得在保质期内吃完。囤多了来不及吃就过期了，等于白花钱。只买接下来一周能吃完的量。"], ["【避雷三：大瓶调料】", "第三个，大瓶调料。开封后保质期很短，家庭用大瓶的经常用不完就变质了。买小瓶，用完再买，其实更省钱。"], ["【避雷四：冲动零食】", "第四个，促销区的冲动零食。买的时候觉得便宜，拿回家吃两口就腻了，剩下的放到过期。促销区的东西先想清楚：你真的需要吗？"], ["【结尾引导】", "这些都是内部实话。觉得有用点个赞，转发给爱囤货的家人！关注我，超市避坑系列持续更新。"], ["【话题标签】", "#超市避雷 #囤货指南 #理性消费"], ["【拍摄备注】", "BGM：揭秘感+警示节奏。镜头：避雷商品特写+反面案例+正确对比。时长：50-60秒。发布时段：周末。"]]},
+    {title:'精打细算！每月买菜省钱囤货思路',sub:['① 月初囤耐放品、月中补生鲜、月底清库存','② 超市促销周期规律，踩准节奏买','③ 月均省下500块的家庭采购法'],hook:'学会这个每月采购节奏，我家买菜钱从2000降到了1500，吃得还更好了',shoot:'【日历展示】每月采购节奏标注；【促销规律】超市促销周期说明；【省钱对比】账单前后对比',tags:['#省钱买菜','#家庭采购','#精打细算'],script:[["【标题】", "精打细算！每月买菜省钱囤货思路"], ["【备选标题】", "① 月初囤耐放品、月中补生鲜、月底清库存\n② 月均省下500块的家庭采购法"], ["【开场hook】", "学会这个每月采购节奏，我家买菜钱从2000降到了1500，吃得还更好了！今天全部分享给你们。"], ["【月初策略】", "每月1-5号，超市会员日+月初大促。这个时段囤耐放的：米面油、纸巾、洗护用品、冷冻食品。整箱买，够用一个月。"], ["【月中策略】", "每月15号前后，生鲜区常规补货最稳定。这时候买生鲜品质最好，不用抢，慢慢挑。"], ["【月底策略】", "每月25号以后，很多商品开始清库存为下月新品腾位置。这时候日用品、零食折扣最大。但只买刚需，别冲动。"], ["【账单对比】", "给你们看我家上个月账单：按这个方法买，比之前随便买省了500多。关键是没有浪费，每样东西都吃完了用完了。"], ["【结尾引导】", "这个方法适合所有家庭。收藏起来，下个月开始试试！关注我，更多省钱攻略每周更新。"], ["【话题标签】", "#省钱买菜 #家庭采购 #精打细算"], ["【拍摄备注】", "BGM：理性规划感。镜头：日历标注+采购实拍+账单对比。时长：50-60秒。发布时段：月底。"]]},
+    {title:'台风/雨季居家简易囤货清单',sub:['① 台风天不用慌，这几样囤好安心在家','② 方便食品+饮用水+应急用品采购清单','③ 超市雨季备货充足，随时可买不涨价'],hook:'台风要来了别慌，这份居家囤货清单收好，超市货量充足不用抢',shoot:'【清单展示】应急囤货清单；【货架实拍】超市备货充足；【实用提醒】储备建议',tags:['#台风囤货','#应急清单','#居家必备'],script:[["【标题】", "台风/雨季居家简易囤货清单"], ["【备选标题】", "① 台风天不用慌，这几样囤好安心在家\n② 超市雨季备货充足，随时可买不涨价"], ["【开场hook】", "台风要来了别慌！这份居家囤货清单收好，超市货量充足不用抢，理性囤货就行！"], ["【食品类】", "第一类，方便食品。方便面、自热米饭、面包、饼干，够吃2-3天就行。不需要囤一箱，台风过了随时来买。"], ["【饮用水】", "第二类，饮用水。按每人每天2升算，备3天的量。大桶装比小瓶划算。超市货很足，不用抢。"], ["【应急用品】", "第三类，应急用品。手电筒、电池、充电宝充满电、创可贴、常用药。这些东西平时就要备着，不是台风来了才买。"], ["【不必囤的】", "说几个不用囤的：生鲜蔬菜（停电会坏）、冷冻食品（停电解冻就废了）、大量零食（吃不完浪费）。"], ["【结尾引导】", "理性囤货，超市一直开着。台风过了欢迎来补货！关注我，应急攻略随时更新。"], ["【话题标签】", "#台风囤货 #应急清单 #居家必备"], ["【拍摄备注】", "BGM：冷静实用风。镜头：清单展示+货架实拍+分装打包。时长：40-50秒。发布时段：台风预警期间。"]]},
+  ],
+  '顾客反馈':[
+    {title:'街坊真实评价！看看大家经常回购哪些商品',sub:['① 随机采访5位顾客，问他们每次都买什么','② 回购率最高的商品竟然是这个','③ 顾客推荐的好物清单，跟着买不踩雷'],hook:'今天在超市门口随机拦了5位顾客，问了同一个问题：你每次来必买的是什么？',shoot:'【街头采访】真实顾客出镜；【商品展示】推荐商品特写；【回购数据】销量统计佐证',tags:['#顾客真实反馈','#社区超市','#街坊买菜'],script:[["【标题】", "街坊真实评价！看看大家经常回购哪些商品"], ["【备选标题】", "① 随机采访5位顾客，问他们每次都买什么\n② 回购率最高的商品竟然是这个"], ["【开场hook】", "今天在超市门口随机拦了5位顾客，问了同一个问题：你每次来必买的是什么？答案太真实了！"], ["【顾客一】", "第一位，住在对面小区的张阿姨。她说每次来必买我们的鸡蛋，\"比菜市场便宜，而且颗颗干净\"。"], ["【顾客二】", "第二位，年轻宝妈小李。她回购最多的是XX品牌的酸奶，\"孩子爱喝，团购价比网上便宜\"。"], ["【顾客三】", "第三位，退休的王大爷。他必买的是我们的新鲜豆腐，\"每天现做，来晚了就没了\"。"], ["【顾客四】", "第四位，上班族小陈。他每次来必扫货的是速冻水饺，\"下班煮一下就能吃，方便\"。"], ["【顾客五】", "第五位，家庭主妇刘姐。她的回购清单最长：纸巾、洗衣液、大米，都是整箱囤，\"比网购大促还便宜\"。"], ["【结尾引导】", "这5样回购王你们买过吗？你最常回购的是什么？评论区聊聊！关注我看更多街坊真实评价。"], ["【话题标签】", "#顾客真实反馈 #社区超市 #街坊买菜"], ["【拍摄备注】", "BGM：温馨街坊感。镜头：随机采访实拍+商品特写。注意：拍摄顾客需提前征得同意。时长：50-60秒。发布时段：周末白天。"]]},
+    {title:'粉丝到店打卡实拍，团购真实提货全过程',sub:['① 粉丝线上下单→到店提货全流程跟拍','② 从下单到拿到手，实际用了多久？','③ 核销流程简单吗？现场实测'],hook:'今天约了一位粉丝来店里提团购订单，全程跟拍，看看到底方不方便',shoot:'【下单过程】手机下单演示；【到店实拍】找货→核销→提货；【粉丝体验】真实感受采访',tags:['#团购提货','#粉丝打卡','#到店实拍'],script:[["【标题】", "粉丝到店打卡实拍，团购真实提货全过程"], ["【备选标题】", "① 粉丝线上下单→到店提货全流程跟拍\n② 从下单到拿到手，实际用了多久？"], ["【开场hook】", "今天约了一位粉丝来店里提团购订单，全程跟拍，看看到底方不方便！从下单到拿货一共多久？"], ["【下单回顾】", "先回顾一下，这位粉丝昨天在团购页面下了单，买了XX和XX，总共花了XX元。今天约了下午来提货。"], ["【到店过程】", "粉丝到店了！先找到提货区，出示核销码——\"滴\"一声，核销成功。工作人员已经把货准备好了。"], ["【验货环节】", "粉丝现场验货：检查保质期、检查包装、检查数量。全部没问题！从进店到拿货，一共只用了3分钟。"], ["【粉丝反馈】", "来听听粉丝的真实感受——\"比我想象的方便多了，不用排队不用找，来了直接拿。价格确实比到店便宜。\""], ["【结尾引导】", "你们团购体验怎么样？评论区分享你的提货经历。还没试过团购的，主页有入口，试试看！"], ["【话题标签】", "#团购提货 #粉丝打卡 #到店实拍"], ["【拍摄备注】", "BGM：真实vlog风。镜头：全程跟拍+核销过程特写+粉丝采访。注意：拍摄粉丝需提前征得同意。时长：50-60秒。发布时段：下午。"]]},
+    {title:'收集顾客常问问题统一解答（价格、提货时间）',sub:['① 团购价格为什么比到店便宜？','② 提货时间怎么选？过期了怎么办？','③ 团购商品可以退换吗？'],hook:'整理了顾客问得最多的5个问题，今天一次性说清楚',shoot:'【问题展示】文字弹幕+语音解答；【现场演示】提货/退换实操；【客服场景】服务台实拍',tags:['#团购答疑','#顾客常见问题','#超市服务'],script:[["【标题】", "收集顾客常问问题统一解答（价格、提货时间）"], ["【备选标题】", "① 团购价格为什么比到店便宜？\n② 团购提货全攻略，看完少跑冤枉路"], ["【开场hook】", "在超市干了这么久，每天被问最多的就是这5个问题。今天一次性说清楚！看完别再问了哈！"], ["【问题一：团购价为什么便宜？】", "第一个，团购价为什么比到店便宜？因为团购是线上集中走量，省了中间环节。同样的东西，到店买和团购买，有时候能差出一杯奶茶钱。"], ["【问题二：提货时间怎么选？】", "第二个，提货时间怎么选？下单的时候就能选，早中晚三个时段。选好之后哪天来都行，只要在有效期之内。建议选傍晚，下班顺路就拿了。"], ["【问题三：过期了怎么办？】", "第三个，忘了提货过期了怎么办？别慌，过期了钱会自动退回去，不会吞你的。不过好东西不等人，建议设个提醒。"], ["【问题四：能退换吗？】", "第四个，不满意能退吗？到店提货的时候当场检查，不满意直接退，不用废话。生鲜如果有问题，拍照联系客服，秒退款。"], ["【问题五：能代提吗？】", "第五个，帮家人买的能不能代提？可以！把提货码截图发给家人，到店出示就能核销。老人不会操作的，直接报手机号也行。"], ["【结尾引导】", "还有啥问题评论区直接问，每条都回。点个关注，下次来超市不迷路！"], ["【话题标签】", "#团购答疑 #顾客常见问题 #超市服务"], ["【拍摄备注】", "BGM：轻快节奏（音量压低，以口播为主）。镜头：手持自拍+问题文字弹幕+场景切换。时长：50-60秒。发布时段：18:00-20:00。"]]},
+    {title:'老顾客复购故事｜为什么长期选择我们家',sub:['① 一位买了3年的老顾客分享她的故事','② 从第一次到现在的变化，超市升级了什么','③ 老顾客专属福利有哪些'],hook:'今天邀请了一位在我们超市买了3年的老顾客，听听她为什么一直选择这里',shoot:'【采访跟拍】老顾客购物过程；【对比展示】3年前vs现在超市变化；【专属福利】老客权益展示',tags:['#老顾客故事','#复购理由','#社区超市'],script:[["【标题】", "老顾客复购故事｜为什么长期选择我们家"], ["【备选标题】", "① 一位买了3年的老顾客分享她的故事\n② 从第一次到现在的变化，超市升级了什么"], ["【开场hook】", "今天邀请了一位在我们超市买了3年的老顾客，听听她为什么一直选择这里。故事很暖心！"], ["【初识故事】", "\"3年前刚搬来这个小区，第一次来是买瓶酱油。结果发现你们超市虽然不大，但东西很全，价格也实在。\""], ["【坚持的理由】", "\"后来就习惯了。每天早上来买新鲜菜，店员都认识我了。有一次我忘了带钱，店长说下次给就行。这种信任感在别的地方没有。\""], ["【超市的变化】", "\"3年看着你们一点点变好。加了团购、扩大了生鲜区、上了很多新品。但价格一直很良心，这点最难得。\""], ["【最爱的商品】", "\"我家小孩最爱你们的现烤面包，每个周末必买。我自己最常买的是生鲜区的排骨，品质一直稳定。\""], ["【结尾引导】", "谢谢每一位老顾客的信任。我们会一直做好品质、做好价格。你买了多久了？评论区说说你的故事！"], ["【话题标签】", "#老顾客故事 #复购理由 #社区超市"], ["【拍摄备注】", "BGM：温暖感动风。镜头：采访形式+老顾客购物跟拍+超市变化对比。注意：需提前沟通并征得顾客同意。时长：55-65秒。发布时段：周末晚上。"]]},
+    {title:'收集建议！大家希望超市新增什么货品',sub:['① 评论区开放征集：你最想超市上架什么？','② 热门建议商品大盘点，呼声最高的先上','③ 采纳建议的顾客送超市优惠券'],hook:'今天不推荐商品，想听听大家的建议——你们最希望我们超市卖什么？评论区见',shoot:'【征集画面】手写板+超市全景；【往期采纳】之前顾客建议上架的商品；【互动引导】评论区互动方式',tags:['#顾客建议','#超市选品','#互动征集'],script:[["【标题】", "收集建议！大家希望超市新增什么货品"], ["【备选标题】", "① 评论区开放征集：你最想超市上架什么？\n② 热门建议商品大盘点，呼声最高的先上"], ["【开场hook】", "今天不推荐商品，想听听大家的建议——你们最希望我们超市卖什么？评论区见！采纳的建议送优惠券！"], ["【往期采纳回顾】", "先回顾一下之前顾客建议后上架的商品。上次有人建议卖现磨咖啡，我们上了，现在每天卖几十杯。还有人建议卖鲜花，现在鲜花区成了打卡点。"], ["【征集范围】", "这次征集不限品类：零食、生鲜、日用品、进口商品……只要是大家想要的，我们都认真考虑。呼声最高的优先安排。"], ["【参与方式】", "很简单，评论区直接写。格式：想要的商品+理由。比如\"想要XX品牌的螺蛳粉，网上买运费太贵\"。"], ["【奖励机制】", "建议被采纳的顾客，送你一张20元无门槛优惠券，直接到你团购账户。上期已经有3位顾客领到了。"], ["【结尾引导】", "评论区已经有人在刷了！你也快来写，说不定下个月货架上就有你推荐的商品。关注我，采纳名单下期公布！"], ["【话题标签】", "#顾客建议 #超市选品 #互动征集"], ["【拍摄备注】", "BGM：互动期待感。镜头：往期采纳商品实拍+手写征集板+评论区截图。时长：40-50秒。发布时段：晚上19-21点。"]]},
+  ],
+  '节日营销':[
+    {title:'暑期家庭出游采购清单｜零食、饮料、速食',sub:['① 一家三口自驾游，超市一站买齐所有路上吃的','② 便携零食+冷藏饮料+速食午餐组合','③ 比景区便宜一半，出发前囤好'],hook:'暑假带孩子出去玩，出发前一定要来超市囤这些，景区买贵一倍还不全',shoot:'【清单展示】出游采购清单；【分区选购】零食→饮料→速食；【打包演示】车上怎么放',tags:['#暑期出游','#出游零食','#超市采购'],script:[["【标题】", "暑期家庭出游采购清单｜零食、饮料、速食"], ["【备选标题】", "① 一家三口自驾游，超市一站买齐所有路上吃的\n② 比景区便宜一半，出发前囤好"], ["【开场hook】", "暑假带孩子出去玩，出发前一定要来超市囤这些！景区买贵一倍还不全，聪明人都提前买好！"], ["【零食类】", "路上吃的零食：独立小包装的饼干、坚果、肉干、果冻。小包装方便分着吃，不会弄脏手。千万别买大袋的，开了吃不完。"], ["【饮料类】", "车上喝的：矿泉水整箱、果汁、酸奶。提前放冰箱冰好，出门带上。景区一瓶水卖8块，超市只要1块5。"], ["【速食类】", "路上饿了吃的：自热米饭、面包、火腿肠。服务区一碗面40块，超市自热米饭只要10块，味道还不差。"], ["【总价对比】", "全部买齐XX元。同样这些东西如果在景区和高速服务区买，至少翻两倍。省下的钱够加一箱油了。"], ["【结尾引导】", "截图保存清单，出发前来扫货。关注我，每个假期更新出游采购攻略！"], ["【话题标签】", "#暑期出游 #出游零食 #超市采购"], ["【拍摄备注】", "BGM：轻松旅行感。镜头：清单特写+分区扫货+打包上车过程。时长：45-55秒。发布时段：周五或假期前。"]]},
+    {title:'三伏天消暑好物合集，平价冷饮水果',sub:['① 三伏天续命指南：超市消暑好物一站购','② 冷饮区+水果区扫货，均价不超过10元','③ 自制消暑饮品，材料超市全搞定'],hook:'今天入伏，超市冷饮区和水果区已经被搬空一半，这几样消暑神器一定要囤',shoot:'【冷饮区实拍】热门冷饮推荐；【水果区】消暑水果推荐；【DIY饮品】简单自制教程',tags:['#三伏天消暑','#冷饮推荐','#平价解暑'],script:[["【标题】", "三伏天消暑好物合集，平价冷饮水果"], ["【备选标题】", "① 三伏天续命指南：超市消暑好物一站购\n② 冷饮区+水果区扫货，均价不超过10元"], ["【开场hook】", "今天入伏！超市冷饮区和水果区已经被搬空一半了。这几样消暑神器一定要囤，均价不超过10块钱！"], ["【冷饮推荐】", "冷饮区必买：老冰棍、绿豆沙、酸梅汤、椰子水。这些传统消暑饮品比网红雪糕实在多了，价格便宜还解暑。"], ["【水果推荐】", "水果区必买：西瓜、哈密瓜、桃子、葡萄。夏天水果正当季，价格最便宜的时候。买整个西瓜回去冰镇，比买切好的划算。"], ["【DIY饮品】", "再教你们一个DIY消暑饮品：超市买一盒柠檬、一罐蜂蜜、一袋冰块。回去柠檬切片加蜂蜜加水，比外面20块一杯的柠檬水好喝。"], ["【结尾引导】", "三伏天靠这些续命！你们夏天必买什么消暑？评论区分享一下。关注我，每周更新时令好物！"], ["【话题标签】", "#三伏天消暑 #冷饮推荐 #平价解暑"], ["【拍摄备注】", "BGM：清凉夏日感。镜头：冷饮柜开箱+水果特写+DIY过程。时长：40-50秒。发布时段：入伏当天。"]]},
+    {title:'周末家庭火锅采购套餐，团购组合更划算',sub:['① 火锅食材一站买齐，比火锅店便宜三分之二','② 火锅底料+蘸料+涮品+饮料组合套餐','③ 团购火锅套餐开箱，看看分量够不够'],hook:'周末想吃火锅别去店里了，超市买齐所有食材才花火锅店三分之一的价格',shoot:'【食材展示】全套火锅食材铺开；【价格对比】超市vs火锅店；【成品展示】煮好的火锅',tags:['#家庭火锅','#火锅食材','#超市采购'],script:[["【标题】", "周末家庭火锅采购套餐，团购组合更划算"], ["【备选标题】", "① 火锅食材一站买齐，比火锅店便宜三分之二\n② 团购火锅套餐开箱，看看分量够不够"], ["【开场hook】", "周末想吃火锅别去店里了！超市买齐所有食材才花火锅店三分之一的价格，而且想吃多少吃多少！"], ["【锅底和蘸料】", "先买锅底和蘸料。火锅底料一包XX元，芝麻酱、蒜泥、香菜、小米辣，全部买齐不到XX元。火锅店一个锅底就要四五十。"], ["【涮品采购】", "涮品走起：肥牛卷、羊肉卷、虾滑、毛肚、黄喉、各种丸子、豆腐、菌菇、蔬菜。每样少买点，种类多。全部加起来XX元。"], ["【团购套餐】", "不想自己搭配的，主页有团购火锅套餐。荤素搭配好的，直接下单到店提货。价格比自己买还便宜，因为团购走量。"], ["【成本对比】", "来算账：超市买全套XX元，够三四个人吃。同样的人去火锅店，没有三四百下不来。省下的钱够再吃一顿了。"], ["【结尾引导】", "周末约上家人朋友，超市买食材家里涮！团购套餐在主页，数量有限。关注我，周末美食灵感每周更新！"], ["【话题标签】", "#家庭火锅 #火锅食材 #超市采购"], ["【拍摄备注】", "BGM：热闹聚餐感。镜头：食材全景展示+价格对比字幕+火锅沸腾特写。时长：50-60秒。发布时段：周五或周六。"]]},
+    {title:'开学预热：学生宿舍平价零食日用品清单',sub:['① 开学前必囤的宿舍零食，均价5元以内','② 大一新生入学日用品采购指南','③ 超市开学季活动提前剧透'],hook:'还有两周开学了，这份宿舍零食日用品清单先收藏，开学前超市有大活动',shoot:'【零食推荐】平价宿舍零食；【日用品】新生必备清单；【活动预告】开学季活动剧透',tags:['#开学采购','#宿舍零食','#新生入学'],script:[["【标题】", "开学预热：学生宿舍平价零食日用品清单"], ["【备选标题】", "① 开学前必囤的宿舍零食，均价5元以内\n② 大一新生入学日用品采购指南"], ["【开场hook】", "还有两周开学了！这份宿舍零食日用品清单先收藏，开学前超市有大活动。均价不超过5块，学生党无压力！"], ["【宿舍零食】", "宿舍必囤零食：泡面（各种口味换着吃）、小面包（早餐救急）、辣条（宿舍社交硬通货）、速溶咖啡（早八续命）、饼干（熬夜必备）。全部单价不超过5块。"], ["【日用品】", "入学日用品清单：牙膏牙刷、毛巾、拖鞋、衣架、插线板、台灯。这些超市一站买齐，比网购还快，不用等快递。"], ["【省钱技巧】", "学生党省钱技巧：超市自有品牌比大牌便宜一半，品质差不多。开学季超市有满减活动，凑单更划算。办个会员卡，积分能换东西。"], ["【结尾引导】", "转发给即将开学的同学！关注我，开学季活动第一时间通知你。祝新学期顺利！"], ["【话题标签】", "#开学采购 #宿舍零食 #新生入学"], ["【拍摄备注】", "BGM：青春校园感。镜头：商品逐一展示+价格标签特写+满减活动宣传。时长：45-55秒。发布时段：8月底-9月初。"]]},
+    {title:'夜市、居家追剧零食组合套餐',sub:['① 追剧零食组合，甜咸搭配不腻','② 超市进口零食区发现宝藏，价格很良心','③ 闺蜜宅家零食套餐，比外卖还方便'],hook:'周末宅家追剧，这份超市零食清单让你嘴巴停不下来',shoot:'【零食展示】组合套餐铺开；【追剧场景】边看边吃；【性价比分析】超市vs网购价格',tags:['#追剧零食','#宅家必备','#超市零食'],script:[["【标题】", "夜市、居家追剧零食组合套餐"], ["【备选标题】", "① 追剧零食组合，甜咸搭配不腻\n② 闺蜜宅家零食套餐，比外卖还方便"], ["【开场hook】", "周末宅家追剧，这份超市零食清单让你嘴巴停不下来！甜咸搭配、有吃有喝，比点外卖零食便宜多了！"], ["【咸味组】", "咸味组：薯片、锅巴、牛肉干、海苔、泡椒凤爪。咸的吃腻了换甜的，甜的吃腻了换咸的，无限循环。"], ["【甜味组】", "甜味组：巧克力、果冻、布丁、小蛋糕、冰淇淋。重点推荐这个XX布丁，回购率超高，放冰箱冰一下更好吃。"], ["【饮品组】", "喝的不能少：可乐、柠檬茶、椰汁、气泡水。一样来一瓶，摆一排看着就开心。比外卖点饮品便宜，还不用等配送。"], ["【总价】", "三组加一起XX元，够两个人追一晚上剧了。比去电影院买爆米花可乐划算多了。"], ["【结尾引导】", "周末追剧安排上！你们追剧必吃什么零食？评论区安利给我。关注我，每周更新宅家好物！"], ["【话题标签】", "#追剧零食 #宅家必备 #超市零食"], ["【拍摄备注】", "BGM：轻松宅家风。镜头：零食全景铺开+分类展示+追剧场景模拟。时长：40-50秒。发布时段：周五或周六晚上。"]]},
+  ],
+  '通用流量':[
+    {title:'沉浸式云逛超市（热门BGM+第一视角镜头）',sub:['① 第一视角带你逛超市，像自己在逛一样','② 热门BGM配沉浸式画面，完播率极高','③ 从入口到收银台，全动线实拍'],hook:'戴上耳机，第一视角带你沉浸式逛超市，看看今天有什么好东西',shoot:'【第一视角】手机挂胸前全程拍摄；【热门BGM】卡点节奏剪辑；【动线设计】入口→生鲜→零食→收银',tags:['#沉浸式逛超市','#云逛街','#第一视角'],script:[["【标题】", "沉浸式云逛超市（热门BGM+第一视角镜头）"], ["【备选标题】", "① 第一视角带你逛超市，像自己在逛一样\n② 云逛街解压，看看今天有什么好东西"], ["【开场hook】", "（字幕弹出）戴上耳机，第一视角带你沉浸式逛超市。不说话，只看画面。"], ["【入口→生鲜区】", "（热门BGM贯穿全片，第一视角镜头）从超市入口开始，推购物车进入。先经过水果区——五颜六色。再到蔬菜区——绿意盎然。镜头扫过价格牌，好的价格自动停留2秒。"], ["【生鲜→零食区】", "（持续第一视角）经过鲜肉区、海鲜区。然后到零食区——货架琳琅满目。镜头缓缓扫过，偶尔停下来特写某个有趣包装。"], ["【零食→饮品→收银】", "（持续第一视角）饮料区、日用品区、最后到收银台。整个动线走完，观众感觉自己也逛了一圈。"], ["【结尾】", "（字幕）今天逛超市的快乐已送达。关注我，下次带你逛更多区域。晚安。"], ["【话题标签】", "#沉浸式逛超市 #云逛街 #第一视角"], ["【拍摄备注】", "BGM：热门舒缓/chill风格纯音乐（注意版权）。镜头：手机挂胸前或手持稳定器，全程第一视角不切换。不做口播，纯画面+字幕。时长：40-60秒。发布时段：晚上21-23点（睡前解压流量）。"]]},
+    {title:'价格对比：菜市场VS超市团购价差直观展示',sub:['① 同款商品菜市场vs超市团购价直接PK','② 品质+价格+便利度三维对比','③ 结果出人意料，看完你会重新选择'],hook:'今天同款商品分别在菜市场和超市团购买了一份，算完账我自己都惊了',shoot:'【分屏对比】菜市场vs超市并列画面；【价格标签】逐项价格对比；【品质对比】实物并列展示',tags:['#价格对比','#菜市场vs超市','#团购省钱'],script:[["【标题】", "价格对比：菜市场VS超市团购价差直观展示"], ["【备选标题】", "① 同款商品菜市场vs超市团购价直接PK\n② 结果出人意料，看完你会重新选择"], ["【开场hook】", "今天同款商品分别在菜市场和超市团购买了一份，算完账我自己都惊了！到底哪里更便宜？直接PK给你看！"], ["【第一轮PK】", "第一轮：鸡蛋。菜市场一盘XX元，超市团购价XX元。品质对比：菜市场的个头不太均匀，超市的统一标准。这一轮，超市团购胜。"], ["【第二轮PK】", "第二轮：排骨。菜市场一斤XX元，超市团购价XX元。品质对比：菜市场的需要自己挑，超市的是切好的标准段。价格超市便宜，品质也更稳定。"], ["【第三轮PK】", "第三轮：绿叶菜。菜市场一把XX元，超市一把XX元。菜市场便宜一点，但超市的菜更干净，不用怎么择。这一轮各有优劣。"], ["【总结算账】", "三样买齐，菜市场总价XX元，超市团购总价XX元。超市团购便宜了XX元。而且超市不用讨价还价、不用挑挑拣拣、品质有保障。"], ["【结尾引导】", "结果你自己看。你们平时喜欢去哪里买菜？评论区聊聊。团购入口在主页，试试看！"], ["【话题标签】", "#价格对比 #菜市场vs超市 #团购省钱"], ["【拍摄备注】", "BGM：PK竞技感节奏。镜头：分屏对比画面+价格标签特写+品质并列对比。时长：50-60秒。发布时段：周末上午。"]]},
+    {title:'避坑科普：超市选购干货，容易引发评论互动',sub:['① 超市里最容易买错的5样东西','② 看配料表就知道好不好，别再被包装骗了','③ 超市员工私藏的选购技巧'],hook:'逛超市一定要学会看配料表！这几样东西包装再好也别乱买',shoot:'【配料表特写】逐项解读；【对比展示】好vs坏产品并列；【选购技巧】文字标注要点',tags:['#超市干货','#选购技巧','#避坑指南'],script:[["【标题】", "避坑科普：超市选购干货，容易引发评论互动"], ["【备选标题】", "① 超市里最容易买错的5样东西\n② 看配料表就知道好不好，别再被包装骗了"], ["【开场hook】", "逛超市一定要学会看配料表！这几样东西包装再好也别乱买。今天教你5个选购干货，从此不再被坑！"], ["【干货一：酸奶】", "第一个，酸奶。别被\"风味\"两个字骗了。配料表第一位是生牛乳的才是真酸奶，第一位是水的就是饮料。蛋白质含量低于2.3的，营养价值大打折扣。"], ["【干货二：全麦面包】", "第二个，全麦面包。配料表第一位必须是全麦粉。如果第一位是小麦粉，后面加了一点点麦麸，那就是假全麦。颜色深不一定是真全麦，可能是加了焦糖色。"], ["【干货三：果汁】", "第三个，果汁。认准\"100%果汁\"或\"NFC\"。写着\"果汁饮料\"的，果汁含量可能只有10%。看配料表，越短越好。"], ["【干货四：火腿肠】", "第四个，火腿肠。看淀粉含量，越低肉越多。淀粉含量≤6%的是特级，≤8%的是优级，≤10%的是普通级。价格差不多的情况下，选级别高的。"], ["【干货五：酱油】", "第五个，酱油。看氨基酸态氮含量，≥1.0的特级，≥0.7的一级。越高越鲜。另外配料表越短的越好，黄豆、小麦、盐、水，四样就够了。"], ["【结尾引导】", "这5个技巧你学会了吗？你还有哪些选购干货？评论区分享出来，大家一起避坑！关注我，超市干货系列持续更新！"], ["【话题标签】", "#超市干货 #选购技巧 #避坑指南"], ["【拍摄备注】", "BGM：揭秘科普感。镜头：配料表微距特写+文字圈注+好vs坏产品对比。时长：55-65秒。发布时段：周末。此类型易引发评论区讨论，注意及时互动回复。"]]},
+    {title:'团购开箱vlog：线上下单，现场提货实拍',sub:['① 昨天下单今天提货，全程跟拍','② 团购商品质量到底怎么样？逐件检查','③ 不满意现场退换，流程实测'],hook:'昨天在团购页面下单，今天来店里提货，全程跟拍看看到底方不方便',shoot:'【下单回顾】团购页面录屏；【到店提货】核销→找货→检查；【商品展示】逐件开箱',tags:['#团购开箱','#到店提货','#vlog日常'],script:[["【标题】", "团购开箱vlog：线上下单，现场提货实拍"], ["【备选标题】", "① 昨天下单今天提货，全程跟拍\n② 团购商品质量到底怎么样？逐件检查"], ["【开场hook】", "昨天在团购页面下了单，今天来店里提货。全程跟拍，逐件检查，看看到底值不值！"], ["【下单回顾】", "先看看买了什么。昨天一共下了3样：XX、XX、XX。团购价一共XX元。比到店买便宜了XX元。"], ["【到店提货】", "到店了。打开团购订单，出示核销码——秒核销。工作人员已经把货备好了，核对一下订单和实物。"], ["【逐件开箱】", "第一件，XX。包装完好，日期新鲜，跟页面描述一致。第二件，XX。分量足，品质不错。第三件，XX。这个有点惊喜，实物比图片看起来还大。"], ["【总结评价】", "三件全部检查完毕，没有踩雷。总价XX元，比到店买便宜，比网上买快。整体体验：推荐。"], ["【结尾引导】", "你们团购买过最满意的是什么？评论区分享。团购入口在主页，每周上新，关注我第一时间知道！"], ["【话题标签】", "#团购开箱 #到店提货 #vlog日常"], ["【拍摄备注】", "BGM：轻松vlog风。镜头：下单录屏+到店过程+逐件开箱特写+总结评价。时长：45-55秒。发布时段：下午或晚上。"]]},
+  ]
+};
+
+function genTopics(count=6){
+  const today=ts();const key='topics_'+today;
+  let cached=DB.get(key,null);
+  if(cached)return cached;
+
+  const cats=['特价爆款','生鲜实拍','囤货攻略','顾客反馈','节日营销'];
+  const topics=[];
+  // 用日期做伪随机种子，确保同一天选题一致
+  const seed=parseInt(today.replace(/-/g,''))||1;
+  const rand=(max,s)=>{let x=Math.sin(seed+s)*10000;return Math.floor((x-Math.floor(x))*max);};
+
+  // 从5个分类各取1条
+  for(let i=0;i<cats.length;i++){
+    const cat=cats[i];
+    const pool=TOPIC_POOL[cat];
+    const idx=rand(pool.length,i*7+1);
+    const t=pool[idx];
+    topics.push({
+      id:uid(),type:cat,title:t.title,subTitles:t.sub,hook:t.hook,
+      shoot:t.shoot,tags:t.tags,heat:'🔥🔥🔥',heatLevel:i<2?0:i<4?1:2,saved:false,date:today,
+      script:t.script||null
+    });
+  }
+  // 加1条通用流量玩法
+  const fluxPool=TOPIC_POOL['通用流量'];
+  const fi=rand(fluxPool.length,99);
+  const ft=fluxPool[fi];
+  topics.push({
+    id:uid(),type:'通用流量',title:ft.title,subTitles:ft.sub,hook:ft.hook,
+    shoot:ft.shoot,tags:ft.tags,heat:'🔥🔥',heatLevel:2,saved:false,date:today,
+    script:ft.script||null
+  });
+
+  DB.set(key,topics);
+  return topics;
+}
+
+function refreshTopics(){
+  const today=ts();DB.set('topics_'+today,null);
+  // 清除后立即重新渲染
+  rVideo();rHome();st('选题已刷新，脚本已就绪');
+}
+
+function toggleFavTopic(id){
+  const today=ts();let topics=DB.get('topics_'+today,genTopics(6));
+  const t=topics.find(x=>x.id===id);if(!t)return;
+  t.saved=!t.saved;
+  DB.set('topics_'+today,topics);
+  if(t.saved){
+    let inspo=DB.get('inspos',[]);
+    if(!inspo.find(x=>x.sourceId===id)){inspo.unshift({id:uid(),type:'topic',sourceId:id,data:t,date:today,logic:genInspoLogic(t)});DB.set('inspos',inspo);}
+  }else{
+    let inspo=DB.get('inspos',[]);inspo=inspo.filter(x=>x.sourceId!==id);DB.set('inspos',inspo);
+  }
+  rVideo();rHome();
+}
+
+function genInspoLogic(t){const tips=['黄金3秒开头：用价格反差制造悬念','视觉冲击：大特写+大字标题叠加','情绪驱动：顾客反应是最强信任背书','信息密度：15秒内输出3个关键信息点','结尾引导：明确告诉观众下一步做什么'];return tips[Math.floor(Math.random()*tips.length)];}
+
+function topicToScript(id){
+  var today=ts();var topics=DB.get('topics_'+today,genTopics(6));
+  var t=topics.find(function(x){return x.id===id;});if(!t)return;
+  var scripts=DB.get('scripts',{});
+  // 使用选题预置的完整口播脚本，如果没有则用模板
+  var blocks=[];
+  if(t.script&&t.script.length){
+    blocks=t.script.map(function(b){return {label:b[0],content:b[1]};});
+  }else{
+    blocks=[
+      {label:'【标题】',content:t.title},{label:'【备选标题】',content:t.subTitles.join('\n')},
+      {label:'【开头钩子】',content:t.hook},{label:'【拍摄思路】',content:t.shoot},
+      {label:'【同城话题标签】',content:t.tags.join(' ')},{label:'【发布时段建议】',content:'建议 18:00-21:00 发布，同城流量高峰期'},
+      {label:'【口播文案】',content:''},{label:'【卖点提炼】',content:''},
+    ];
+  }
+  scripts[today]={template:t.type+'·'+t.title.substring(0,20),blocks:blocks,savedAt:Date.now()};
+  DB.set('scripts',scripts);
+  st('完整口播脚本已导入！切换到短视频Tab查看');switchTab('video');rVideo();
+}
+
+/* ===== 待办任务模块 ===== */
+let todoSub='daily',nearTagF='全部';
+
+function switchTodoTab(s,el){todoSub=s;$$('.todo-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');$('#todo-daily').style.display=s==='daily'?'block':'none';$('#todo-near').style.display=s==='near'?'block':'none';rTodo();}
+
+function getDailyTodos(){const data=DB.get('daily_todos',[]);const lr=DB.get('daily_reset','');const t=ts();if(lr!==t){data.forEach(d=>d.done=false);DB.set('daily_todos',data);DB.set('daily_reset',t);}return data;}
+
+function openDailyAdd(){
+om(`<div class="modal-head"><h3>新增每日代办</h3><button class="close" onclick="cm()">取消</button></div>
+<div class="field"><label>任务内容</label><textarea class="textarea" id="da-c" rows="3" placeholder="如：早班货架整理、补货生鲜区"></textarea></div>
+<div class="field"><label>提醒时间（选填）</label><input type="time" class="input" id="da-t"></div>
+<button class="btn btn-primary btn-block" onclick="addDailyTodo()">添加</button>`);
+setTimeout(()=>$('#da-c').focus(),100);}
+function addDailyTodo(){const c=$('#da-c').value.trim();if(!c){st('请输入任务内容');return;}const time=$('#da-t').value;const data=getDailyTodos();data.push({id:uid(),content:c,done:false,time,pinned:false,created:Date.now()});DB.set('daily_todos',data);cm();st('已添加');rTodo();rHome();if(time)scheduleNotify(time,'每日代办：'+c);}
+function toggleDaily(id){const data=getDailyTodos();const t=data.find(d=>d.id===id);if(t){t.done=!t.done;DB.set('daily_todos',data);rTodo();rHome();if(t.done)recordWeekStat();}}
+function delDaily(id){let data=getDailyTodos();data=data.filter(d=>d.id!==id);DB.set('daily_todos',data);rTodo();rHome();}
+function pinDaily(id){let data=getDailyTodos();const t=data.find(d=>d.id===id);if(t){t.pinned=!t.pinned;DB.set('daily_todos',data);rTodo();}}
+
+function renderDailyList(){
+let data=getDailyTodos();data.sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
+const el=$('#daily-list');
+if(!data.length){el.innerHTML='<div class="empty">今日还没有代办，点击右下角 + 添加</div>';}else{
+el.innerHTML=data.map(d=>`<div class="todo-item ${d.done?'done':''}"><div class="checkbox ${d.done?'checked':''}" onclick="toggleDaily('${d.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="todo-content"><div class="t">${d.pinned?'📌 ':''}${esc(d.content)}</div><div class="meta">${d.time?'<span class="tag tag-green">⏰ '+d.time+'</span>':''}<button class="act-btn" onclick="pinDaily(\''+d.id+'\')">${d.pinned?'取消置顶':'置顶'}</button><button class="act-btn" onclick="delDaily(\''+d.id+'\')">删除</button></div></div></div>`).join('');}
+const done=data.filter(d=>d.done).length;$('#daily-progress').textContent=done+'/'+data.length;
+}
+
+function recordWeekStat(){const key='ws_'+ts();DB.set(key,true);}
+function getWeekStat(){const days=[];const now=new Date();
+for(let i=6;i>=0;i--){const d=new Date(now);d.setDate(now.getDate()-i);const ds=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');const daily=DB.get('daily_todos',[]);let count=DB.get('dhist_'+ds,0);if(ds===ts())count=daily.filter(x=>x.done).length;days.push({ds,count,label:['日','一','二','三','四','五','六'][d.getDay()],today:ds===ts()});}return days;}
+function renderWeekStat(){const days=getWeekStat();const max=Math.max(1,...days.map(d=>d.count));$('#week-stat').innerHTML=days.map(d=>`<div class="bar ${d.today?'today':''}"><div class="h"><span style="height:${(d.count/max*100)||2}%"></span></div><div class="d">${d.label}</div></div>`).join('');}
+
+function getNearTodos(){return DB.get('near_todos',[]).sort((a,b)=>(a.due||'').localeCompare(b.due||''));}
+function openNearAdd(){
+om(`<div class="modal-head"><h3>新增近期代办</h3><button class="close" onclick="cm()">取消</button></div>
+<div class="field"><label>任务内容</label><textarea class="textarea" id="na-c" rows="3" placeholder="如：下周三前完成月度盘点"></textarea></div>
+<div class="field"><label>截止日期</label><input type="date" class="input" id="na-d"></div>
+<div class="field"><label>标签</label><select class="select" id="na-t"><option>采购</option><option>促销</option><option>人员</option><option>库存</option><option>财务</option><option>其他</option></select></div>
+<button class="btn btn-primary btn-block" onclick="addNearTodo()">添加</button>`);setTimeout(()=>$('#na-c').focus(),100);}
+function addNearTodo(){const c=$('#na-c').value.trim();if(!c){st('请输入任务内容');return;}const due=$('#na-d').value,tag=$('#na-t').value;const data=DB.get('near_todos',[]);data.push({id:uid(),content:c,due,tag,done:false,created:Date.now()});DB.set('near_todos',data);cm();st('已添加');rTodo();rHome();}
+function toggleNear(id){const data=DB.get('near_todos',[]);const t=data.find(d=>d.id===id);if(t){t.done=!t.done;if(t.done)t.doneDate=ts();DB.set('near_todos',data);rTodo();rHome();}}
+function delNear(id){let data=DB.get('near_todos',[]);data=data.filter(d=>d.id!==id);DB.set('near_todos',data);rTodo();rHome();}
+function renderNearList(){
+let data=getNearTodos();const tags=['全部',...new Set(data.map(d=>d.tag))];
+$('#tag-filter').innerHTML=tags.map(t=>`<span class="tag ${nearTagF===t?'':'tag-gray'}" style="cursor:pointer;${nearTagF===t?'':'opacity:.6'}" onclick="setNearTag('${t}')">${t}</span>`).join('');
+if(nearTagF!=='全部')data=data.filter(d=>d.tag===nearTagF);
+const el=$('#near-list');if(!data.length){el.innerHTML='<div class="empty">暂无近期代办</div>';return;}
+el.innerHTML=data.map(d=>{const ov=!d.done&&d.due&&dB(ts(),d.due)<0;const dd=d.due?dB(ts(),d.due):null;let dl=d.due?fD(d.due):'';if(dd===0)dl='今天';else if(dd===1)dl='明天';else if(dd>0)dl=dd+'天后';else if(dd<0)dl='逾期'+(-dd)+'天';
+return`<div class="todo-item ${d.done?'done':''}"><div class="checkbox ${d.done?'checked':''}" onclick="toggleNear('${d.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="todo-content"><div class="t">${esc(d.content)}</div><div class="meta"><span class="tag">${esc(d.tag)}</span>${d.due?`<span class="tag ${ov?'tag-orange':'tag-gray'}">${ov?'⚠ ':''}${dl}</span>`:''}<button class="act-btn" onclick="delNear('${d.id}')">删除</button></div></div></div>`;}).join('');$('#near-count').textContent=data.length+'项';}
+function setNearTag(t){nearTagF=t;renderNearList();}
+function rTodo(){if(todoSub==='daily'){renderDailyList();renderWeekStat();}else renderNearList();}
+
+/* ===== 短视频模块 ===== */
+const SCRIPT_TPL=[{name:'特价爆款',blocks:['【开场hook】价格反差+大字','【产品展示】近景特写+卖点字幕','【价格对比】原价划线→现价放大','【促销信息】限时/限购/活动','【引导关注】关注领券+定位']},{name:'生鲜实拍',blocks:['【清晨场景】上货/整理过程','【新鲜特写】水滴/色泽/手感','【价格播报】口语化报价','【做法建议】一句话烹饪','【门店引导】今日到货+地址']},{name:'囤货攻略',blocks:['【痛点引入】涨价/断货话题','【清单展示】3-5款囤货品','【单价对比】算账式说明','【保存技巧】一句话储存','【行动号召】周末来囤']},{name:'顾客反馈',blocks:['【真实采访】顾客拿起商品','【使用感受】口语化评价','【价格惊喜】反应特写','【复购证明】多次购买','【引导】同款链接/门店']},{name:'节日营销',blocks:['【节日氛围】场景布置','【主推商品】礼盒/套装','【优惠组合】满减/赠品','【限时强调】倒计时','【到店引导】活动期+地址']}];
+let curScriptDate=ts();
+
+function rVideo(){$('#script-date-label').textContent=fD(curScriptDate);$('#script-templates').innerHTML=SCRIPT_TPL.map((t,i)=>`<span class="tpl-chip" onclick="applyTpl(${i})">${t.name}</span>`).join('');renderScriptContent();renderTopicList();renderHotList();renderInspoList();renderScriptHistory();}
+function applyTpl(i){const tpl=SCRIPT_TPL[i];let scripts=DB.get('scripts',{});scripts[curScriptDate]={template:tpl.name,blocks:tpl.blocks.map(l=>({label:l,content:''})),savedAt:Date.now()};DB.set('scripts',scripts);renderScriptContent();st('已套用「'+tpl.name+'」模板');}
+function renderScriptContent(){let scripts=DB.get('scripts',{});const s=scripts[curScriptDate];const el=$('#script-content');if(!s||!s.blocks||!s.blocks.length){el.innerHTML='<div class="empty">点击上方模板或选题快速开始</div>';return;}el.innerHTML=s.blocks.map((b,i)=>`<div class="script-block"><div class="lbl">${esc(b.label)}</div><textarea class="textarea" rows="2" placeholder="输入内容..." onchange="updSB(${i},this.value)">${esc(b.content)}</textarea></div>`).join('');}
+function updSB(i,val){let scripts=DB.get('scripts',{});let s=scripts[curScriptDate];if(s&&s.blocks[i])s.blocks[i].content=val;DB.set('scripts',scripts);}
+function saveScript(){let scripts=DB.get('scripts',{});let s=scripts[curScriptDate];if(!s){st('暂无内容');return;}s.savedAt=Date.now();scripts[curScriptDate]=s;DB.set('scripts',scripts);st('脚本已保存');rHome();renderScriptContent();}
+function newScript(){let scripts=DB.get('scripts',{});scripts[curScriptDate]={template:'空白',blocks:[{label:'【自定义段落】',content:''}],savedAt:Date.now()};DB.set('scripts',scripts);renderScriptContent();}
+function exportScript(){let scripts=DB.get('scripts',{});let s=scripts[curScriptDate];if(!s||!s.blocks||!s.blocks.length){st('暂无内容可导出');return;}
+  // 生成纯文本
+  let txt='📋 '+fD(curScriptDate)+' 口播脚本'+(s.template?' · '+s.template:'')+'\n';
+  txt+='━'.repeat(30)+'\n\n';
+  s.blocks.forEach(b=>{if(b.content.trim())txt+=b.label+'\n'+b.content+'\n\n';});
+  txt+='━'.repeat(30)+'\n';
+  txt+='来自：每日工作台 · 短视频创作\n';
+  // 弹窗：复制文本 / 保存为图片
+  om(`<div class="modal-head"><h3>导出分享脚本</h3><button class="close" onclick="cm()">取消</button></div>
+<div style="background:#f8fafc;border-radius:12px;padding:14px;max-height:300px;overflow-y:auto;white-space:pre-wrap;font-size:13px;line-height:1.7;margin-bottom:14px;color:var(--txt)">${esc(txt)}</div>
+<div class="row" style="gap:8px">
+<button class="btn btn-primary f1" onclick="copyScriptText()">📋 复制文本</button>
+<button class="btn btn-secondary f1" onclick="exportScriptImage()">🖼️ 保存图片</button>
+</div>
+<div class="muted center mt8">复制后可粘贴到微信/抖音/备忘录</div>`);
+  // 存到临时变量供复制用
+  window._exportTxt=txt;
+}
+function copyScriptText(){
+  const txt=window._exportTxt||'';
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>{st('已复制到剪贴板');cm();}).catch(()=>{fallbackCopy(txt);});}
+  else{fallbackCopy(txt);}
+}
+function fallbackCopy(txt){
+  const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');st('已复制到剪贴板');}catch(e){st('复制失败，请长按手动复制');}
+  document.body.removeChild(ta);cm();
+}
+function exportScriptImage(){
+  const txt=window._exportTxt||'';if(!txt)return;
+  const canvas=document.createElement('canvas');
+  const ctx=canvas.getContext('2d');
+  // 计算尺寸
+  const lines=txt.split('\n');
+  ctx.font='14px -apple-system,"PingFang SC",sans-serif';
+  const maxW=Math.min(360,Math.max(...lines.map(l=>ctx.measureText(l).width))+60);
+  const lh=22;const pad=24;
+  canvas.width=maxW;canvas.height=lines.length*lh+pad*2+60;
+  // 背景
+  const grad=ctx.createLinearGradient(0,0,0,canvas.height);
+  grad.addColorStop(0,'#4096FF');grad.addColorStop(0.15,'#4096FF');grad.addColorStop(0.15,'#ffffff');grad.addColorStop(1,'#ffffff');
+  ctx.fillStyle=grad;ctx.fillRect(0,0,canvas.width,canvas.height);
+  // 白色内容区
+  ctx.fillStyle='#ffffff';ctx.beginPath();ctx.roundRect(12,50,canvas.width-24,canvas.height-70,16);ctx.fill();
+  // 标题
+  ctx.fillStyle='#ffffff';ctx.font='bold 15px -apple-system,"PingFang SC",sans-serif';ctx.textAlign='left';
+  ctx.fillText('📋 口播脚本',20,32);
+  // 内容
+  ctx.fillStyle='#2b2f36';ctx.font='13px -apple-system,"PingFang SC",sans-serif';ctx.textAlign='left';
+  lines.forEach((l,i)=>{if(l.trim())ctx.fillText(l,pad,72+i*lh);});
+  // 底部水印
+  ctx.fillStyle='#8a909c';ctx.font='11px -apple-system,"PingFang SC",sans-serif';ctx.textAlign='center';
+  ctx.fillText('来自：每日工作台',canvas.width/2,canvas.height-14);
+  // 下载
+  canvas.toBlob(blob=>{
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='口播脚本_'+curScriptDate+'.png';a.click();
+    URL.revokeObjectURL(url);st('图片已保存');cm();
+  },'image/png');
+}
+function renderScriptHistory(){let scripts=DB.get('scripts',{});const dates=Object.keys(scripts).sort().reverse().slice(0,10);const el=$('#script-history');if(!dates.length){el.innerHTML='<div class="empty">暂无历史脚本</div>';return;}el.innerHTML=dates.map(d=>{const s=scripts[d];return`<div class="overview-item" onclick="loadSD('${d}')"><span class="dot" style="background:${d===ts()?'#36D399':'#c5cad2'}"></span><span class="txt">${fD(d)} ${s.template?'· '+esc(s.template):''}</span><span>${s.savedAt?'<span class="tag tag-green">已保存</span>':'<span class="tag tag-gray">草稿</span>'}</span></div>`;}).join('');}
+function loadSD(d){curScriptDate=d;rVideo();}
+
+function renderTopicList(){const topics=genTopics(6);const el=$('#topic-list');el.innerHTML=topics.map(t=>`<div class="topic-card"><div class="badge"><span class="tag heat-${t.heatLevel+1}">${t.heat} ${t.type}</span></div><div class="title-line">${esc(t.title)}</div><div class="subtitles">${(t.subTitles||[]).slice(0,2).map(function(x){return '<span>'+esc(x)+'</span>';}).join('')}</div><div class="meta-row">${t.tags.map(x=>'<span class="tag tag-gray">'+esc(x)+'</span>').join('')}</div><div class="muted" style="font-size:11px;line-height:1.5;margin:6px 0">📷 ${t.script?'📝 '+t.script.length+'段完整口播脚本已内置':esc(t.shoot||'')}</div><div class="actions-row"><button class="btn btn-primary btn-xs" onclick="topicToScript('${t.id}')">🤖 AI写脚本</button><button class="btn ${t.saved?'btn-secondary':'btn-ghost'} btn-xs" onclick="toggleFavTopic('${t.id}')">${t.saved?'已收藏':'收藏'}</button></div></div>`).join('');}
+
+function openHotModal(){om(`<div class="modal-head"><h3>新增热点</h3><button class="close" onclick="cm()">取消</button></div><div class="field"><label>热点关键词</label><input class="input" id="ht-kw" placeholder="如：超市隐藏款零食"></div><div class="field"><label>适配选题</label><input class="input" id="ht-tp" placeholder="如：本店同款商品盘点"></div><div class="field"><label>二创思路</label><textarea class="textarea" id="ht-idea" rows="3" placeholder="拍摄角度/文案方向/差异化"></textarea></div><button class="btn btn-primary btn-block" onclick="addHot()">添加热点</button>`);setTimeout(()=>$('#ht-kw').focus(),100);}
+function addHot(){const kw=$('#ht-kw').value.trim();if(!kw){st('请输入关键词');return;}const topic=$('#ht-tp').value.trim(),idea=$('#ht-idea').value.trim();const data=DB.get('hots',[]);data.unshift({id:uid(),kw,topic,idea,date:ts(),expired:false,created:Date.now()});DB.set('hots',data);cm();st('已添加');rVideo();}
+function delHot(id){let data=DB.get('hots',[]);data=data.filter(h=>h.id!==id);DB.set('hots',data);rVideo();}
+function hotToScript(id){const data=DB.get('hots',[]);const h=data.find(x=>x.id===id);if(!h)return;let scripts=DB.get('scripts',{});scripts[curScriptDate]={template:'热点二创',blocks:[{label:'【热点关键词】',content:h.kw},{label:'【适配选题】',content:h.topic},{label:'【二创思路】',content:h.idea},{label:'【开场hook】',content:''},{label:'【产品展示】',content:''},{label:'【引导关注】',content:''}],savedAt:Date.now()};DB.set('scripts',scripts);st('已新建配套脚本');renderScriptContent();renderScriptHistory();}
+function renderHotList(){const data=DB.get('hots',[]);const el=$('#hot-list');if(!data.length){el.innerHTML='<div class="empty">暂无热点，点击右上角添加</div>';return;}
+const weekAgo=new Date();weekAgo.setDate(weekAgo.getDate()-7);
+el.innerHTML=data.map(h=>{const expired=new Date(h.created)<weekAgo;return`<div class="hot-row" style="opacity:${expired?'.45':'1'}"><div class="col f1"><div class="kw">${esc(h.kw)}${expired?' <span class="tag tag-gray">过期</span>':''}</div>${h.topic?`<div class="topic">${esc(h.topic)}</div>`:''}${h.idea?`<div class="topic" style="margin-top:3px;color:var(--tx3);font-size:11px">💡 ${esc(h.idea)}</div>`:''}</div><div class="actions"><button class="btn btn-secondary btn-xs" onclick="hotToScript('${h.id}')">建脚本</button><button class="btn btn-ghost btn-xs" onclick="delHot('${h.id}')">删</button></div></div>`;}).join('');}
+
+function openInspoModal(){om(`<div class="modal-head"><h3>收藏爆款灵感</h3><button class="close" onclick="cm()">取消</button></div><div class="field"><label>视频/选题标题</label><input class="input" id="is-title" placeholder="如：超市员工都在囤的年货清单"></div><div class="field"><label>爆款逻辑分析</label><textarea class="textarea" id="is-logic" rows="3" placeholder="拆解这个视频为什么爆：钩子/节奏/情绪/信息密度"></textarea></div><div class="field"><label>点赞/播放数据（选填）</label><input class="input" id="is-data" placeholder="如：点赞2.3w 播放56w"></div><button class="btn btn-primary btn-block" onclick="addInspo()">收藏</button>`);setTimeout(()=>$('#is-title').focus(),100);}
+function addInspo(){const title=$('#is-title').value.trim();if(!title){st('请输入标题');return;}const logic=$('#is-logic').value.trim(),data=$('#is-data').value.trim();const inspo=DB.get('inspos',[]);inspo.unshift({id:uid(),type:'manual',title,logic,data,date:ts(),created:Date.now()});DB.set('inspos',inspo);cm();st('已收藏');rVideo();}
+function delInspo(id){let inspo=DB.get('inspos',[]);inspo=inspo.filter(x=>x.id!==id);DB.set('inspos',inspo);rVideo();}
+function renderInspoList(){const inspo=DB.get('inspos',[]);const el=$('#inspo-list');if(!inspo.length){el.innerHTML='<div class="empty">暂无收藏，点击右上角添加</div>';return;}el.innerHTML=inspo.map(x=>`<div class="inspo-card"><div class="head">${x.type==='topic'?'📌 选题收藏':'⭐ 爆款灵感'} ${esc(x.title||x.data?.title||'')}</div><div class="logic">💡 爆款逻辑：${esc(x.logic||x.data?.logic||'')}</div>${x.data?`<div class="logic" style="margin-top:4px;color:var(--tx3)">📊 ${esc(x.data)}</div>`:''}<div class="row-b mt8"><span class="muted">${fD(x.date)}</span><button class="btn btn-ghost btn-xs" onclick="delInspo('${x.id}')">删除</button></div></div>`).join('');}
+
+/* ===== 平台巡检模块 ===== */
+let inspHistV='list';
+function getInspCfg(){return DB.get('insp_cfg',{time1:'10:00',time2:'16:00',notify:true});}
+function saveInspTimes(){const cfg={time1:$('#insp-time-1').value,time2:$('#insp-time-2').value,notify:$('#insp-notify').checked};DB.set('insp_cfg',cfg);renderInspNext();st('已保存');if(cfg.notify){scheduleNotify(cfg.time1,'OTA巡检提醒：早班竞圈价格房态核对');scheduleNotify(cfg.time2,'OTA巡检提醒：晚班竞圈价格房态核对');}}
+function renderInspNext(){const cfg=getInspCfg();const now=new Date();const times=[cfg.time1,cfg.time2].filter(Boolean).sort();let next=null;for(const t of times){const [h,m]=t.split(':');const dt=new Date();dt.setHours(+h,+m,0,0);if(dt>now){next=t;break;}}$('#insp-next').textContent=next?'下次OTA巡检：今天 '+next:(times.length?'今日巡检提醒已过':'未设置巡检时间');}
+function openInspRecordModal(){om(`<div class="modal-head"><h3>新增竞圈核对</h3><button class="close" onclick="cm()">取消</button></div>
+<div class="field"><label>OTA平台</label><select class="select" id="ir-pl"><option>携程</option><option>飞猪</option><option>美团</option><option>同程旅行</option><option>去哪儿</option><option>艺龙</option><option>Booking</option><option>其他</option></select></div>
+<div class="field"><label>酒店/商品名称</label><input class="input" id="ir-pd" placeholder="如：大床房/标准间"></div>
+<div class="row"><div class="field f1"><label>我方价格</label><input type="number" class="input" id="ir-my" placeholder="0.00" inputmode="decimal"></div><div class="field f1"><label>竞圈价格</label><input type="number" class="input" id="ir-cp" placeholder="0.00" inputmode="decimal"></div></div>
+<div class="field"><label>房态</label><select class="select" id="ir-st"><option>有房</option><option>紧张</option><option>满房</option><option>关房</option></select></div>
+<div class="field"><label>活动/促销</label><select class="select" id="ir-act"><option>无活动</option><option>限时优惠</option><option>早鸟价</option><option>连住优惠</option><option>会员专享</option><option>新客立减</option><option>套餐捆绑</option><option>其他活动</option></select></div>
+<div class="field"><label>备注（选填）</label><input class="input" id="ir-nt" placeholder="如：竞圈降价幅度大，需跟进"></div>
+<button class="btn btn-primary btn-block" onclick="addInspRecord()">保存记录</button>`);}
+function addInspRecord(){const platform=$('#ir-pl').value,product=$('#ir-pd').value.trim(),myPrice=parseFloat($('#ir-my').value),cpPrice=parseFloat($('#ir-cp').value),status=$('#ir-st').value,activity=$('#ir-act').value,note=$('#ir-nt').value.trim();if(!product){st('请输入酒店/商品名称');return;}const priceDiff=!isNaN(myPrice)&&!isNaN(cpPrice)?cpPrice-myPrice:null;const abnormal=status==='满房'||status==='关房'||(priceDiff!==null&&priceDiff<0)||activity!=='无活动';const data=DB.get('insp_records',[]);data.unshift({id:uid(),platform,product,myPrice,cpPrice,priceDiff,status,activity,note,abnormal,date:ts(),time:new Date().toTimeString().slice(0,5),created:Date.now()});DB.set('insp_records',data);cm();st('已记录');rInsp();rHome();}
+function delInspRecord(id){let data=DB.get('insp_records',[]);data=data.filter(d=>d.id!==id);DB.set('insp_records',data);rInsp();rHome();}
+function rInsp(){const cfg=getInspCfg();$('#insp-time-1').value=cfg.time1;$('#insp-time-2').value=cfg.time2;$('#insp-notify').checked=cfg.notify;renderInspNext();renderInspToday();renderInspHistory();}
+function renderInspToday(){const data=DB.get('insp_records',[]).filter(r=>r.date===ts());const el=$('#insp-today');if(!data.length){el.innerHTML='<div class="empty">今日暂无竞圈核对记录</div>';return;}el.innerHTML=data.map(r=>{const priceLabel=r.cpPrice!=null?'¥'+r.cpPrice:'-';const diffLabel=r.priceDiff!=null?(r.priceDiff>0?'+¥'+r.priceDiff.toFixed(2):'-¥'+Math.abs(r.priceDiff).toFixed(2)):'';return`<div class="insp-row"><div class="cell">${esc(r.platform)}<br><span style="color:var(--tx3);font-size:11px">${esc(r.product)}</span></div><div class="cell ${r.priceDiff!=null&&r.priceDiff<0?'err':''}">${priceLabel}${diffLabel?`<br><span style="font-size:10px;color:${r.priceDiff>0?'#36D399':'#e8740c'}">${diffLabel}</span>`:''}</div><div class="cell ${r.status==='满房'||r.status==='关房'?'err':r.status==='紧张'?'warn':'ok'}">${esc(r.status)}</div><div class="cell ${r.activity!=='无活动'?'err':''}">${esc(r.activity)}</div></div>`;}).join('');}
+function setInspHistView(v,el){inspHistV=v;$$('#insp-hist-seg button').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderInspHistory();}
+function renderInspHistory(){const data=DB.get('insp_records',[]);const el=$('#insp-history');if(!data.length){el.innerHTML='<div class="empty">暂无历史巡检记录</div>';return;}if(inspHistV==='list'){el.innerHTML=data.slice(0,50).map(r=>`<div class="overview-item"><span class="dot" style="background:${r.abnormal?'#ff9800':'#36D399'}"></span><span class="txt">${fD(r.date)} ${r.time} · ${esc(r.platform)} ${esc(r.product)} ${r.abnormal?'<span style="color:#e8740c">⚠需关注</span>':''}</span><span class="val" style="font-size:11px;color:var(--tx3)">${r.status} · ${esc(r.activity)}</span></div>`).join('');}else{const grp={};data.forEach(r=>{(grp[r.date]=grp[r.date]||[]).push(r);});const dates=Object.keys(grp).sort().reverse();el.innerHTML=dates.map(d=>{const rs=grp[d],abn=rs.filter(r=>r.abnormal).length;return`<div style="margin-bottom:10px"><div class="row-b" style="margin-bottom:6px"><strong style="font-size:13px">${fD(d)}</strong><span class="muted">${rs.length}项 ${abn?'· <span style="color:#e8740c">'+abn+'需关注</span>':''}</span></div>${rs.map(r=>{const priceLabel=r.cpPrice!=null?'¥'+r.cpPrice:'-';return`<div class="insp-row"><div class="cell">${esc(r.platform)} ${esc(r.product)}</div><div class="cell ${r.priceDiff!=null&&r.priceDiff<0?'err':''}">${priceLabel}</div><div class="cell ${r.status==='满房'||r.status==='关房'?'err':r.status==='紧张'?'warn':'ok'}">${esc(r.status)}</div><div class="cell ${r.activity!=='无活动'?'err':''}">${esc(r.activity)}</div></div>`;}).join('')}</div>`;}).join('');}}
+
+/* ===== OTA智能调价模块 ===== */
+function getTPConfig(){
+  const now=new Date();
+  return DB.get('tp_config',{
+    total:20,booked:0,basePrice:388,currentPrice:298,activity:'无活动',
+    weekday:String(now.getDay()),compete:''
+  });
+}
+function saveTPConfig(){
+  const cfg={
+    total:parseInt($('#tp-total').value)||20,
+    booked:parseInt($('#tp-booked').value)||0,
+    basePrice:parseFloat($('#tp-base-price').value)||388,
+    currentPrice:parseFloat($('#tp-current-price').value)||298,
+    activity:$('#tp-activity').value,
+    weekday:$('#tp-weekday').value,
+    compete:$('#tp-compete').value.trim()
+  };
+  DB.set('tp_config',cfg);
+}
+
+function loadInspToTP(){
+  const records=DB.get('insp_records',[]).filter(r=>r.date===ts());
+  if(!records.length){st('今日暂无巡检记录');return;}
+  let lines=[];
+  records.forEach(r=>{
+    lines.push(r.platform+' ¥'+r.cpPrice+' · '+r.status+' · '+r.activity);
+  });
+  $('#tp-compete').value=lines.join('\n');
+  saveTPConfig();st('已导入'+records.length+'条竞圈记录');
+}
+
+function genPriceAdvice(){
+  const cfg=getTPConfig();
+  const total=cfg.total,booked=cfg.booked,basePrice=cfg.basePrice,currentPrice=cfg.currentPrice;
+  const occ=total>0?Math.round(booked/total*100):0;
+  const now=new Date(),h=now.getHours();
+  const wd=parseInt(cfg.weekday);
+  const isWeekend=wd===5||wd===6;
+  const isPeakSeason=h>=17&&h<=22;
+
+  // 解析竞圈数据
+  let competeList=[];
+  if(cfg.compete.trim()){
+    cfg.compete.split('\n').forEach(line=>{
+      const m=line.match(/¥?(\d+)/);
+      const statusMatch=line.match(/[·\s](有房|紧张|满房|关房)/);
+      const actMatch=line.match(/[·\s](无活动|早鸟价|连住优惠|新客立减|限时折扣|会员专享|套餐捆绑)/);
+      if(m)competeList.push({price:parseInt(m[1]),status:statusMatch?statusMatch[1]:'有房',activity:actMatch?actMatch[1]:'无活动'});
+    });
+  }
+
+  // 竞圈分析
+  let minCP=Infinity,maxCP=0,avgCP=0,fullCount=0;
+  competeList.forEach(c=>{if(c.price<minCP)minCP=c.price;if(c.price>maxCP)maxCP=c.price;avgCP+=c.price;if(c.status==='满房'||c.status==='关房')fullCount++;});
+  if(competeList.length)avgCP=Math.round(avgCP/competeList.length);
+
+  // 调价逻辑
+  let advice=[],recommendedPrice=currentPrice,urgency='normal',actions=[],reasons=[];
+
+  // 1. 竞圈比价分析
+  if(competeList.length){
+    const gap=currentPrice-avgCP;
+    const gapPct=avgCP>0?Math.round(gap/avgCP*100):0;
+    advice.push({title:'📊 竞圈价格分析',content:`共监控 ${competeList.length} 家竞圈。最低 ¥${minCP}，最高 ¥${maxCP}，均价 ¥${avgCP}。我方当前 ¥${currentPrice}，${gap>0?'高于':gap<0?'低于':'持平'}均价 ¥${Math.abs(gap)}（${gapPct>0?'+':''}${gapPct}%）。`});
+
+    if(gap>avgCP*0.1){
+      reasons.push('我方价格明显高于竞圈均价（+'+gapPct+'%），可能影响转化率');
+      if(occ<50){recommendedPrice=Math.round(avgCP*1.03);actions.push({act:'降价至 ¥'+recommendedPrice,detail:'接近竞圈均价上浮3%，保持品质溢价的同时提升竞争力',type:'warn'});}
+      else if(occ>=70){actions.push({act:'暂不降价',detail:'当前入住率较高（'+occ+'%），价格虽有溢价但需求仍在，观察半天再决定',type:'ok'});}
+    }else if(gap<-(avgCP*0.08)){
+      reasons.push('我方价格低于竞圈均价（'+gapPct+'%），有提价空间');
+      if(occ<60){actions.push({act:'维持现价',detail:'低价策略有助于提升入住率，当前入住率'+occ+'%仍有空间',type:'ok'});}
+      else{recommendedPrice=Math.round(avgCP*0.95);actions.push({act:'提价至 ¥'+recommendedPrice,detail:'入住率已达'+occ+'%，可适度提价至竞圈均价95折，仍具竞争力',type:'suggest'});}
+    }else{
+      actions.push({act:'维持现价 ¥'+currentPrice,detail:'价格处于竞圈合理区间，保持当前策略',type:'ok'});
+    }
+  }else{
+    advice.push({title:'📊 竞圈价格分析',content:'暂无竞圈数据。请先在OTA巡检模块录入竞圈价格，或手动填写竞圈价格后重新生成。'});
+  }
+
+  // 2. 入住率与时段分析
+  const remaining=total-booked;
+  advice.push({title:'🏨 库存与入住率',content:`总房量 ${total} 间，已预订 ${booked} 间，剩余 ${remaining} 间，当前入住率 ${occ}%。${isWeekend?'今天是周末，需求通常高于平日。':'今天是工作日，商务客源为主。'}${isPeakSeason?'当前处于晚间预订高峰时段。':''}`});
+
+  if(occ<30){
+    reasons.push('入住率偏低（'+occ+'%），需刺激预订');
+    urgency='high';
+    if(currentPrice>avgCP&&competeList.length){
+      recommendedPrice=Math.max(Math.round(avgCP*0.95),Math.round(basePrice*0.5));
+      actions.push({act:'降价至 ¥'+recommendedPrice,detail:'入住率不足30%，建议降到竞圈均价以下5%，快速拉升预订量',type:'warn'});
+    }
+    actions.push({act:'加大活动力度',detail:'建议叠加新客立减或限时折扣，配合降价双重刺激',type:'warn'});
+  }else if(occ>=85){
+    reasons.push('入住率较高（'+occ+'%），剩余房源稀缺');
+    urgency='normal';
+    recommendedPrice=Math.round(currentPrice*1.08);
+    actions.push({act:'提价至 ¥'+recommendedPrice,detail:'入住率超过85%，剩余房间稀缺，可上浮8%获取更高收益',type:'suggest'});
+    if(cfg.activity!=='无活动')actions.push({act:'关闭部分优惠',detail:'建议暂停新客立减等补贴活动，当前需求充足无需让利',type:'suggest'});
+  }else if(occ>=60){
+    recommendedPrice=currentPrice;
+    actions.push({act:'维持现价 ¥'+currentPrice,detail:'入住率'+occ+'%处于健康区间，保持当前价格观察',type:'ok'});
+  }
+
+  // 3. 竞圈满房分析
+  if(fullCount>0){
+    advice.push({title:'🏁 竞圈满房机会',content:`${fullCount} 家竞圈已满房/关房！这是一个涨价窗口。市场供给减少，剩余需求会流向我方。`});
+    if(occ<70){
+      recommendedPrice=Math.round(currentPrice*1.05);
+      actions.push({act:'适度提价至 ¥'+recommendedPrice,detail:'竞圈满房释放需求，建议上浮5%，既承接溢出流量又提高收益',type:'suggest'});
+    }
+  }
+
+  // 4. 周末溢价分析
+  if(isWeekend){
+    advice.push({title:'📅 周末溢价建议',content:'周末需求通常比平日高20-30%。如果当前价格与平日一致，建议上调。'});
+    if(currentPrice<=basePrice*0.8){
+      recommendedPrice=Math.round(currentPrice*1.1);
+      actions.push({act:'周末提价至 ¥'+recommendedPrice,detail:'周末需求旺盛，建议在平日价基础上上浮10%',type:'suggest'});
+    }
+  }
+
+  // 5. 活动策略
+  advice.push({title:'🎯 活动策略',content:`当前活动：${cfg.activity}。${cfg.activity==='无活动'&&occ<60?'建议开启新客立减或早鸟价活动以提升转化。':cfg.activity!=='无活动'&&occ>=80?'当前入住率高，可考虑暂停活动以提升客单价。':'活动设置合理，保持即可。'}`});
+
+  // 6. 综合建议
+  let summaryPrice=recommendedPrice!==currentPrice?'建议调整为 ¥'+recommendedPrice:'建议维持 ¥'+currentPrice;
+  let summaryUrgency=urgency==='high'?'⚠️ 需尽快调整':urgency==='normal'?'✅ 当前策略合理':'🔵 持续观察';
+  advice.push({title:'📋 综合调价建议',content:`<strong>${summaryPrice}</strong> | ${summaryUrgency}<br>核心理由：${reasons.join('；')||'当前价格与市场匹配，暂无调整必要。'}`});
+
+  // 渲染结果
+  const el=$('#tp-advice');
+  el.innerHTML=advice.map((a,i)=>`<div style="background:#f8fafc;border-radius:10px;padding:12px;margin-bottom:8px;${i===advice.length-1?'border:2px solid #36D399;background:#e8faf2;':''}"><div style="font-weight:600;font-size:13px;margin-bottom:6px">${a.title}</div><div style="font-size:13px;color:var(--tx2);line-height:1.6">${a.content}</div></div>`).join('');
+
+  // 操作建议列表
+  if(actions.length){
+    el.innerHTML+='<div style="margin-top:10px"><div style="font-weight:600;font-size:13px;margin-bottom:6px">✅ 建议操作</div>'+actions.map(a=>`<div class="row-b" style="padding:8px 0;border-bottom:1px solid var(--bd);font-size:13px"><span style="color:${a.type==='warn'?'#e8740c':a.type==='suggest'?'#4096FF':'#36D399'}">${a.act}</span><span style="color:var(--tx3);font-size:11px;text-align:right;max-width:55%">${a.detail}</span></div>`).join('')+'</div>';
+  }
+
+  $('#tp-result-card').style.display='block';
+  $('#tp-time').textContent=new Date().toTimeString().slice(0,5);
+  window._tpAdviceHTML=el.innerHTML;
+  window._tpSummary=summaryPrice;
+  window._tpRecommendedPrice=recommendedPrice;
+  window.scrollTo({top:$('#tp-result-card').offsetTop-80,behavior:'smooth'});
+}
+
+function copyTPAdvice(){
+  const el=$('#tp-advice');
+  const txt=el.innerText||el.textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>st('已复制调价建议'));}
+  else{const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);st('已复制调价建议');}
+}
+
+function saveTPHistory(){
+  const cfg=getTPConfig();
+  const records=DB.get('tp_records',[]);
+  records.unshift({id:uid(),date:ts(),time:new Date().toTimeString().slice(0,5),
+    total:cfg.total,booked:cfg.booked,basePrice:cfg.basePrice,currentPrice:cfg.currentPrice,
+    recommendedPrice:window._tpRecommendedPrice||cfg.currentPrice,
+    activity:cfg.activity,weekday:cfg.weekday,compete:cfg.compete,
+    summary:window._tpSummary||'',
+    created:Date.now()
+  });
+  DB.set('tp_records',records);
+  st('调价记录已保存');renderTPHistory();
+}
+
+function clearTPHistory(){
+  if(!confirm('确认清空全部调价历史？'))return;
+  DB.set('tp_records',[]);renderTPHistory();st('已清空');
+}
+
+function renderTPHistory(){
+  const records=DB.get('tp_records',[]);
+  const el=$('#tp-history');
+  $('#tp-clear').style.display=records.length?'inline':'none';
+  if(!records.length){el.innerHTML='<div class="empty">暂无调价记录</div>';return;}
+  el.innerHTML=records.slice(0,20).map(r=>`<div class="overview-item">
+    <span class="dot" style="background:${r.recommendedPrice!==r.currentPrice?'#ff9800':'#36D399'}"></span>
+    <span class="txt">${fD(r.date)} ${r.time} · ${r.booked}/${r.total}间(${Math.round(r.booked/r.total*100)}%) · 竞圈${r.compete.split('\\n').length||0}家</span>
+    <span class="val" style="font-size:12px">¥${r.currentPrice}→¥${r.recommendedPrice}</span>
+  </div>`).join('');
+}
+
+function rOps(){
+  const cfg=getTPConfig();
+  $('#tp-total').value=cfg.total;
+  $('#tp-booked').value=cfg.booked;
+  $('#tp-base-price').value=cfg.basePrice;
+  $('#tp-current-price').value=cfg.currentPrice;
+  $('#tp-activity').value=cfg.activity;
+  $('#tp-weekday').value=cfg.weekday;
+  $('#tp-compete').value=cfg.compete;
+  // 默认星期设为今天
+  const now=new Date();$('#tp-weekday').value=String(now.getDay());
+  renderTPHistory();
+  renderChatHistory();
+  renderQuickChips();
+  setTimeout(()=>{const inp=$('#chat-input');if(inp)inp.focus();},300);
+}
+
+/* ===== OTA运营顾问 - 对话引擎 ===== */
+
+function getChatHistory(){return DB.get('chat_history',[]);}
+function saveChatHistory(msgs){DB.set('chat_history',msgs.slice(-50));}
+
+function clearChat(){
+  DB.set('chat_history',[]);
+  renderChatHistory();renderQuickChips();
+  $('#chat-clear-btn').style.display='none';
+  st('对话已清空');
+}
+
+function renderQuickChips(){
+  const chips=[
+    {label:'📊 快速分析',text:'帮我分析当前定价是否合理'},
+    {label:'🏷️ 调价建议',text:'剩X间，外网卖X，竞圈均价X，建议怎么调？'},
+    {label:'🏁 满房机会',text:'竞圈X家满房了，要不要涨价？'},
+    {label:'📅 周末策略',text:'今天周末，需要调整价格吗？'},
+    {label:'🎯 活动建议',text:'入住率太低，有什么活动建议？'},
+    {label:'💰 限时折扣',text:'如果做限时折扣，建议几折？'},
+  ];
+  $('#chat-quick-chips').innerHTML=chips.map(function(c){
+    return '<span class="chat-quick-chip" onclick="insertQuickChip(\''+esc(c.text)+'\')">'+c.label+'</span>';
+  }).join('');
+}
+
+function insertQuickChip(text){
+  var inp=$('#chat-input');
+  inp.value=text;
+  inp.focus();
+  // 把光标移到末尾
+  inp.setSelectionRange(text.length,text.length);
+}
+
+function parseChatInput(text){
+  var parsed={text:text,hasData:false};
+  // 提取总房量
+  var m=text.match(/总[共]?(\d+)[间房]/);if(m){parsed.total=parseInt(m[1]);parsed.hasData=true;}
+  // 提取剩余房数
+  m=text.match(/(?:剩|还有|余|剩下)[^\d]*(\d+)[间房]?/);if(m){parsed.remaining=parseInt(m[1]);parsed.hasData=true;}
+  m=text.match(/(\d+)[间房][^，。,\.]*剩/);if(m&&!parsed.remaining){parsed.remaining=parseInt(m[1]);parsed.hasData=true;}
+  // 已预订
+  m=text.match(/已[预订定][^\d]*(\d+)/);if(m){parsed.booked=parseInt(m[1]);parsed.hasData=true;}
+  // 当前价格
+  m=text.match(/(?:卖|外网|价格|现价|当前)[^\d¥]*[¥]?(\d+)/);if(m){parsed.currentPrice=parseInt(m[1]);parsed.hasData=true;}
+  // 竞圈均价
+  m=text.match(/(?:竞圈|均价|同行|对手)[^\d¥]*[¥]?(\d+)/);if(m){parsed.compAvg=parseInt(m[1]);parsed.hasData=true;}
+  // 门市价/原价
+  m=text.match(/(?:门市价|原价|标准价|挂牌价)[^\d¥]*[¥]?(\d+)/);if(m){parsed.basePrice=parseInt(m[1]);parsed.hasData=true;}
+  // 竞圈满房数量
+  m=text.match(/(\d+)[家个][^\d]*(?:满房|关房)/);if(m){parsed.fullCount=parseInt(m[1]);parsed.hasData=true;}
+  m=text.match(/(?:满房|关房)[^\d]*(\d+)[家个]/);if(m&&!parsed.fullCount){parsed.fullCount=parseInt(m[1]);parsed.hasData=true;}
+  // 星期
+  if(/周末/.test(text))parsed.isWeekend=true;
+  if(/周五/.test(text)||/星期六/.test(text))parsed.isWeekend=true;
+  if(/工作日/.test(text))parsed.isWeekend=false;
+  // 活动
+  if(/早鸟/.test(text))parsed.activity='早鸟价';
+  if(/连住/.test(text))parsed.activity='连住优惠';
+  if(/新客/.test(text))parsed.activity='新客立减';
+  if(/限时折扣/.test(text)||/限时优惠/.test(text))parsed.activity='限时折扣';
+  if(/会员/.test(text))parsed.activity='会员专享';
+  if(/套餐/.test(text))parsed.activity='套餐捆绑';
+  // 意图识别
+  if(/(?:调价|调整价格|改价|定价)/.test(text))parsed.intent='pricing';
+  if(/(?:降价|便宜点|降低)/.test(text))parsed.intent='lower';
+  if(/(?:提价|涨价|上调)/.test(text))parsed.intent='raise';
+  if(/(?:活动|促销|优惠|甩卖|折扣|特惠)/.test(text))parsed.intent='activity';
+  if(/(?:分析|看看|评估|怎么样|合理)/.test(text))parsed.intent='analyze';
+  if(/(?:建议|推荐|怎么|如何|什么策略)/.test(text))parsed.intent='advice';
+  if(/(?:几折|打几折|折扣力度)/.test(text))parsed.intent='discount';
+  // 如果没提取到数据，尝试从当前配置读取
+  if(!parsed.hasData){
+    var cfg=getTPConfig();
+    if(cfg.total&&cfg.booked!=null){parsed.total=cfg.total;parsed.booked=cfg.booked;parsed.hasData=true;}
+    if(cfg.currentPrice){parsed.currentPrice=parsed.currentPrice||cfg.currentPrice;parsed.hasData=true;}
+    if(cfg.basePrice){parsed.basePrice=parsed.basePrice||cfg.basePrice;}
+    if(cfg.activity&&cfg.activity!=='无活动')parsed.activity=parsed.activity||cfg.activity;
+    if(cfg.weekday==='5'||cfg.weekday==='6')parsed.isWeekend=true;
+    // 从compete字段提取竞圈数据
+    if(cfg.compete&&cfg.compete.trim()){
+      var prices=[],fulls=0;
+      cfg.compete.split('\n').forEach(function(line){
+        var pm=line.match(/¥?(\d+)/);if(pm)prices.push(parseInt(pm[1]));
+        if(/满房|关房/.test(line))fulls++;
+      });
+      if(prices.length){parsed.compAvg=Math.round(prices.reduce(function(a,b){return a+b;},0)/prices.length);parsed.compMin=Math.min.apply(null,prices);parsed.compMax=Math.max.apply(null,prices);parsed.hasData=true;}
+      if(fulls>0)parsed.fullCount=fulls;
+    }
+  }
+  return parsed;
+}
+
+function generateStrategy(parsed){
+  // 计算入住率
+  var total=parsed.total||20;
+  var booked=parsed.booked||0;
+  var remaining=parsed.remaining;
+  if(remaining!=null&&!booked)booked=total-remaining;
+  if(remaining==null)remaining=total-booked;
+  var occ=total>0?Math.round(booked/total*100):0;
+  var cp=parsed.currentPrice||298;
+  var compAvg=parsed.compAvg||0;
+  var bp=parsed.basePrice||cp*1.3;
+  var isWeekend=parsed.isWeekend||false;
+  var fullCount=parsed.fullCount||0;
+  var intent=parsed.intent||'analyze';
+
+  // 价差计算
+  var gap=compAvg>0?cp-compAvg:0;
+  var gapPct=compAvg>0?Math.round(gap/compAvg*100):0;
+  var gapAbs=Math.abs(gap);
+
+  var result={occ:occ,remaining:remaining,total:total,booked:booked,currentPrice:cp,compAvg:compAvg,bp:bp,gap:gap,gapPct:gapPct,isWeekend:isWeekend,fullCount:fullCount,recommendedPrice:cp,strategyType:'',actions:[],analysis:[],urgency:'normal'};
+
+  // === 数据汇总行 ===
+  var dataItems=[];
+  if(parsed.hasData){
+    dataItems.push('总房量 '+total+'间');
+    dataItems.push('剩余 '+remaining+'间');
+    dataItems.push('入住率 '+occ+'%');
+    if(cp)dataItems.push('当前卖 ¥'+cp);
+    if(compAvg)dataItems.push('竞圈均价 ¥'+compAvg);
+    if(fullCount>0)dataItems.push('竞圈满房 '+fullCount+'家');
+  }
+  result.dataItems=dataItems;
+
+  // === 核心策略判断 ===
+
+  // 场景1: 入住率极低（<30%）- 紧急甩卖
+  if(occ<30){
+    result.strategyType='urgent';
+    result.urgency='high';
+    result.strategyLabel='🔴 紧急甩卖策略';
+    if(gap>0){
+      result.recommendedPrice=Math.max(Math.round(compAvg*0.92),Math.round(bp*0.45));
+      result.analysis.push('入住率仅'+occ+'%，严重偏低，急需刺激预订');
+      result.analysis.push('当前价格¥'+cp+'高于竞圈均价¥'+compAvg+'（+'+gapPct+'%），价格不具竞争力');
+      result.actions.push({act:'立即降价',detail:'建议降至 ¥'+result.recommendedPrice+'（竞圈均价92折），快速拉高预订量',type:'urgent'});
+      result.actions.push({act:'开启甩卖活动',detail:'叠加"限时特惠"标签，在OTA平台首页展示折扣房',type:'urgent'});
+      result.actions.push({act:'新客立减',detail:'针对新客额外补贴¥20-30，降低决策门槛',type:'urgent'});
+    }else{
+      result.recommendedPrice=Math.round(cp*0.85);
+      result.analysis.push('入住率仅'+occ+'%，即使价格低于竞圈仍需加大引流力度');
+      result.actions.push({act:'加大曝光',detail:'建议开启OTA平台推广通/金字塔，提升排名',type:'urgent'});
+      result.actions.push({act:'甩卖活动',detail:'降至 ¥'+result.recommendedPrice+' 并打上"限时甩卖"标签',type:'urgent'});
+    }
+  }
+
+  // 场景2: 入住率偏低（30-50%）- 限时特惠
+  else if(occ<50){
+    result.strategyType='discount';
+    result.urgency='high';
+    result.strategyLabel='🟠 限时特惠策略';
+    result.analysis.push('入住率'+occ+'%，处于偏低水平，需要促销拉动');
+    if(gap>compAvg*0.05){
+      result.recommendedPrice=Math.round(compAvg*0.97);
+      result.analysis.push('价格高于竞圈'+gapPct+'%，建议小幅降价增强竞争力');
+      result.actions.push({act:'限时折扣',detail:'设置8.5-9折限时优惠，建议价 ¥'+result.recommendedPrice,type:'discount'});
+    }else{
+      result.recommendedPrice=cp;
+      result.analysis.push('价格与竞圈基本持平，问题不在价格而在曝光');
+      result.actions.push({act:'新客立减',detail:'设置新客专享立减¥20，吸引首单用户',type:'discount'});
+    }
+    result.actions.push({act:'连住优惠',detail:'开启"连住2晚9折"活动，提升间夜量',type:'discount'});
+    result.actions.push({act:'套餐捆绑',detail:'推出"住宿+早餐/景点门票"套餐，提升客单价',type:'discount'});
+  }
+
+  // 场景3: 入住率中等（50-70%）- 微调卖价
+  else if(occ<70){
+    result.strategyType='adjust';
+    result.urgency='normal';
+    result.strategyLabel='🟡 调整卖价策略';
+    result.analysis.push('入住率'+occ+'%，处于健康区间但仍有提升空间');
+    if(gap>compAvg*0.08){
+      result.recommendedPrice=Math.round(compAvg*1.03);
+      result.analysis.push('价格高于竞圈'+gapPct+'%，可能影响价格敏感用户转化');
+      result.actions.push({act:'小幅降价',detail:'建议降至 ¥'+result.recommendedPrice+'，保持3%品质溢价',type:'adjust'});
+    }else if(gap<-(compAvg*0.05)){
+      result.recommendedPrice=Math.round(compAvg*0.96);
+      result.analysis.push('价格低于竞圈'+Math.abs(gapPct)+'%，有适度提价空间');
+      result.actions.push({act:'适度提价',detail:'可上调至 ¥'+result.recommendedPrice+'，仍具价格优势',type:'adjust'});
+    }else{
+      result.recommendedPrice=cp;
+      result.analysis.push('价格处于竞圈合理区间，维持即可');
+      result.actions.push({act:'维持现价',detail:'当前¥'+cp+'定价合理，无需调整',type:'hold'});
+    }
+    if(isWeekend){
+      result.recommendedPrice=Math.round(result.recommendedPrice*1.05);
+      result.actions.push({act:'周末微调',detail:'周末需求增加，可在基础价上浮5%至 ¥'+result.recommendedPrice,type:'adjust'});
+    }
+  }
+
+  // 场景4: 入住率高（70-85%）- 维持现价
+  else if(occ<85){
+    result.strategyType='hold';
+    result.urgency='low';
+    result.strategyLabel='🟢 维持现价策略';
+    result.recommendedPrice=cp;
+    result.analysis.push('入住率'+occ+'%，表现良好，当前策略有效');
+    result.actions.push({act:'维持现价 ¥'+cp,detail:'当前价格与入住率匹配良好，无需调整',type:'hold'});
+    if(fullCount>0){
+      result.analysis.push('竞圈有'+fullCount+'家满房，市场供给收缩');
+      result.actions.push({act:'观望涨价',detail:'密切观察竞圈满房溢出流量，如预订加速可考虑提价',type:'hold'});
+    }
+    if(isWeekend&&cp<=bp*0.8){
+      result.recommendedPrice=Math.round(cp*1.05);
+      result.actions.push({act:'周末适度提价',detail:'建议上浮5%至 ¥'+result.recommendedPrice+'，周末需求支撑',type:'adjust'});
+    }
+  }
+
+  // 场景5: 入住率很高（>=85%）- 提价增收
+  else{
+    result.strategyType='raise';
+    result.urgency='normal';
+    result.strategyLabel='🔵 提价增收策略';
+    result.recommendedPrice=Math.round(cp*1.08);
+    result.analysis.push('入住率已达'+occ+'%，房源稀缺，具备提价条件');
+    result.actions.push({act:'提价增收',detail:'建议上调8-12%至 ¥'+result.recommendedPrice+'，最大化剩余房源收益',type:'raise'});
+    if(parsed.activity&&parsed.activity!=='无活动'){
+      result.actions.push({act:'暂停补贴活动',detail:'当前需求充足，建议暂停新客立减等让利活动',type:'raise'});
+    }
+    if(fullCount>0){
+      result.analysis.push('竞圈'+fullCount+'家满房，溢出需求将进一步推高入住率');
+      result.recommendedPrice=Math.round(cp*1.12);
+      result.actions.push({act:'二次提价',detail:'竞圈满房利好，可考虑提价至 ¥'+result.recommendedPrice,type:'raise'});
+    }
+  }
+
+  // 竞圈满房特殊处理（覆盖上述场景中未触达的情况）
+  if(fullCount>0&&result.strategyType!=='raise'&&result.strategyType!=='urgent'){
+    result.analysis.push('⚠ 竞圈有'+fullCount+'家满房，这是涨价窗口！市场供给减少，剩余需求会流向我方');
+    if(occ<60){
+      result.recommendedPrice=Math.round(Math.max(result.recommendedPrice,cp)*1.04);
+      result.actions.push({act:'抓住满房窗口',detail:'适度提价至 ¥'+result.recommendedPrice+'，承接溢出流量',type:'raise'});
+    }
+  }
+
+  // 意图驱动的额外建议
+  if(intent==='discount'){
+    var discountPct=Math.round((1-result.recommendedPrice/bp)*100);
+    result.actions.push({act:'折扣力度参考',detail:'基于门市价¥'+bp+'，建议折扣为'+(100-discountPct)+'折（售¥'+result.recommendedPrice+'），既吸引眼球又保证利润',type:'combo'});
+  }
+
+  if(intent==='activity'&&result.strategyType!=='urgent'&&result.strategyType!=='discount'){
+    result.actions.push({act:'活动组合建议',detail:'当前入住率健康，可做"连住优惠+早鸟价"组合，提前锁定远期订单',type:'combo'});
+  }
+
+  return result;
+}
+
+function buildChatReplyHTML(strategy){
+  var h='';
+  // 策略标签
+  if(strategy.strategyLabel){
+    h+='<span class="strategy-tag strategy-'+strategy.strategyType+'">'+strategy.strategyLabel+'</span>';
+  }
+  // 数据摘要
+  if(strategy.dataItems&&strategy.dataItems.length){
+    h+='<div class="data-row">';
+    strategy.dataItems.forEach(function(d){h+='<span class="data-item">'+d+'</span>';});
+    h+='</div>';
+  }
+  // 分析
+  if(strategy.analysis&&strategy.analysis.length){
+    strategy.analysis.forEach(function(a){h+='<div style="margin:4px 0">📊 '+a+'</div>';});
+  }
+  // 操作建议
+  if(strategy.actions&&strategy.actions.length){
+    h+='<div style="margin-top:8px;font-weight:600;font-size:12px">✅ 建议操作：</div>';
+    strategy.actions.forEach(function(a){
+      h+='<button class="action-btn-inline '+a.type+'">'+a.act+'</button>';
+      h+='<span style="font-size:11px;color:var(--tx3);display:block;margin:2px 0 4px">'+a.detail+'</span>';
+    });
+    // 一键应用价格按钮
+    if(strategy.recommendedPrice&&strategy.recommendedPrice!==strategy.currentPrice){
+      h+='<button class="action-btn-inline primary" onclick="applyAdvisedPrice('+strategy.recommendedPrice+')" style="margin-top:4px">📋 应用建议价 ¥'+strategy.recommendedPrice+'</button>';
+    }
+    // 生成详细报告按钮
+    h+='<button class="action-btn-inline secondary" onclick="genPriceAdvice();switchTab(\'ops\')" style="margin-top:4px">🔍 生成详细调价报告</button>';
+  }
+  return h;
+}
+
+function applyAdvisedPrice(price){
+  $('#tp-current-price').value=price;
+  saveTPConfig();
+  st('已应用建议价 ¥'+price+'，可点击上方「生成调价建议」查看详细报告');
+}
+
+function sendMessage(){
+  var inp=$('#chat-input');
+  var text=inp.value.trim();
+  if(!text)return;
+  // 添加用户消息
+  var msgs=getChatHistory();
+  msgs.push({role:'user',content:text,time:Date.now()});
+  saveChatHistory(msgs);
+  inp.value='';
+  renderChatHistory();
+  // 显示打字动画
+  var msgContainer=$('#chat-messages');
+  var typingEl=document.createElement('div');
+  typingEl.className='chat-typing';
+  typingEl.innerHTML='<span></span><span></span><span></span>';
+  typingEl.id='chat-typing';
+  msgContainer.appendChild(typingEl);
+  msgContainer.scrollTop=msgContainer.scrollHeight;
+  // 模拟AI思考延迟（300-600ms）
+  setTimeout(function(){
+    // 移除打字动画
+    var te=$('#chat-typing');if(te)te.remove();
+    // 解析输入
+    var parsed=parseChatInput(text);
+    var strategy=generateStrategy(parsed);
+    var replyHTML=buildChatReplyHTML(strategy);
+    // 如果没有数据且没有明确意图，给通用回复
+    if(!parsed.hasData&&!parsed.intent){
+      replyHTML='你好！我是OTA运营顾问 👋<br><br>告诉我当前情况，我来帮你分析定价策略。比如：<br>• "剩5间房，卖298，竞圈均价268，怎么调？"<br>• "竞圈3家满房了，要不要涨价？"<br>• "入住率不到30%，做什么活动好？"<br><br>也可以点击下方快捷短语快速开始～';
+    }
+    msgs.push({role:'assistant',content:replyHTML,time:Date.now(),strategy:strategy});
+    saveChatHistory(msgs);
+    renderChatHistory();
+  },300+Math.random()*300);
+}
+
+function renderChatHistory(){
+  var msgs=getChatHistory();
+  var el=$('#chat-messages');
+  $('#chat-clear-btn').style.display=msgs.length?'inline':'none';
+  if(!msgs.length){
+    el.innerHTML='<div class="chat-empty">👋 我是OTA运营顾问，告诉我当前房态和价格，我来帮你分析最佳定价策略～</div>';
+    return;
+  }
+  var h='';
+  msgs.forEach(function(m){
+    var timeStr=new Date(m.time).toTimeString().slice(0,5);
+    if(m.role==='user'){
+      h+='<div class="chat-msg user"><div>'+esc(m.content)+'</div><div class="msg-time">'+timeStr+'</div></div>';
+    }else{
+      h+='<div class="chat-msg assistant"><div>'+m.content+'</div><div class="msg-time">'+timeStr+'</div></div>';
+    }
+  });
+  el.innerHTML=h;
+  el.scrollTop=el.scrollHeight;
+}
+
+/* ===== 记账模块 ===== */
+
+function getAccounts(){return DB.get('accounts',[]);}
+
+function addAccount(){
+  var amt=parseFloat($('#ac-amount').value);
+  if(isNaN(amt)||amt<=0){st('请输入有效金额');return;}
+  var cat=$('#ac-cat').value;
+  var note=$('#ac-note').value.trim();
+  var date=$('#ac-date').value||ts();
+  var records=getAccounts();
+  records.unshift({id:uid(),amount:amt,category:cat,note:note,date:date,created:Date.now()});
+  DB.set('accounts',records);
+  $('#ac-amount').value='';$('#ac-note').value='';
+  st('已记录 ¥'+amt.toFixed(2));
+  rAccount();rHome();
+}
+
+function delAccount(id){
+  var records=getAccounts();
+  records=records.filter(function(r){return r.id!==id;});
+  DB.set('accounts',records);
+  rAccount();rHome();
+}
+
+function clearAccountHistory(){
+  if(!confirm('确认清空全部记账记录？此操作不可恢复。'))return;
+  DB.set('accounts',[]);
+  rAccount();rHome();st('已清空');
+}
+
+function getMonthRange(ym){
+  // ym format: "2026-07"
+  var parts=ym.split('-');
+  var y=parseInt(parts[0]),m=parseInt(parts[1]);
+  var start=y+'-'+String(m).padStart(2,'0')+'-01';
+  var end=y+'-'+String(m).padStart(2,'0')+'-'+String(new Date(y,m,0).getDate()).padStart(2,'0');
+  return {start:start,end:end};
+}
+
+function getMonthlySummary(ym){
+  var range=getMonthRange(ym);
+  var records=getAccounts().filter(function(r){return r.date>=range.start&&r.date<=range.end;});
+  var total=records.reduce(function(s,r){return s+r.amount;},0);
+  // 按分类汇总
+  var byCat={};
+  records.forEach(function(r){
+    byCat[r.category]=(byCat[r.category]||0)+r.amount;
+  });
+  // 按日汇总
+  var byDay={};
+  records.forEach(function(r){
+    byDay[r.date]=(byDay[r.date]||0)+r.amount;
+  });
+  // 计算天数
+  var days=Object.keys(byDay).length||1;
+  var dailyAvg=total/days;
+  return {total:total,dailyAvg:dailyAvg,count:records.length,byCat:byCat,byDay:byDay,days:days};
+}
+
+function renderMonthBoard(){
+  var ym=$('#ac-month-picker').value;
+  if(!ym)return;
+  $('#ac-month-label').textContent=ym;
+  var sum=getMonthlySummary(ym);
+  $('#ac-month-total').textContent='¥'+sum.total.toFixed(2);
+  $('#ac-month-avg').textContent='¥'+sum.dailyAvg.toFixed(2);
+  $('#ac-month-count').textContent=sum.count+'笔';
+  // 分类排行
+  var cats=Object.entries(sum.byCat).sort(function(a,b){return b[1]-a[1];});
+  var breakdownHTML='';
+  if(cats.length){
+    breakdownHTML='<div style="font-weight:600;font-size:13px;margin-bottom:6px">分类排行</div>';
+    cats.forEach(function(c){
+      var pct=sum.total>0?Math.round(c[1]/sum.total*100):0;
+      breakdownHTML+='<div class="row-b" style="padding:6px 0;border-bottom:1px solid var(--bd);font-size:13px"><span>'+esc(c[0])+'</span><span style="font-weight:500">¥'+c[1].toFixed(2)+' <span class="muted">'+pct+'%</span></span></div>';
+    });
+  }else{
+    breakdownHTML='<div class="empty">本月暂无记录</div>';
+  }
+  $('#ac-month-breakdown').innerHTML=breakdownHTML;
+  // Canvas 图表
+  renderAcctChart(cats,sum.total);
+}
+
+function renderAcctChart(cats,total){
+  var canvas=$('#ac-chart');
+  if(!canvas)return;
+  var wrap=$('#ac-chart-wrap');
+  var w=wrap.clientWidth||300;
+  var h=140;
+  canvas.width=w*2;canvas.height=h*2;
+  canvas.style.width=w+'px';canvas.style.height=h+'px';
+  var ctx=canvas.getContext('2d');
+  ctx.scale(2,2);
+  ctx.clearRect(0,0,w,h);
+  if(!cats.length){ctx.fillStyle='#8a909c';ctx.font='12px -apple-system,sans-serif';ctx.textAlign='center';ctx.fillText('暂无数据',w/2,h/2);return;}
+  // 水平条形图
+  var barH=20,gap=8,startY=10;
+  var maxVal=cats[0][1]||1;
+  var colors=['#4096FF','#36D399','#ff9800','#e91e63','#7c4dff','#00bcd4','#ff5722','#607d8b','#795548'];
+  cats.forEach(function(c,i){
+    var y=startY+i*(barH+gap);
+    var bw=Math.max((c[1]/maxVal)*(w-120),4);
+    // 标签
+    ctx.fillStyle='#5b626e';ctx.font='11px -apple-system,sans-serif';ctx.textAlign='right';
+    ctx.fillText(c[0],68,y+14);
+    // 条
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.beginPath();ctx.roundRect(74,y,bw,barH,4);ctx.fill();
+    // 金额
+    ctx.fillStyle='#2b2f36';ctx.font='bold 11px -apple-system,sans-serif';ctx.textAlign='left';
+    ctx.fillText('¥'+c[1].toFixed(0),74+bw+6,y+14);
+  });
+}
+
+function renderTodayAccounts(){
+  var today=ts();
+  var records=getAccounts().filter(function(r){return r.date===today;});
+  var total=records.reduce(function(s,r){return s+r.amount;},0);
+  $('#ac-today-total').textContent='¥'+total.toFixed(2);
+  var el=$('#ac-today-list');
+  if(!records.length){el.innerHTML='<div class="empty">今天还没有记账，上方快速记录一笔吧</div>';return;}
+  el.innerHTML=records.map(function(r){
+    return '<div class="acct-item"><div class="ico out" style="background:#eef4ff">💸</div><div class="info"><div class="t">'+esc(r.category)+(r.note?' · '+esc(r.note):'')+'</div><div class="d">'+r.date+'</div></div><div class="amt out">¥'+r.amount.toFixed(2)+'</div><button class="btn btn-ghost btn-xs" onclick="delAccount(\''+r.id+'\')" style="margin-left:8px">删</button></div>';
+  }).join('');
+}
+
+function renderAccountHistory(){
+  var records=getAccounts().slice(0,30);
+  var el=$('#ac-history');
+  if(!records.length){el.innerHTML='<div class="empty">暂无记录</div>';return;}
+  el.innerHTML=records.map(function(r){
+    return '<div class="acct-item"><div class="ico out" style="background:#eef4ff">💸</div><div class="info"><div class="t">'+esc(r.category)+(r.note?' · '+esc(r.note):'')+'</div><div class="d">'+r.date+'</div></div><div class="amt out">¥'+r.amount.toFixed(2)+'</div><button class="btn btn-ghost btn-xs" onclick="delAccount(\''+r.id+'\')" style="margin-left:8px">删</button></div>';
+  }).join('');
+}
+
+function rAccount(){
+  // 默认日期为今天
+  $('#ac-date').value=ts();
+  // 默认月份为当月
+  var now=new Date();
+  var ym=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  $('#ac-month-picker').value=ym;
+  $('#ac-month-label').textContent=ym;
+  renderTodayAccounts();
+  renderMonthBoard();
+  renderAccountHistory();
+}
+
+/* ===== 首页聚合 ===== */
+function rHome(){const now=new Date(),h=now.getHours();
+const greet=h<6?'夜班辛苦了':h<11?'早安，开始一天的工作':h<13?'午安，记得吃饭':h<18?'下午好，继续保持':h<22?'晚上好，收尾阶段':'夜深了，注意休息';
+$('#hd-greet').textContent=greet;
+const wk=['日','一','二','三','四','五','六'][now.getDay()];
+$('#hd-date').textContent=now.getFullYear()+'年'+(now.getMonth()+1)+'月'+now.getDate()+'日 星期'+wk;
+$('#hd-full').textContent='今日运营概览';
+const daily=getDailyTodos(),near=getNearTodos().filter(d=>!d.done&&d.due&&dB(ts(),d.due)<=3);
+$('#hs-todo').textContent=daily.filter(d=>!d.done).length+near.length;
+// Hero: 显示待办、调价、今日开销
+const tpRecords=DB.get('tp_records',[]);
+const lastTP=tpRecords[0];
+if(lastTP){
+  $('#hs-profit-hero').textContent='¥'+lastTP.recommendedPrice;
+  $('#hs-profit-hero').style.color='#fff';
+}else{
+  $('#hs-profit-hero').textContent='--';
+}
+// Hero 第三栏改为今日开销
+const todayAccounts=getAccounts().filter(function(r){return r.date===ts();});
+const todaySpent=todayAccounts.reduce(function(s,r){return s+r.amount;},0);
+$('#hs-inspect').textContent=todaySpent>0?'¥'+todaySpent.toFixed(0):'--';
+const cfg=getInspCfg(),times=[cfg.time1,cfg.time2].filter(Boolean).sort();
+const ov=[],ud=daily.filter(d=>!d.done).length;
+ov.push({color:'#4096FF',text:'每日代办剩余 '+ud+' 项',val:ud>0?'待办':'全部完成'});
+const topics=genTopics(6);ov.push({color:'#36D399',text:'今日选题 '+topics.length+' 条',val:topics.filter(t=>t.heatLevel===0).length+'条热门'});
+const inspToday=DB.get('insp_records',[]).filter(r=>r.date===ts()),inspAbn=inspToday.filter(r=>r.abnormal).length;
+ov.push({color:inspAbn>0?'#ff9800':'#36D399',text:'今日竞圈核对 '+inspToday.length+' 条记录',val:inspAbn>0?inspAbn+'条需关注':'正常'});
+// 本月开销汇总
+var nowYM=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+var monthSum=getMonthlySummary(nowYM);
+ov.push({color:'#e91e63',text:'本月累计开销',val:'¥'+monthSum.total.toFixed(0)+' · '+monthSum.count+'笔'});
+// 最近调价记录
+if(lastTP){
+  ov.push({color:'#7c4dff',text:'最近调价建议',val:'¥'+lastTP.recommendedPrice+(lastTP.recommendedPrice!==lastTP.currentPrice?' 需调整':' 维持')});
+}
+$('#home-overview').innerHTML=ov.map(o=>`<div class="overview-item"><span class="dot" style="background:${o.color}"></span><span class="txt">${o.text}</span><span class="val">${o.val}</span></div>`).join('');
+
+// TOP3 选题
+const top3=topics.slice(0,3);
+$('#home-topics').innerHTML=top3.map(t=>`<div class="overview-item" onclick="switchTab('video')"><span class="dot" style="background:${t.heatLevel===0?'#36D399':t.heatLevel===1?'#4096FF':'#c5cad2'}"></span><span class="txt">${esc(t.title)}</span><span class="val">${esc(t.heat)}</span></div>`).join('');
+
+// 告警
+const alerts=[];
+if(ud>0)alerts.push('📋 还有 '+ud+' 项每日代办未完成');
+const nearOverdue=getNearTodos().filter(d=>!d.done&&d.due&&dB(ts(),d.due)<0);
+if(nearOverdue.length>0)alerts.push('⚠ '+nearOverdue.length+' 项近期任务已逾期');
+if(inspAbn>0)alerts.push('🔍 今日OTA竞圈发现 '+inspAbn+' 条需关注项');
+if(alerts.length){$('#home-alert-card').style.display='block';$('#home-alerts').innerHTML=alerts.map(a=>`<div class="alert">${a}</div>`).join('');}else{$('#home-alert-card').style.display='none';}
+}
+
+/* ===== 通知调度（使用 Notification API + setInterval 检查） ===== */
+const NOTIFY_QUEUE=[];
+
+function scheduleNotify(timeStr,msg){
+  if(!('Notification' in window))return;
+  const[hh,mm]=timeStr.split(':');
+  const target=new Date();target.setHours(+hh,+mm,0,0);
+  const now=new Date();
+  if(target<=now)target.setDate(target.getDate()+1);
+  const delay=target-now;
+  if(delay>0&&delay<86400000){
+    NOTIFY_QUEUE.push({id:uid(),time:target.getTime(),msg,delay});
+    setTimeout(()=>{
+      if(Notification.permission==='granted'){
+        new Notification('每日工作台',{body:msg,icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%234096FF"/><text x="50" y="62" text-anchor="middle" fill="white" font-size="32">📋</text></svg>'});
+      }
+    },delay);
+  }
+}
+
+function requestNotifPerm(){
+  if('Notification' in window&&Notification.permission==='default'){
+    Notification.requestPermission().then(perm=>{
+      if(perm==='granted'){st('通知已开启');initNotifSchedules();}
+    });
+  }
+}
+
+function initNotifSchedules(){
+  const cfg=getInspCfg();
+  if(cfg.notify){
+    if(cfg.time1)scheduleNotify(cfg.time1,'OTA巡检提醒：早班竞圈价格房态核对');
+    if(cfg.time2)scheduleNotify(cfg.time2,'OTA巡检提醒：晚班竞圈价格房态核对');
+  }
+  // 早8点选题推送
+  scheduleNotify('08:00','今日选题已更新，查看热门选题推荐');
+  // 每日代办检查（9点）
+  scheduleNotify('09:00','今日代办任务待处理');
+}
+
+// 每小时重新调度
+setInterval(initNotifSchedules,3600000);
+
+/* ===== 初始化 ===== */
+// Canvas roundRect polyfill
+if(!CanvasRenderingContext2D.prototype.roundRect){
+  CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){
+    if(typeof r==='number')r={tl:r,tr:r,br:r,bl:r};
+    this.beginPath();this.moveTo(x+r.tl,y);
+    this.lineTo(x+w-r.tr,y);this.quadraticCurveTo(x+w,y,x+w,y+r.tr);
+    this.lineTo(x+w,y+h-r.br);this.quadraticCurveTo(x+w,y+h,x+w-r.br,y+h);
+    this.lineTo(x+r.bl,y+h);this.quadraticCurveTo(x,y+h,x,y+h-r.bl);
+    this.lineTo(x,y+r.tl);this.quadraticCurveTo(x,y,x+r.tl,y);
+    this.closePath();return this;
+  };
+}
+
+function init(){
+  rHome();
+  // 首次请求通知权限
+  setTimeout(requestNotifPerm,2000);
+  // 早8点选题推送已包含在 initNotifSchedules 中
+  initNotifSchedules();
+}
+
+// 确保选题在每天0点重置（通过页面加载检查）
+// v3.1: 强制清除旧缓存，确保script字段存在
+(function(){
+  const today=ts();
+  const ver=DB.get('data_ver','');
+  if(ver!=='3.1'){
+    // 清除所有旧版缓存
+    const keys=Object.keys(localStorage).filter(k=>k.startsWith('mk_topics_'));
+    keys.forEach(k=>localStorage.removeItem(k));
+    DB.set('data_ver','3.1');
+    console.log('缓存已更新到 v3.1');
+  }
+  const key='topics_'+today;
+  if(!DB.get(key,null))DB.set(key,genTopics(6));
+})();
+
+// 监听窗口大小变化（预留）
+
+init();
+</script>
+</body>
+</html>
