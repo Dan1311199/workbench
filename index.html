@@ -285,6 +285,34 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 .chat-typing span:nth-child(3){animation-delay:.4s;}
 @keyframes dotBounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
 
+/* 营销日历 */
+.cal-header{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:11px;color:var(--tx3);padding:4px 0;font-weight:500;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;font-size:12px;cursor:pointer;position:relative;transition:background .12s;}
+.cal-cell:active{background:#eef4ff;}
+.cal-cell.today{background:var(--p);color:#fff;font-weight:600;border-radius:10px;}
+.cal-cell.other-month{color:#d6dae0;}
+.cal-cell .cal-node-label{font-size:8px;line-height:1.2;text-align:center;margin-top:1px;padding:0 2px;border-radius:3px;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.cal-cell .cal-node-red{background:#fff0f0;color:#e74c3c;}
+.cal-cell .cal-node-orange{background:#fff8e1;color:#e8740c;}
+.cal-cell .cal-node-blue{background:#eef4ff;color:var(--p);}
+.cal-cell.today .cal-node-label{background:rgba(255,255,255,.3);color:#fff;}
+/* 营销节点提示弹窗 */
+.cal-tip{position:fixed;background:#fff;border-radius:12px;padding:14px;box-shadow:0 8px 30px rgba(0,0,0,.18);z-index:250;max-width:260px;font-size:12px;line-height:1.6;display:none;}
+.cal-tip .tip-type{font-weight:600;margin-bottom:4px;}
+.cal-tip .tip-desc{color:var(--tx2);}
+.cal-tip .tip-actions{font-size:11px;color:var(--tx3);margin-top:6px;}
+
+/* 价格趋势表格 */
+.price-trend-table{width:100%;border-collapse:collapse;font-size:11px;}
+.price-trend-table th,.price-trend-table td{padding:6px 4px;text-align:center;border-bottom:1px solid var(--bd);}
+.price-trend-table th{color:var(--tx2);font-weight:500;font-size:10px;background:#f8fafc;position:sticky;top:0;}
+.price-trend-table td.platform{text-align:left;font-weight:500;font-size:12px;}
+.price-trend-table .price-up{color:#e74c3c;}
+.price-trend-table .price-down{color:#36D399;}
+.price-trend-table .price-flat{color:var(--tx3);}
+.price-trend-table .alert-cell{background:#fff0f0;border-radius:4px;font-weight:600;color:#e74c3c;}
+
 ::-webkit-scrollbar{width:0;height:0;}
 </style>
 </head>
@@ -316,6 +344,16 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="acct-summary" style="margin-bottom:0"><div class="box"><div class="lbl">今日脚本</div><div class="val" id="hs-script-state">--</div></div><div class="box"><div class="lbl">最近调价</div><div class="val" id="hs-tp-last">--</div></div></div></div>
 
 <div class="card"><div class="card-title">运营概览</div><div id="home-overview"></div></div>
+
+<div class="card"><div class="card-title">📅 营销日历 <span class="more" id="cal-next-node"></span></div>
+<div class="row-b" style="margin-bottom:8px">
+<button class="btn btn-ghost btn-xs" onclick="calPrevMonth()">◀</button>
+<span id="cal-month-title" style="font-weight:600;font-size:14px"></span>
+<button class="btn btn-ghost btn-xs" onclick="calNextMonth()">▶</button>
+</div>
+<div class="cal-header"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
+<div class="cal-grid" id="cal-grid"></div>
+</div>
 
 <div class="card" id="home-alert-card" style="display:none"><div class="card-title">⚠ 需要关注</div><div id="home-alerts"></div></div>
 </section>
@@ -365,6 +403,11 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="insp-row head"><div class="cell">OTA平台</div><div class="cell">竞圈价格</div><div class="cell">房态</div><div class="cell">活动</div></div><div id="insp-today"></div></div>
 <div class="card"><div class="card-title">历史巡检记录</div>
 <div class="seg" id="insp-hist-seg"><button class="active" onclick="setInspHistView('list',this)">列表</button><button onclick="setInspHistView('date',this)">按日期</button></div><div id="insp-history" class="mt12"></div></div>
+
+<div class="card"><div class="card-title">📊 竞圈价格趋势（近7天）</div>
+<div class="chart-wrap" style="height:160px" id="price-trend-chart-wrap"><canvas id="price-trend-chart"></canvas></div>
+<div id="price-trend-table" class="mt12"></div>
+</div>
 </section>
 
 <!-- ===== 智能调价 ===== -->
@@ -808,10 +851,171 @@ function openInspRecordModal(){om(`<div class="modal-head"><h3>新增竞圈核�
 <button class="btn btn-primary btn-block" onclick="addInspRecord()">保存记录</button>`);}
 function addInspRecord(){const platform=$('#ir-pl').value,product=$('#ir-pd').value.trim(),myPrice=parseFloat($('#ir-my').value),cpPrice=parseFloat($('#ir-cp').value),status=$('#ir-st').value,activity=$('#ir-act').value,note=$('#ir-nt').value.trim();if(!product){st('请输入酒店/商品名称');return;}const priceDiff=!isNaN(myPrice)&&!isNaN(cpPrice)?cpPrice-myPrice:null;const abnormal=status==='满房'||status==='关房'||(priceDiff!==null&&priceDiff<0)||activity!=='无活动';const data=DB.get('insp_records',[]);data.unshift({id:uid(),platform,product,myPrice,cpPrice,priceDiff,status,activity,note,abnormal,date:ts(),time:new Date().toTimeString().slice(0,5),created:Date.now()});DB.set('insp_records',data);cm();st('已记录');rInsp();rHome();}
 function delInspRecord(id){let data=DB.get('insp_records',[]);data=data.filter(d=>d.id!==id);DB.set('insp_records',data);rInsp();rHome();}
-function rInsp(){const cfg=getInspCfg();$('#insp-time-1').value=cfg.time1;$('#insp-time-2').value=cfg.time2;$('#insp-notify').checked=cfg.notify;renderInspNext();renderInspToday();renderInspHistory();}
+function rInsp(){const cfg=getInspCfg();$('#insp-time-1').value=cfg.time1;$('#insp-time-2').value=cfg.time2;$('#insp-notify').checked=cfg.notify;renderInspNext();renderInspToday();renderInspHistory();renderPriceTrend();}
 function renderInspToday(){const data=DB.get('insp_records',[]).filter(r=>r.date===ts());const el=$('#insp-today');if(!data.length){el.innerHTML='<div class="empty">今日暂无竞圈核对记录</div>';return;}el.innerHTML=data.map(r=>{const priceLabel=r.cpPrice!=null?'¥'+r.cpPrice:'-';const diffLabel=r.priceDiff!=null?(r.priceDiff>0?'+¥'+r.priceDiff.toFixed(2):'-¥'+Math.abs(r.priceDiff).toFixed(2)):'';return`<div class="insp-row"><div class="cell">${esc(r.platform)}<br><span style="color:var(--tx3);font-size:11px">${esc(r.product)}</span></div><div class="cell ${r.priceDiff!=null&&r.priceDiff<0?'err':''}">${priceLabel}${diffLabel?`<br><span style="font-size:10px;color:${r.priceDiff>0?'#36D399':'#e8740c'}">${diffLabel}</span>`:''}</div><div class="cell ${r.status==='满房'||r.status==='关房'?'err':r.status==='紧张'?'warn':'ok'}">${esc(r.status)}</div><div class="cell ${r.activity!=='无活动'?'err':''}">${esc(r.activity)}</div></div>`;}).join('');}
 function setInspHistView(v,el){inspHistV=v;$$('#insp-hist-seg button').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderInspHistory();}
 function renderInspHistory(){const data=DB.get('insp_records',[]);const el=$('#insp-history');if(!data.length){el.innerHTML='<div class="empty">暂无历史巡检记录</div>';return;}if(inspHistV==='list'){el.innerHTML=data.slice(0,50).map(r=>`<div class="overview-item"><span class="dot" style="background:${r.abnormal?'#ff9800':'#36D399'}"></span><span class="txt">${fD(r.date)} ${r.time} · ${esc(r.platform)} ${esc(r.product)} ${r.abnormal?'<span style="color:#e8740c">⚠需关注</span>':''}</span><span class="val" style="font-size:11px;color:var(--tx3)">${r.status} · ${esc(r.activity)}</span></div>`).join('');}else{const grp={};data.forEach(r=>{(grp[r.date]=grp[r.date]||[]).push(r);});const dates=Object.keys(grp).sort().reverse();el.innerHTML=dates.map(d=>{const rs=grp[d],abn=rs.filter(r=>r.abnormal).length;return`<div style="margin-bottom:10px"><div class="row-b" style="margin-bottom:6px"><strong style="font-size:13px">${fD(d)}</strong><span class="muted">${rs.length}项 ${abn?'· <span style="color:#e8740c">'+abn+'需关注</span>':''}</span></div>${rs.map(r=>{const priceLabel=r.cpPrice!=null?'¥'+r.cpPrice:'-';return`<div class="insp-row"><div class="cell">${esc(r.platform)} ${esc(r.product)}</div><div class="cell ${r.priceDiff!=null&&r.priceDiff<0?'err':''}">${priceLabel}</div><div class="cell ${r.status==='满房'||r.status==='关房'?'err':r.status==='紧张'?'warn':'ok'}">${esc(r.status)}</div><div class="cell ${r.activity!=='无活动'?'err':''}">${esc(r.activity)}</div></div>`;}).join('')}</div>`;}).join('');}}
+
+/* ===== 竞圈价格趋势 ===== */
+
+function getWeeklyPriceData(){
+  var records=DB.get('insp_records',[]);
+  var today=ts();
+  // 最近7天
+  var days=[];
+  for(var i=6;i>=0;i--){
+    var d=new Date();d.setDate(d.getDate()-i);
+    days.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'));
+  }
+  // 按平台+日期聚合价格（取当日最新记录）
+  var platforms={};
+  days.forEach(function(day){
+    var dayRecords=records.filter(function(r){return r.date===day;});
+    dayRecords.forEach(function(r){
+      if(!platforms[r.platform])platforms[r.platform]={};
+      // 取当天该平台最后一条记录的价格
+      platforms[r.platform][day]=r.cpPrice||r.myPrice||0;
+    });
+  });
+  return {days:days,platforms:platforms};
+}
+
+function renderPriceTrend(){
+  var data=getWeeklyPriceData();
+  var days=data.days;
+  var platforms=data.platforms;
+  var platformNames=Object.keys(platforms);
+
+  // 渲染Canvas折线图
+  var canvas=$('#price-trend-chart');
+  if(!canvas)return;
+  var wrap=$('#price-trend-chart-wrap');
+  var w=wrap.clientWidth||300;
+  var h=160;
+  canvas.width=w*2;canvas.height=h*2;
+  canvas.style.width=w+'px';canvas.style.height=h+'px';
+  var ctx=canvas.getContext('2d');
+  ctx.scale(2,2);
+
+  if(!platformNames.length){
+    ctx.fillStyle='#8a909c';ctx.font='12px -apple-system,sans-serif';ctx.textAlign='center';
+    ctx.fillText('暂无巡检数据，先添加竞圈核对记录吧',w/2,h/2);
+    renderPriceTable(days,platforms,platformNames);
+    return;
+  }
+
+  // 计算价格范围
+  var allPrices=[];
+  platformNames.forEach(function(p){
+    days.forEach(function(d){if(platforms[p][d])allPrices.push(platforms[p][d]);});
+  });
+  if(!allPrices.length){renderPriceTable(days,platforms,platformNames);return;}
+  var minP=Math.min.apply(null,allPrices);
+  var maxP=Math.max.apply(null,allPrices);
+  var range=maxP-minP||50;
+  minP=Math.max(0,minP-range*0.15);
+  maxP=maxP+range*0.15;
+  range=maxP-minP;
+
+  var padL=40,padR=16,padT=10,padB=24;
+  var plotW=w-padL-padR;
+  var plotH=h-padT-padB;
+
+  // 背景网格
+  ctx.strokeStyle='#eef0f3';ctx.lineWidth=0.5;
+  for(var i=0;i<=4;i++){
+    var gy=padT+plotH*i/4;
+    ctx.beginPath();ctx.moveTo(padL,gy);ctx.lineTo(w-padR,gy);ctx.stroke();
+    // Y轴标签
+    var val=Math.round(maxP-(range*i/4));
+    ctx.fillStyle='#8a909c';ctx.font='9px -apple-system,sans-serif';ctx.textAlign='right';
+    ctx.fillText('¥'+val,padL-4,gy+3);
+  }
+  // X轴日期标签
+  days.forEach(function(d,i){
+    var gx=padL+plotW*i/(days.length-1||1);
+    var label=d.slice(5);
+    ctx.fillStyle='#8a909c';ctx.font='9px -apple-system,sans-serif';ctx.textAlign='center';
+    ctx.fillText(label,gx,h-4);
+  });
+
+  // 绘制折线
+  var colors=['#4096FF','#ff9800','#FFB800','#36D399','#7c4dff','#e91e63','#00bcd4'];
+  platformNames.forEach(function(p,pi){
+    var color=colors[pi%colors.length];
+    var points=[];
+    var prevPrice=null;
+    days.forEach(function(d,i){
+      var price=platforms[p][d];
+      if(price){
+        var px=padL+plotW*i/(days.length-1||1);
+        var py=padT+plotH*(1-(price-minP)/range);
+        points.push({x:px,y:py,price:price});
+        // 检查价格骤变（日变化>15%）
+        if(prevPrice&&Math.abs(price-prevPrice)/prevPrice>0.15){
+          ctx.fillStyle='#e74c3c';ctx.beginPath();ctx.arc(px,py,5,0,Math.PI*2);ctx.fill();
+          ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);ctx.fill();
+        }
+        prevPrice=price;
+      }
+    });
+    // 连线
+    if(points.length>1){
+      ctx.strokeStyle=color;ctx.lineWidth=2;ctx.lineJoin='round';
+      ctx.beginPath();
+      points.forEach(function(pt,i){if(i===0)ctx.moveTo(pt.x,pt.y);else ctx.lineTo(pt.x,pt.y);});
+      ctx.stroke();
+      // 数据点
+      points.forEach(function(pt){
+        ctx.fillStyle=color;ctx.beginPath();ctx.arc(pt.x,pt.y,3,0,Math.PI*2);ctx.fill();
+      });
+    }
+  });
+
+  // 图例
+  var lx=padL;
+  platformNames.forEach(function(p,pi){
+    ctx.fillStyle=colors[pi%colors.length];
+    ctx.fillRect(lx,padT-8,10,10);
+    ctx.fillStyle='#5b626e';ctx.font='10px -apple-system,sans-serif';ctx.textAlign='left';
+    ctx.fillText(p,lx+13,padT+1);
+    lx+=ctx.measureText(p).width+30;
+  });
+
+  // 渲染表格
+  renderPriceTable(days,platforms,platformNames);
+}
+
+function renderPriceTable(days,platforms,platformNames){
+  if(!platformNames.length){
+    $('#price-trend-table').innerHTML='';
+    return;
+  }
+  var h='<table class="price-trend-table"><thead><tr><th>平台</th>';
+  days.forEach(function(d){h+='<th>'+d.slice(5)+'</th>';});
+  h+='</tr></thead><tbody>';
+  platformNames.forEach(function(p){
+    h+='<tr><td class="platform">'+esc(p)+'</td>';
+    var prev=null;
+    days.forEach(function(d){
+      var price=platforms[p][d];
+      if(price){
+        var cls='';
+        if(prev&&price>prev*1.15)cls=' alert-cell';
+        else if(prev&&price>prev)cls=' price-up';
+        else if(prev&&price<prev)cls=' price-down';
+        else cls=' price-flat';
+        h+='<td class="'+cls+'">¥'+price+'</td>';
+        prev=price;
+      }else{
+        h+='<td style="color:#d6dae0">-</td>';
+      }
+    });
+    h+='</tr>';
+  });
+  h+='</tbody></table>';
+  $('#price-trend-table').innerHTML=h;
+}
 
 /* ===== OTA智能调价模块 ===== */
 function getTPConfig(){
@@ -1512,6 +1716,130 @@ function rAccount(){
   renderAccountHistory();
 }
 
+/* ===== 节假日营销日历 ===== */
+
+var calYear, calMonth;
+
+// 节假日/营销节点数据 (YYYY-MM-DD)
+var MARKETING_CALENDAR = {
+  '2026-01-01':{label:'元旦',type:'holiday',color:'red',desc:'新年特惠活动，连住优惠'},
+  '2026-01-28':{label:'除夕',type:'holiday',color:'red',desc:'年夜饭套餐+住宿捆绑'},
+  '2026-01-29':{label:'春节',type:'holiday',color:'red',desc:'春节黄金周！提前调价+满房策略'},
+  '2026-01-30':{label:'春节',type:'holiday',color:'red',desc:'春节黄金周第2天'},
+  '2026-01-31':{label:'春节',type:'holiday',color:'red',desc:'春节黄金周第3天'},
+  '2026-02-01':{label:'春节',type:'holiday',color:'red',desc:'春节黄金周第4天'},
+  '2026-02-02':{label:'春节',type:'holiday',color:'red',desc:'春节黄金周第5天'},
+  '2026-02-14':{label:'情人节',type:'promo',color:'orange',desc:'情侣套餐、浪漫布置、玫瑰花'},
+  '2026-04-04':{label:'清明节',type:'holiday',color:'red',desc:'小长假出行，周边游套餐'},
+  '2026-05-01':{label:'劳动节',type:'holiday',color:'red',desc:'五一小长假！提前调价'},
+  '2026-05-31':{label:'端午节',type:'holiday',color:'red',desc:'端午小长假，粽子礼盒'},
+  '2026-06-18':{label:'618',type:'promo',color:'orange',desc:'电商大促，OTA同步做活动'},
+  '2026-07-01':{label:'暑假',type:'season',color:'blue',desc:'暑期旺季开始，亲子房+涨价'},
+  '2026-07-15':{label:'入伏',type:'season',color:'blue',desc:'避暑需求增加，推消暑套餐'},
+  '2026-08-07':{label:'立秋',type:'season',color:'blue',desc:'暑期收尾，开始准备秋季营销'},
+  '2026-08-29':{label:'七夕',type:'promo',color:'orange',desc:'中式情人节，情侣套餐'},
+  '2026-09-01':{label:'开学季',type:'season',color:'blue',desc:'暑期结束，调整回平日价'},
+  '2026-09-25':{label:'中秋节',type:'holiday',color:'red',desc:'中秋+国庆黄金周前奏'},
+  '2026-10-01':{label:'国庆节',type:'holiday',color:'red',desc:'国庆黄金周！最高价策略'},
+  '2026-10-02':{label:'国庆节',type:'holiday',color:'red',desc:'国庆黄金周第2天'},
+  '2026-10-03':{label:'国庆节',type:'holiday',color:'red',desc:'国庆黄金周第3天'},
+  '2026-10-04':{label:'国庆节',type:'holiday',color:'red',desc:'国庆黄金周第4天'},
+  '2026-10-05':{label:'国庆节',type:'holiday',color:'red',desc:'国庆黄金周第5天'},
+  '2026-11-11':{label:'双11',type:'promo',color:'orange',desc:'预售囤货，提前锁定远期订单'},
+  '2026-12-12':{label:'双12',type:'promo',color:'orange',desc:'年末大促，清库存冲业绩'},
+  '2026-12-24':{label:'平安夜',type:'promo',color:'orange',desc:'圣诞套餐，浪漫主题房'},
+  '2026-12-25':{label:'圣诞节',type:'promo',color:'orange',desc:'圣诞主题活动'},
+  '2026-12-31':{label:'跨年夜',type:'promo',color:'orange',desc:'跨年套餐，倒计时派对'},
+  '2027-01-01':{label:'元旦',type:'holiday',color:'red',desc:'新年第一波，开门红活动'},
+  '2027-01-27':{label:'除夕',type:'holiday',color:'red',desc:'年夜饭+住宿'},
+  '2027-01-28':{label:'春节',type:'holiday',color:'red',desc:'春节黄金周'},
+  '2027-02-14':{label:'情人节',type:'promo',color:'orange',desc:'情侣套餐'},
+  '2027-04-05':{label:'清明节',type:'holiday',color:'red',desc:'小长假'},
+  '2027-05-01':{label:'劳动节',type:'holiday',color:'red',desc:'五一黄金周'},
+  '2027-06-09':{label:'端午节',type:'holiday',color:'red',desc:'端午小长假'},
+};
+
+function getCalNode(dateStr){
+  return MARKETING_CALENDAR[dateStr]||null;
+}
+
+function getNextNode(){
+  var today=ts();
+  var dates=Object.keys(MARKETING_CALENDAR).sort();
+  for(var i=0;i<dates.length;i++){
+    if(dates[i]>=today)return {date:dates[i],node:MARKETING_CALENDAR[dates[i]]};
+  }
+  return null;
+}
+
+function renderCalendar(ym){
+  // ym format: "2026-07"
+  var parts=ym.split('-');
+  calYear=parseInt(parts[0]);calMonth=parseInt(parts[1]);
+  $('#cal-month-title').textContent=calYear+'年'+calMonth+'月';
+  var firstDay=new Date(calYear,calMonth-1,1).getDay();
+  var daysInMonth=new Date(calYear,calMonth,0).getDate();
+  var today=ts();
+
+  var h='';
+  // Empty cells before first day
+  for(var i=0;i<firstDay;i++){h+='<div class="cal-cell other-month"></div>';}
+  // Day cells
+  for(var d=1;d<=daysInMonth;d++){
+    var ds=calYear+'-'+String(calMonth).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    var isToday=ds===today;
+    var node=getCalNode(ds);
+    var cls='cal-cell'+(isToday?' today':'');
+    h+='<div class="'+cls+'" onclick="showCalTip(event,\''+ds+'\')">';
+    h+='<span>'+d+'</span>';
+    if(node){
+      var colorCls='cal-node-'+node.color;
+      h+='<span class="cal-node-label '+colorCls+'">'+node.label+'</span>';
+    }
+    h+='</div>';
+  }
+  $('#cal-grid').innerHTML=h;
+
+  // 更新最近节点
+  var next=getNextNode();
+  if(next){
+    var diff=Math.ceil((new Date(next.date)-new Date())/86400000);
+    $('#cal-next-node').textContent=diff+'天后：'+next.node.label;
+  }else{
+    $('#cal-next-node').textContent='';
+  }
+}
+
+function showCalTip(e,ds){
+  var node=getCalNode(ds);
+  if(!node)return;
+  // 简单的弹窗
+  var tip=document.getElementById('cal-tip-popup');
+  if(!tip){
+    tip=document.createElement('div');
+    tip.id='cal-tip-popup';
+    tip.className='cal-tip';
+    document.body.appendChild(tip);
+  }
+  var typeMap={holiday:'🔴 法定假日',promo:'🟠 营销节点',season:'🔵 季节节点'};
+  tip.innerHTML='<div class="tip-type">'+node.label+'</div><div class="tip-desc">'+node.desc+'</div><div class="tip-actions">💡 '+typeMap[node.type]+' · 提前规划营销活动</div>';
+  tip.style.display='block';
+  // 定位
+  var rect=e.target.getBoundingClientRect();
+  tip.style.left=Math.min(rect.left,window.innerWidth-270)+'px';
+  tip.style.top=(rect.bottom+6)+'px';
+  setTimeout(function(){tip.style.display='none';},3000);
+}
+
+function calPrevMonth(){
+  calMonth--;if(calMonth<1){calMonth=12;calYear--;}
+  renderCalendar(calYear+'-'+String(calMonth).padStart(2,'0'));
+}
+function calNextMonth(){
+  calMonth++;if(calMonth>12){calMonth=1;calYear++;}
+  renderCalendar(calYear+'-'+String(calMonth).padStart(2,'0'));
+}
+
 /* ===== 首页聚合 ===== */
 function rHome(){const now=new Date(),h=now.getHours();
 const greet=h<6?'夜班辛苦了':h<11?'早安，开始一天的工作':h<13?'午安，记得吃饭':h<18?'下午好，继续保持':h<22?'晚上好，收尾阶段':'夜深了，注意休息';
@@ -1561,6 +1889,9 @@ const nearOverdue=getNearTodos().filter(d=>!d.done&&d.due&&dB(ts(),d.due)<0);
 if(nearOverdue.length>0)alerts.push('⚠ '+nearOverdue.length+' 项近期任务已逾期');
 if(inspAbn>0)alerts.push('🔍 今日OTA竞圈发现 '+inspAbn+' 条需关注项');
 if(alerts.length){$('#home-alert-card').style.display='block';$('#home-alerts').innerHTML=alerts.map(a=>`<div class="alert">${a}</div>`).join('');}else{$('#home-alert-card').style.display='none';}
+// 渲染营销日历
+var ym=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+renderCalendar(ym);
 }
 
 /* ===== 通知调度（使用 Notification API + setInterval 检查） ===== */
