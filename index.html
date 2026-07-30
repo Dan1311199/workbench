@@ -328,6 +328,14 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 .monthly-plan .day-item .day-label{color:var(--tx3);min-width:36px;font-size:11px;}
 .monthly-plan .day-item .day-content{flex:1;}
 
+/* 智能提醒 */
+.reminder-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:13px;}
+.reminder-item:last-child{border-bottom:none;}
+.reminder-item .rem-icon{font-size:18px;flex-shrink:0;width:28px;text-align:center;}
+.reminder-item .rem-date{font-size:11px;color:var(--tx3);min-width:50px;}
+.reminder-item .rem-text{flex:1;line-height:1.4;}
+.reminder-item .rem-close{color:var(--tx3);cursor:pointer;font-size:16px;padding:2px 6px;}
+
 ::-webkit-scrollbar{width:0;height:0;}
 </style>
 </head>
@@ -377,6 +385,17 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="card"><div class="card-title">📋 下月规划 <span class="more" onclick="copyMonthlyPlan()">📋 一键复制</span></div>
 <div class="monthly-plan" id="monthly-plan"></div>
 </div>
+
+<div class="card"><div class="card-title">🔔 智能提醒 <span class="more" id="reminder-refresh" style="cursor:pointer" onclick="renderReminders()">刷新</span></div>
+<div id="reminder-list"></div>
+</div>
+
+<div class="card"><div class="card-title">快捷入口</div><div class="quick-grid">
+<div class="quick-item" onclick="switchTab('todo');openDailyAdd()"><svg viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><div class="t">新增待办</div></div>
+<div class="quick-item" onclick="switchTab('video')"><svg viewBox="0 0 24 24" fill="none" stroke="#36D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="t">写脚本</div></div>
+<div class="quick-item" onclick="switchTab('inspect')"><svg viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><div class="t">OTA巡检</div></div>
+<div class="quick-item" onclick="switchTab('ops')"><svg viewBox="0 0 24 24" fill="none" stroke="#36D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="t">智能调价</div></div>
+</div></div>
 
 <div class="card" id="home-alert-card" style="display:none"><div class="card-title">⚠ 需要关注</div><div id="home-alerts"></div></div>
 </section>
@@ -2111,6 +2130,8 @@ renderCalendar(ym);
 renderWeeklyReport();
 // 渲染月度规划
 renderMonthlyPlan();
+// 渲染智能提醒
+renderReminders();
 }
 
 /* ===== 周报生成 ===== */
@@ -2343,6 +2364,86 @@ function initNotifSchedules(){
   scheduleNotify('08:00','今日选题已更新，查看热门选题推荐');
   // 每日代办检查（9点）
   scheduleNotify('09:00','今日代办任务待处理');
+  // 发布提醒（18:00）
+  scheduleNotify('18:00','📹 黄金发布时段到了！今天脚本写好了吗？');
+  // 记账提醒（21:00）
+  scheduleNotify('21:00','💰 今天开销记了吗？别忘了记账哦');
+  // 周报提醒（周六10:00）
+  var now=new Date();
+  if(now.getDay()===6)scheduleNotify('10:00','📝 今天是周六，该写本周周报了！');
+  // 月度规划提醒（每月25号）
+  if(now.getDate()===25)scheduleNotify('10:00','📋 月底了，该做下月营销规划了！');
+  // 节日提醒（3天前+1天前）
+  var today=ts();
+  var dates=Object.keys(MARKETING_CALENDAR).sort();
+  for(var i=0;i<dates.length;i++){
+    if(dates[i]>today){
+      var diff=Math.ceil((new Date(dates[i])-new Date())/86400000);
+      var node=MARKETING_CALENDAR[dates[i]];
+      if(diff===3)scheduleNotify('10:00','🎉 3天后是'+node.label+'，该准备节日脚本了！');
+      if(diff===1)scheduleNotify('09:00','🎉 明天就是'+node.label+'了！检查脚本和活动准备好了吗？');
+      break; // 只处理最近的下一个节点
+    }
+  }
+}
+
+/* ===== 智能提醒卡片 ===== */
+
+function generateReminders(){
+  var now=new Date();
+  var today=ts();
+  var reminders=[];
+  var day=now.getDay();
+
+  // 节日提醒（未来7天内的节点）
+  var dates=Object.keys(MARKETING_CALENDAR).sort();
+  for(var i=0;i<dates.length;i++){
+    if(dates[i]>=today){
+      var diff=Math.ceil((new Date(dates[i])-now)/86400000);
+      if(diff<=7){
+        var node=MARKETING_CALENDAR[dates[i]];
+        var icon=node.type==='holiday'?'🎉':node.type==='promo'?'🛍️':'🌸';
+        reminders.push({icon:icon,date:dates[i],text:diff===0?'今天 '+node.label+'！':diff+'天后 '+node.label+' — '+node.desc,type:node.type});
+      }
+      if(diff>7)break;
+    }
+  }
+
+  // 发布提醒
+  var hour=now.getHours();
+  if(hour<18)reminders.push({icon:'📹',date:today,text:'今天 18:00 黄金发布时段，记得发视频',type:'daily'});
+
+  // 周报提醒（周五/周六）
+  if(day===5||day===6)reminders.push({icon:'📝',date:day===5?(function(){var d=new Date();d.setDate(d.getDate()+1);return d.toISOString().slice(0,10);})():today,text:day===5?'明天该写本周周报了':'今天该写周报了，打开首页查看',type:'weekly'});
+
+  // 规划提醒（每月23-25号）
+  var dt=now.getDate();
+  if(dt>=23&&dt<=25)reminders.push({icon:'📋',date:today,text:'月底了，记得做下月营销规划',type:'monthly'});
+
+  // 记账提醒（21点后）
+  if(hour>=21)reminders.push({icon:'💰',date:today,text:'今天开销记了吗？去记账页看看',type:'daily'});
+
+  // 待办提醒
+  var dailyTodos=getDailyTodos();
+  var undone=dailyTodos.filter(function(d){return !d.done;}).length;
+  if(undone>0)reminders.push({icon:'✅',date:today,text:'还有 '+undone+' 项待办没完成，加油！',type:'daily'});
+
+  return reminders;
+}
+
+function renderReminders(){
+  var reminders=generateReminders();
+  var el=$('#reminder-list');
+  if(!reminders.length){el.innerHTML='<div class="empty">暂无提醒，一切顺利 🎉</div>';return;}
+  el.innerHTML=reminders.map(function(r,i){
+    return '<div class="reminder-item"><span class="rem-icon">'+r.icon+'</span><span class="rem-date">'+r.date.slice(5)+'</span><span class="rem-text">'+esc(r.text)+'</span><span class="rem-close" onclick="dismissReminder('+i+')">×</span></div>';
+  }).join('');
+  window._reminders=reminders;
+}
+
+function dismissReminder(idx){
+  if(window._reminders)window._reminders.splice(idx,1);
+  renderReminders();
 }
 
 // 每小时重新调度
