@@ -313,6 +313,21 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 .price-trend-table .price-flat{color:var(--tx3);}
 .price-trend-table .alert-cell{background:#fff0f0;border-radius:4px;font-weight:600;color:#e74c3c;}
 
+/* 周报 */
+.weekly-report{font-size:13px;line-height:1.8;color:var(--txt);}
+.weekly-report h4{font-size:14px;margin:12px 0 6px;color:var(--p);}
+.weekly-report table{width:100%;border-collapse:collapse;margin:6px 0;font-size:12px;}
+.weekly-report td{padding:5px 8px;border-bottom:1px solid var(--bd);}
+.weekly-report td:first-child{color:var(--tx2);width:40%;}
+.weekly-report td:last-child{font-weight:500;}
+
+/* 月度规划 */
+.monthly-plan .week-block{background:#f8fafc;border-radius:10px;padding:12px;margin-bottom:8px;border-left:3px solid var(--p);}
+.monthly-plan .week-title{font-weight:600;font-size:13px;margin-bottom:6px;}
+.monthly-plan .day-item{font-size:12px;padding:4px 0;display:flex;align-items:center;gap:6px;}
+.monthly-plan .day-item .day-label{color:var(--tx3);min-width:36px;font-size:11px;}
+.monthly-plan .day-item .day-content{flex:1;}
+
 ::-webkit-scrollbar{width:0;height:0;}
 </style>
 </head>
@@ -355,6 +370,14 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="cal-grid" id="cal-grid"></div>
 </div>
 
+<div class="card"><div class="card-title">📝 本周周报 <span class="more" onclick="copyWeeklyReport()">📋 一键复制</span></div>
+<div class="weekly-report" id="weekly-report"></div>
+</div>
+
+<div class="card"><div class="card-title">📋 下月规划 <span class="more" onclick="copyMonthlyPlan()">📋 一键复制</span></div>
+<div class="monthly-plan" id="monthly-plan"></div>
+</div>
+
 <div class="card" id="home-alert-card" style="display:none"><div class="card-title">⚠ 需要关注</div><div id="home-alerts"></div></div>
 </section>
 
@@ -377,6 +400,19 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="page-header"><h1>短视频创作</h1><div class="sub">每日选题推荐 · 脚本编辑 · 热点追踪 · 爆款灵感</div></div>
 
 <div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>今日选题推荐 <span class="more" onclick="refreshTopics()">刷新选题</span></div><div id="topic-list"></div></div>
+
+<!-- 选题创作助手 -->
+<div class="card" id="topic-chat-card">
+<div class="card-title" style="justify-content:space-between"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e91e63" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 💬 选题创作助手</span><span class="more" onclick="clearTopicChat()" id="topic-chat-clear" style="display:none">清空</span></div>
+<div class="chat-panel">
+<div class="chat-messages" id="topic-chat-messages"></div>
+<div class="chat-quick-chips" id="topic-quick-chips"></div>
+<div class="chat-input-area">
+<input type="text" id="topic-chat-input" placeholder="如：帮我推荐3个特价爆款选题..." onkeydown="if(event.key==='Enter')sendTopicMessage()">
+<button class="send-btn" onclick="sendTopicMessage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+</div>
+</div>
+</div>
 
 <div class="card"><div class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4096FF" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>今日脚本 <span class="more" id="script-date-label"></span></div>
 <div class="script-tpl" id="script-templates"></div>
@@ -752,7 +788,7 @@ function rTodo(){if(todoSub==='daily'){renderDailyList();renderWeekStat();}else 
 const SCRIPT_TPL=[{name:'特价爆款',blocks:['【开场hook】价格反差+大字','【产品展示】近景特写+卖点字幕','【价格对比】原价划线→现价放大','【促销信息】限时/限购/活动','【引导关注】关注领券+定位']},{name:'生鲜实拍',blocks:['【清晨场景】上货/整理过程','【新鲜特写】水滴/色泽/手感','【价格播报】口语化报价','【做法建议】一句话烹饪','【门店引导】今日到货+地址']},{name:'囤货攻略',blocks:['【痛点引入】涨价/断货话题','【清单展示】3-5款囤货品','【单价对比】算账式说明','【保存技巧】一句话储存','【行动号召】周末来囤']},{name:'顾客反馈',blocks:['【真实采访】顾客拿起商品','【使用感受】口语化评价','【价格惊喜】反应特写','【复购证明】多次购买','【引导】同款链接/门店']},{name:'节日营销',blocks:['【节日氛围】场景布置','【主推商品】礼盒/套装','【优惠组合】满减/赠品','【限时强调】倒计时','【到店引导】活动期+地址']}];
 let curScriptDate=ts();
 
-function rVideo(){$('#script-date-label').textContent=fD(curScriptDate);$('#script-templates').innerHTML=SCRIPT_TPL.map((t,i)=>`<span class="tpl-chip" onclick="applyTpl(${i})">${t.name}</span>`).join('');renderScriptContent();renderTopicList();renderHotList();renderInspoList();renderScriptHistory();}
+function rVideo(){$('#script-date-label').textContent=fD(curScriptDate);$('#script-templates').innerHTML=SCRIPT_TPL.map((t,i)=>`<span class="tpl-chip" onclick="applyTpl(${i})">${t.name}</span>`).join('');renderScriptContent();renderTopicList();renderHotList();renderInspoList();renderScriptHistory();renderTopicChatHistory();renderTopicQuickChips();}
 function applyTpl(i){const tpl=SCRIPT_TPL[i];let scripts=DB.get('scripts',{});scripts[curScriptDate]={template:tpl.name,blocks:tpl.blocks.map(l=>({label:l,content:''})),savedAt:Date.now()};DB.set('scripts',scripts);renderScriptContent();st('已套用「'+tpl.name+'」模板');}
 function renderScriptContent(){let scripts=DB.get('scripts',{});const s=scripts[curScriptDate];const el=$('#script-content');if(!s||!s.blocks||!s.blocks.length){el.innerHTML='<div class="empty">点击上方模板或选题快速开始</div>';return;}el.innerHTML=s.blocks.map((b,i)=>`<div class="script-block"><div class="lbl">${esc(b.label)}</div><textarea class="textarea" rows="2" placeholder="输入内容..." onchange="updSB(${i},this.value)">${esc(b.content)}</textarea></div>`).join('');}
 function updSB(i,val){let scripts=DB.get('scripts',{});let s=scripts[curScriptDate];if(s&&s.blocks[i])s.blocks[i].content=val;DB.set('scripts',scripts);}
@@ -835,6 +871,185 @@ function openInspoModal(){om(`<div class="modal-head"><h3>收藏爆款灵感</h3
 function addInspo(){const title=$('#is-title').value.trim();if(!title){st('请输入标题');return;}const logic=$('#is-logic').value.trim(),data=$('#is-data').value.trim();const inspo=DB.get('inspos',[]);inspo.unshift({id:uid(),type:'manual',title,logic,data,date:ts(),created:Date.now()});DB.set('inspos',inspo);cm();st('已收藏');rVideo();}
 function delInspo(id){let inspo=DB.get('inspos',[]);inspo=inspo.filter(x=>x.id!==id);DB.set('inspos',inspo);rVideo();}
 function renderInspoList(){const inspo=DB.get('inspos',[]);const el=$('#inspo-list');if(!inspo.length){el.innerHTML='<div class="empty">暂无收藏，点击右上角添加</div>';return;}el.innerHTML=inspo.map(x=>`<div class="inspo-card"><div class="head">${x.type==='topic'?'📌 选题收藏':'⭐ 爆款灵感'} ${esc(x.title||x.data?.title||'')}</div><div class="logic">💡 爆款逻辑：${esc(x.logic||x.data?.logic||'')}</div>${x.data?`<div class="logic" style="margin-top:4px;color:var(--tx3)">📊 ${esc(x.data)}</div>`:''}<div class="row-b mt8"><span class="muted">${fD(x.date)}</span><button class="btn btn-ghost btn-xs" onclick="delInspo('${x.id}')">删除</button></div></div>`).join('');}
+
+/* ===== 选题创作助手 ===== */
+
+function getTopicChatHistory(){return DB.get('topic_chat',[]);}
+function saveTopicChatHistory(msgs){DB.set('topic_chat',msgs.slice(-40));}
+function clearTopicChat(){DB.set('topic_chat',[]);renderTopicChatHistory();$('#topic-chat-clear').style.display='none';st('对话已清空');}
+
+function renderTopicQuickChips(){
+  var chips=[
+    {label:'🔥 推荐选题',text:'帮我推荐3个这周的热门选题'},
+    {label:'✏️ 改写脚本',text:'帮我把特价爆款脚本改成15秒快节奏版'},
+    {label:'📅 排期建议',text:'帮我规划下周5条视频的选题组合'},
+    {label:'🎯 热点方向',text:'最近同城超市什么话题容易火？'},
+    {label:'🛒 新品上架',text:'新品到货了，给我几个拍摄角度'},
+    {label:'🎉 节日营销',text:'下个节日快到了，给我5个选题方向'},
+  ];
+  $('#topic-quick-chips').innerHTML=chips.map(function(c){
+    return '<span class="chat-quick-chip" onclick="$(\'#topic-chat-input\').value=\''+esc(c.text)+'\';$(\'#topic-chat-input\').focus()">'+c.label+'</span>';
+  }).join('');
+}
+
+function parseTopicInput(text){
+  var parsed={text:text,intent:'recommend'};
+  if(/推荐|选题|方向|角度/.test(text))parsed.intent='recommend';
+  if(/改写|缩短|扩展|修改|改成/.test(text))parsed.intent='rewrite';
+  if(/排期|规划|下周|组合/.test(text))parsed.intent='schedule';
+  if(/热点|话题|火|趋势/.test(text))parsed.intent='trend';
+  if(/节日|中秋|国庆|春节|端午|圣诞|情人节|七夕/.test(text))parsed.intent='holiday';
+  if(/新品|上架|到货|新到/.test(text))parsed.intent='newProduct';
+  // 提取数量
+  var m=text.match(/(\d+)[条个]/);if(m)parsed.count=parseInt(m[1]);
+  // 提取类型
+  if(/特价/.test(text))parsed.cat='特价爆款';
+  if(/生鲜/.test(text))parsed.cat='生鲜实拍';
+  if(/囤货/.test(text))parsed.cat='囤货攻略';
+  if(/顾客|反馈/.test(text))parsed.cat='顾客反馈';
+  if(/节日/.test(text))parsed.cat='节日营销';
+  return parsed;
+}
+
+function generateTopicAdvice(parsed){
+  var h='';
+  var cats=['特价爆款','生鲜实拍','囤货攻略','顾客反馈','节日营销'];
+  var pool=TOPIC_POOL;
+
+  if(parsed.intent==='recommend'){
+    var cat=parsed.cat||cats[Math.floor(Math.random()*cats.length)];
+    var count=parsed.count||3;
+    h+='<div style="font-weight:600;font-size:12px;margin-bottom:6px">🎯 '+cat+' · 推荐'+count+'个选题</div>';
+    var items=pool[cat]||pool['特价爆款'];
+    var picked=[];
+    for(var i=0;i<Math.min(count,items.length);i++)picked.push(items[i]);
+    picked.forEach(function(t,idx){
+      h+='<div style="background:#f8fafc;border-radius:8px;padding:8px;margin-bottom:6px">';
+      h+='<div style="font-weight:500;font-size:12px">'+(idx+1)+'. '+esc(t.title)+'</div>';
+      h+='<div style="font-size:11px;color:var(--tx3);margin-top:3px">📷 '+esc(t.shoot||'').substring(0,50)+'...</div>';
+      h+='<button class="action-btn-inline primary" onclick="topicToScriptFromPool(\''+cat+'\','+idx+')" style="margin-top:4px;font-size:10px">📝 导入脚本</button>';
+      h+='</div>';
+    });
+  }else if(parsed.intent==='schedule'){
+    h+='<div style="font-weight:600;font-size:12px;margin-bottom:6px">📅 下周选题排期建议</div>';
+    var weekdays=['周一','周二','周三','周四','周五'];
+    cats.forEach(function(c,i){
+      var items=pool[c]||[];
+      var t=items[i%items.length];
+      h+='<div style="padding:6px 0;border-bottom:1px solid var(--bd);font-size:12px">';
+      h+='<span style="font-weight:500;color:var(--p);margin-right:8px">'+weekdays[i]+'</span>';
+      h+=c+' — '+esc(t?t.title.substring(0,20):'待选题')+'...</div>';
+    });
+  }else if(parsed.intent==='trend'){
+    h+='<div style="font-weight:600;font-size:12px;margin-bottom:6px">🔥 同城超市热门话题方向</div>';
+    h+='<div style="font-size:12px;line-height:1.8">';
+    h+='1. <b>价格战话题</b> — "超市价格比菜市场还便宜"系列持续火爆<br>';
+    h+='2. <b>沉浸式逛超市</b> — 第一视角+ASMR，完播率极高<br>';
+    h+='3. <b>超市员工日常</b> — 理货/补货/盘点幕后花絮<br>';
+    h+='4. <b>挑战类</b> — "50元能买多少东西"互动率TOP<br>';
+    h+='5. <b>省钱攻略</b> — 晚市折扣/团购叠加/会员日攻略<br>';
+    h+='</div>';
+    h+='<div style="margin-top:6px;font-size:11px;color:var(--tx3)">💡 建议选1-2个方向做系列内容，连续发3-5条建立标签</div>';
+  }else if(parsed.intent==='holiday'){
+    h+='<div style="font-weight:600;font-size:12px;margin-bottom:6px">🎉 节日营销选题方向</div>';
+    h+='<div style="font-size:12px;line-height:1.8">';
+    h+='1. <b>节前囤货清单</b> — 提前1周发布，引导提前采购<br>';
+    h+='2. <b>节日礼盒开箱</b> — 主推礼盒/套装，突出性价比<br>';
+    h+='3. <b>节日氛围实拍</b> — 超市节日装饰+促销堆头<br>';
+    h+='4. <b>限时特价预告</b> — 制造紧迫感，引导到店<br>';
+    h+='5. <b>顾客采访</b> — "过节买什么"街访互动<br>';
+    h+='</div>';
+  }else if(parsed.intent==='newProduct'){
+    h+='<div style="font-weight:600;font-size:12px;margin-bottom:6px">🛒 新品上架拍摄建议</div>';
+    h+='<div style="font-size:12px;line-height:1.8">';
+    h+='1. <b>开箱第一视角</b> — 拆包装→摆上货架全过程<br>';
+    h+='2. <b>价格对比</b> — 新品vs同类竞品价格/品质PK<br>';
+    h+='3. <b>员工内测</b> — 让店员先试吃/试用给评价<br>';
+    h+='4. <b>限时尝鲜价</b> — 首周特价引流，制造话题<br>';
+    h+='</div>';
+  }else{
+    h+='<div style="font-weight:600;font-size:12px;margin-bottom:6px">✏️ 脚本改写建议</div>';
+    h+='<div style="font-size:12px;line-height:1.8">';
+    h+='• <b>缩短版(15s)</b>：只保留hook+价格对比+引导<br>';
+    h+='• <b>详细版(60s)</b>：加入顾客反应+使用场景+促销信息<br>';
+    h+='• <b>快节奏版</b>：卡点BGM+大字标题+快速切换<br>';
+    h+='</div>';
+  }
+  return h;
+}
+
+function sendTopicMessage(){
+  var inp=$('#topic-chat-input');
+  var text=inp.value.trim();
+  if(!text)return;
+  var msgs=getTopicChatHistory();
+  msgs.push({role:'user',content:text,time:Date.now()});
+  saveTopicChatHistory(msgs);
+  inp.value='';
+  renderTopicChatHistory();
+
+  // 模拟打字
+  var msgContainer=$('#topic-chat-messages');
+  var typingEl=document.createElement('div');
+  typingEl.className='chat-typing';
+  typingEl.innerHTML='<span></span><span></span><span></span>';
+  typingEl.id='topic-chat-typing';
+  msgContainer.appendChild(typingEl);
+  msgContainer.scrollTop=msgContainer.scrollHeight;
+
+  setTimeout(function(){
+    var te=$('#topic-chat-typing');if(te)te.remove();
+    var parsed=parseTopicInput(text);
+    var replyHTML=generateTopicAdvice(parsed);
+    msgs.push({role:'assistant',content:replyHTML,time:Date.now()});
+    saveTopicChatHistory(msgs);
+    renderTopicChatHistory();
+  },400+Math.random()*300);
+}
+
+function renderTopicChatHistory(){
+  var msgs=getTopicChatHistory();
+  var el=$('#topic-chat-messages');
+  $('#topic-chat-clear').style.display=msgs.length?'inline':'none';
+  if(!msgs.length){
+    el.innerHTML='<div class="chat-empty">💬 我是选题创作助手！告诉我你的需求：<br>• 推荐选题方向<br>• 改写现有脚本<br>• 规划下周排期<br>• 分析热门趋势</div>';
+    return;
+  }
+  var h='';
+  msgs.forEach(function(m){
+    var timeStr=new Date(m.time).toTimeString().slice(0,5);
+    if(m.role==='user'){
+      h+='<div class="chat-msg user"><div>'+esc(m.content)+'</div><div class="msg-time">'+timeStr+'</div></div>';
+    }else{
+      h+='<div class="chat-msg assistant"><div>'+m.content+'</div><div class="msg-time">'+timeStr+'</div></div>';
+    }
+  });
+  el.innerHTML=h;
+  el.scrollTop=el.scrollHeight;
+}
+
+// 从助手推荐直接导入脚本
+function topicToScriptFromPool(cat,idx){
+  var pool=TOPIC_POOL[cat];
+  if(!pool||!pool[idx])return;
+  var t=pool[idx];
+  var scripts=DB.get('scripts',{});
+  var today=ts();
+  var blocks=[];
+  if(t.script&&t.script.length){
+    blocks=t.script.map(function(b){return {label:b[0],content:b[1]};});
+  }else{
+    blocks=[
+      {label:'【标题】',content:t.title},{label:'【备选标题】',content:(t.sub||[]).join('\n')},
+      {label:'【开头钩子】',content:t.hook},{label:'【拍摄思路】',content:t.shoot},
+      {label:'【话题标签】',content:(t.tags||[]).join(' ')},
+    ];
+  }
+  scripts[today]={template:cat+'·'+t.title.substring(0,20),blocks:blocks,savedAt:Date.now()};
+  DB.set('scripts',scripts);
+  st('脚本已导入！在下方今日脚本查看');
+  renderScriptContent();renderScriptHistory();
+}
 
 /* ===== 平台巡检模块 ===== */
 let inspHistV='list';
@@ -1892,6 +2107,202 @@ if(alerts.length){$('#home-alert-card').style.display='block';$('#home-alerts').
 // 渲染营销日历
 var ym=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
 renderCalendar(ym);
+// 渲染周报
+renderWeeklyReport();
+// 渲染月度规划
+renderMonthlyPlan();
+}
+
+/* ===== 周报生成 ===== */
+
+function getWeekRange(){
+  var now=new Date();
+  var day=now.getDay(); // 0=周日
+  // 本周一
+  var mon=new Date(now);mon.setDate(now.getDate()-(day===0?6:day-1));
+  var monStr=mon.getFullYear()+'-'+String(mon.getMonth()+1).padStart(2,'0')+'-'+String(mon.getDate()).padStart(2,'0');
+  // 本周日
+  var sun=new Date(mon);sun.setDate(mon.getDate()+6);
+  var sunStr=sun.getFullYear()+'-'+String(sun.getMonth()+1).padStart(2,'0')+'-'+String(sun.getDate()).padStart(2,'0');
+  // 本周日期数组
+  var days=[];
+  for(var i=0;i<7;i++){
+    var d=new Date(mon);d.setDate(mon.getDate()+i);
+    days.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'));
+  }
+  return {mon:monStr,sun:sunStr,days:days,monDate:mon,sunDate:sun};
+}
+
+function renderWeeklyReport(){
+  var week=getWeekRange();
+  var days=week.days;
+
+  // 本周脚本数
+  var scripts=DB.get('scripts',{});
+  var scriptCount=0;
+  days.forEach(function(d){if(scripts[d])scriptCount++;});
+
+  // 本周选题分类统计
+  var catCount={};
+  days.forEach(function(d){
+    var topics=DB.get('topics_'+d,null);
+    if(topics)topics.forEach(function(t){catCount[t.type]=(catCount[t.type]||0)+1;});
+  });
+
+  // 爆款灵感
+  var inspos=DB.get('inspos',[]);
+  var weekInspos=inspos.filter(function(x){return x.date>=week.mon&&x.date<=week.sun;});
+
+  // 热点
+  var hots=DB.get('hots',[]);
+  var weekHots=hots.filter(function(x){return x.date>=week.mon&&x.date<=week.sun;});
+
+  // 待办完成率
+  var dailyTodos=DB.get('daily_todos',[]);
+  var doneCount=0;
+  days.forEach(function(d){
+    var key='dhist_'+d;
+    var done=DB.get(key,0);
+    if(d===ts())done=dailyTodos.filter(function(x){return x.done;}).length;
+    doneCount+=done;
+  });
+
+  // 本周开销
+  var accounts=getAccounts();
+  var weekSpent=accounts.filter(function(a){return a.date>=week.mon&&a.date<=week.sun;}).reduce(function(s,a){return s+a.amount;},0);
+
+  // 生成HTML
+  var h='';
+  h+='<h4>一、本周数据概览</h4>';
+  h+='<table>';
+  h+='<tr><td>报告周期</td><td>'+week.mon+' ~ '+week.sun+'</td></tr>';
+  h+='<tr><td>脚本创作</td><td>'+scriptCount+' 条</td></tr>';
+  h+='<tr><td>爆款灵感收藏</td><td>'+weekInspos.length+' 条</td></tr>';
+  h+='<tr><td>热点追踪</td><td>'+weekHots.length+' 条</td></tr>';
+  h+='<tr><td>待办完成</td><td>'+doneCount+' 项</td></tr>';
+  h+='<tr><td>本周开销</td><td>¥'+weekSpent.toFixed(2)+'</td></tr>';
+  h+='</table>';
+
+  h+='<h4>二、选题分类分布</h4>';
+  h+='<table>';
+  var cats=['特价爆款','生鲜实拍','囤货攻略','顾客反馈','节日营销','通用流量'];
+  cats.forEach(function(c){
+    h+='<tr><td>'+c+'</td><td>'+(catCount[c]||0)+' 条</td></tr>';
+  });
+  h+='</table>';
+
+  h+='<h4>三、爆款分析与热点</h4>';
+  if(weekInspos.length){
+    h+='<p>本周收藏 '+weekInspos.length+' 条爆款灵感：</p>';
+    weekInspos.slice(0,3).forEach(function(x){
+      h+='<div style="font-size:12px;padding:2px 0">• '+esc(x.title||x.data?.title||'灵感')+'</div>';
+    });
+  }else{h+='<p style="color:var(--tx3)">本周暂无爆款灵感收藏</p>';}
+
+  h+='<h4>四、下周计划</h4>';
+  var nearTodos=getNearTodos().filter(function(d){return !d.done;}).slice(0,5);
+  if(nearTodos.length){
+    nearTodos.forEach(function(t){
+      h+='<div style="font-size:12px;padding:2px 0">• '+esc(t.content)+(t.due?' (截止 '+fD(t.due)+')':'')+'</div>';
+    });
+  }else{h+='<p style="color:var(--tx3)">暂无近期待办，去添加吧~</p>';}
+
+  $('#weekly-report').innerHTML=h;
+  window._weeklyText=h.replace(/<[^>]+>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+}
+
+function copyWeeklyReport(){
+  var txt='📝 连锁超市抖音运营周报\n'+'━'.repeat(24)+'\n\n'+window._weeklyText;
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){st('周报已复制');});}
+  else{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);st('周报已复制');}
+}
+
+/* ===== 月度规划 ===== */
+
+function renderMonthlyPlan(){
+  var now=new Date();
+  // 下个月
+  var ny=now.getFullYear(),nm=now.getMonth()+2;
+  if(nm>12){nm=1;ny++;}
+  var nextYM=ny+'-'+String(nm).padStart(2,'0');
+
+  // 获取下月营销节点
+  var nodes=[];
+  Object.keys(MARKETING_CALENDAR).forEach(function(d){
+    if(d.startsWith(nextYM))nodes.push({date:d,node:MARKETING_CALENDAR[d]});
+  });
+
+  // 计算下月周数
+  var firstDay=new Date(ny,nm-1,1).getDay();
+  var daysInMonth=new Date(ny,nm,0).getDate();
+  var weeks=[];
+  var currentWeek=[];
+  for(var i=0;i<firstDay;i++)currentWeek.push(null);
+  for(var d=1;d<=daysInMonth;d++){
+    currentWeek.push(d);
+    if(currentWeek.length===7){weeks.push(currentWeek);currentWeek=[];}
+  }
+  if(currentWeek.length)weeks.push(currentWeek);
+
+  // 选题类型轮换
+  var topicTypes=['特价爆款','生鲜实拍','囤货攻略','顾客反馈','节日营销'];
+  var weekLabels=['第一周','第二周','第三周','第四周','第五周'];
+
+  var h='';
+  weeks.forEach(function(week,wi){
+    var wLabel=weekLabels[wi]||'第'+(wi+1)+'周';
+    var mainType=topicTypes[wi%topicTypes.length];
+    // 如果有节日，替换为节日营销
+    var hasHoliday=false;
+    week.forEach(function(day){
+      if(day){
+        var ds=nextYM+'-'+String(day).padStart(2,'0');
+        var node=getCalNode(ds);
+        if(node&&node.type==='holiday'){mainType='节日营销';hasHoliday=true;}
+      }
+    });
+
+    var validDays=week.filter(function(d){return d!==null;});
+    var startDay=validDays[0]||1;
+    var endDay=validDays[validDays.length-1]||daysInMonth;
+
+    h+='<div class="week-block">';
+    h+='<div class="week-title">'+wLabel+'（'+nm+'月'+startDay+'-'+endDay+'日） 主攻：'+mainType+(hasHoliday?' 🎉':'')+'</div>';
+    // 5条视频建议
+    var shootDays=['周一','周二','周三','周四','周五'];
+    for(var si=0;si<5;si++){
+      var subType=topicTypes[(wi+si)%topicTypes.length];
+      if(hasHoliday)subType='节日营销';
+      h+='<div class="day-item"><span class="day-label">'+shootDays[si]+'</span><span class="day-content">'+subType+'选题 · 拍摄+剪辑</span></div>';
+    }
+    h+='</div>';
+  });
+
+  // 预算估算
+  h+='<div class="week-block" style="border-left-color:#36D399"><div class="week-title">💰 预算估算</div>';
+  h+='<table style="width:100%;font-size:12px">';
+  h+='<tr><td>拍摄成本</td><td>预估 ¥500-1000/周</td></tr>';
+  h+='<tr><td>投流预算</td><td>建议 ¥300-500/周</td></tr>';
+  h+='<tr><td>月度总计</td><td>预估 ¥3000-6000</td></tr>';
+  h+='</table></div>';
+
+  // 关键节点提醒
+  if(nodes.length){
+    h+='<div class="week-block" style="border-left-color:#e91e63"><div class="week-title">🔔 下月关键节点</div>';
+    nodes.forEach(function(n){
+      h+='<div style="font-size:12px;padding:3px 0">📅 '+n.date.slice(5)+' '+n.node.label+' — '+n.node.desc+'</div>';
+    });
+    h+='</div>';
+  }
+
+  $('#monthly-plan').innerHTML=h;
+  window._monthlyText=h.replace(/<[^>]+>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+}
+
+function copyMonthlyPlan(){
+  var txt='📋 '+nm+'月抖音运营规划\n'+'━'.repeat(24)+'\n\n'+window._monthlyText;
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){st('月度规划已复制');});}
+  else{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);st('月度规划已复制');}
 }
 
 /* ===== 通知调度（使用 Notification API + setInterval 检查） ===== */
