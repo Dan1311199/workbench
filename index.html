@@ -359,6 +359,28 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 .store-insights .si-title{font-weight:700;color:#E65100;margin-bottom:6px;}
 .store-insights .si-item{color:#795548;padding:2px 0;}
 
+/* 月度方案 */
+.plan-overview{display:flex;gap:10px;flex-wrap:wrap;}
+.plan-overview .po-item{flex:1;min-width:100px;background:linear-gradient(135deg,#4096FF,#36D399);border-radius:10px;padding:12px;color:#fff;text-align:center;}
+.plan-overview .po-item .po-val{font-size:22px;font-weight:800;}
+.plan-overview .po-item .po-lbl{font-size:11px;opacity:0.85;margin-top:2px;}
+.plan-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:8px;}
+.plan-table th{background:var(--s);color:#fff;padding:6px 4px;text-align:center;font-size:10px;font-weight:600;}
+.plan-table td{padding:5px 4px;text-align:center;border-bottom:1px solid var(--bd);}
+.plan-table .pl-total td{background:#FF9800;color:#fff;font-weight:700;}
+.plan-table .pl-yuedong td{background:#F0F9FF;}
+.plan-table .pl-yuexi td{background:#FFF8E1;}
+.plan-live-day{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:12px;font-size:11px;margin:2px;}
+.plan-live-day.live{background:#E8F5E9;color:#2E7D32;}
+.plan-live-day.rest{background:#F5F5F5;color:#999;}
+.plan-live-day.special{background:#FFF3E0;color:#E65100;}
+.plan-strategy{font-size:12px;line-height:1.8;color:#666;}
+.plan-strategy li{margin-bottom:4px;}
+.plan-strategy .ps-tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;font-weight:700;margin-right:4px;}
+.plan-strategy .ps-tag.key{background:#FF9800;color:#fff;}
+.plan-strategy .ps-tag.warn{background:#F44336;color:#fff;}
+.plan-strategy .ps-tag.ok{background:#36D399;color:#fff;}
+
 ::-webkit-scrollbar{width:0;height:0;}
 </style>
 </head>
@@ -608,6 +630,35 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div id="ac-history"></div>
 </div>
 </section>
+
+<!-- ===== 月度方案 ===== -->
+<section class="page" id="page-plan">
+<div class="page-header"><h1>月度方案</h1><div class="sub" id="plan-subtitle">抖音板块维稳方案</div></div>
+
+<div class="card"><div class="card-title">📊 方案总览</div>
+<div class="plan-overview" id="plan-overview"></div>
+</div>
+
+<div class="card"><div class="card-title">📐 渠道板块目标拆分</div>
+<div id="plan-channel-table"></div>
+</div>
+
+<div class="card"><div class="card-title">📅 四周目标拆分</div>
+<div id="plan-week-table"></div>
+</div>
+
+<div class="card"><div class="card-title">🏪 门店目标分配</div>
+<div id="plan-store-table"></div>
+</div>
+
+<div class="card"><div class="card-title">🎬 直播排期</div>
+<div id="plan-live-summary"></div>
+</div>
+
+<div class="card"><div class="card-title">🎯 达标手段</div>
+<div id="plan-strategy"></div>
+</div>
+</section>
 </div>
 
 <!-- 底部导航 -->
@@ -618,6 +669,7 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="tab-item" data-tab="inspect" onclick="switchTab('inspect')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><span>OTA巡检</span></div>
 <div class="tab-item green" data-tab="ops" onclick="switchTab('ops')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span>调价</span></div>
 <div class="tab-item" data-tab="account" onclick="switchTab('account')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="12" y2="16"/></svg><span>记账</span></div>
+<div class="tab-item" data-tab="plan" onclick="switchTab('plan')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span>方案</span></div>
 </nav>
 </div>
 
@@ -648,7 +700,7 @@ curTab=t;$$('.page').forEach(p=>p.classList.remove('active'));$('#page-'+t).clas
 $$('.tab-item').forEach(el=>{el.classList.toggle('active',el.dataset.tab===t);
 const sv=el.querySelector('svg');sv.setAttribute('stroke',el.classList.contains('active')?(t==='video'||t==='ops'||t==='account'?'#36D399':'#4096FF'):'#8a909c');});
 $('#fab').style.display=(t==='todo'||t==='ops'||t==='video'||t==='inspect'||t==='account')?'flex':'none';
-if(t==='home')rHome();if(t==='todo')rTodo();if(t==='video')rVideo();if(t==='inspect')rInsp();if(t==='ops')rOps();if(t==='account')rAccount();
+if(t==='home')rHome();if(t==='todo')rTodo();if(t==='video')rVideo();if(t==='inspect')rInsp();if(t==='ops')rOps();if(t==='account')rAccount();if(t==='plan')rPlan();
 window.scrollTo(0,0);
 }
 function fabAction(){
@@ -2577,6 +2629,139 @@ function init(){
 })();
 
 // 监听窗口大小变化（预留）
+
+/* ===== 月度方案 ===== */
+// 模板数据结构（按月份存储）
+function getPlanTemplate(ym){
+  // ym格式: "2026-08"
+  var parts=ym.split('-');
+  var year=parseInt(parts[0]), month=parseInt(parts[1]);
+  var daysInMonth=new Date(year,month,0).getDate();
+  
+  // 检查是否有用户自定义数据
+  var saved=DB.get('plan_'+ym,null);
+  if(saved)return saved;
+  
+  // 默认模板（当前8月数据）
+  return {
+    total:1485,  // 总目标(万)
+    ym:ym,
+    channels:{
+      scan:{rate:0.27,label:'扫码渠道'},
+      live:{rate:0.02,label:'直播渠道'},
+      poiCoupon:{rate:0.71*0.88,label:'POI超值券',poiRate:0.88},
+      poiShort:{rate:0.71*0.12,label:'POI短视频',poiRate:0.12}
+    },
+    weeks:[
+      {name:'第一周',range:'8/1-8/7',days:7},
+      {name:'第二周',range:'8/8-8/14',days:7},
+      {name:'第三周',range:'8/15-8/21',days:7},
+      {name:'第四周',range:'8/22-8/31',days:10},
+    ],
+    stores:[
+      {area:'粤东',name:'鹏泰超市(海纳店)',aug:210.98},
+      {area:'粤东',name:'鹏泰超市(宝能新都荟店)',aug:204.20},
+      {area:'粤西',name:'鹏泰超市(北海店)',aug:156.83},
+      {area:'粤东',name:'鹏泰超市(汕头金平万达广场店)',aug:151.59},
+      {area:'粤东',name:'鹏泰超市(澄海卜蜂莲花城店)',aug:103.88},
+      {area:'粤东',name:'鹏泰超市(皇汇店)',aug:103.17},
+      {area:'粤西',name:'鹏泰超市(玉林万达广场店)',aug:101.31},
+      {area:'粤东',name:'鹏泰超市购物广场(金辛店)',aug:79.97},
+      {area:'粤西',name:'鹏泰超市(钦州店)',aug:81.17},
+      {area:'粤西',name:'鹏泰超市(罗定店)',aug:78.22},
+      {area:'粤东',name:'鹏泰超市(平江购物广场)',aug:69.03},
+      {area:'粤西',name:'鹏泰超市(汇丰国际店)',aug:54.81},
+      {area:'粤西',name:'鹏泰鲜生超市(容州南城店)',aug:45.87},
+      {area:'粤东',name:'鹏泰百货(惠东店)',aug:34.50},
+      {area:'粤西',name:'鹏泰购物广场(江门新会店)',aug:4.46},
+    ],
+    specialStore:{name:'平南店',aug:5},
+    livePlan:{
+      restDays:[2,9,16,23,30], // 周日
+      specialDays:{7:'宝能店榴莲引流专场',8:'宝能店榴莲引流专场',29:'七夕节点活动'},
+      dailyAmount:1, // 日均1万
+      sessions:2,
+      content:'日常代金券核销/商品优惠播报/引导到店'
+    },
+    strategy:'按照上月模式进行维稳，时刻关注数据情况动态调整，其中增加本地推投产增量补齐每日缺口。'
+  };
+}
+
+function rPlan(){
+  var now=new Date();
+  var ym=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  var plan=getPlanTemplate(ym);
+  var total=plan.total;
+  var daysInMonth=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+  var daily=(total/daysInMonth).toFixed(2);
+  
+  // 副标题
+  $('#plan-subtitle').textContent=ym.replace('-','年')+'月 抖音板块维稳方案 · 总目标'+total+'万';
+  
+  // 概览卡片
+  var liveDays=daysInMonth-(plan.livePlan.restDays?plan.livePlan.restDays.length:5);
+  $('#plan-overview').innerHTML=
+    '<div class="po-item"><div class="po-val">¥'+total+'万</div><div class="po-lbl">总目标</div></div>'+
+    '<div class="po-item"><div class="po-val">'+daily+'万</div><div class="po-lbl">日均目标</div></div>'+
+    '<div class="po-item"><div class="po-val">'+daysInMonth+'天</div><div class="po-lbl">周期</div></div>'+
+    '<div class="po-item"><div class="po-val">'+liveDays+'天</div><div class="po-lbl">直播天数</div></div>';
+  
+  // 渠道拆分表
+  var ch=plan.channels;
+  var scanTotal=total*ch.scan.rate, liveTotal=total*ch.live.rate;
+  var poiCouponTotal=total*ch.poiCoupon.rate, poiShortTotal=total*ch.poiShort.rate;
+  $('#plan-channel-table').innerHTML='<table class="plan-table"><thead><tr><th>渠道板块</th><th>占比</th><th>目标(万)</th><th>日均(万)</th><th>备注</th></tr></thead><tbody>'+
+    '<tr><td>'+ch.scan.label+'</td><td>27%</td><td>'+scanTotal.toFixed(2)+'</td><td>'+(scanTotal/daysInMonth).toFixed(2)+'</td><td>线下扫码引流</td></tr>'+
+    '<tr><td>'+ch.live.label+'</td><td>2%</td><td>'+liveTotal.toFixed(2)+'</td><td>'+(liveTotal/daysInMonth).toFixed(2)+'</td><td>直播带货转化</td></tr>'+
+    '<tr><td>'+ch.poiCoupon.label+'</td><td>'+(ch.poiCoupon.rate*100).toFixed(2)+'%</td><td>'+poiCouponTotal.toFixed(2)+'</td><td>'+(poiCouponTotal/daysInMonth).toFixed(2)+'</td><td>团购超值券核销</td></tr>'+
+    '<tr><td>'+ch.poiShort.label+'</td><td>'+(ch.poiShort.rate*100).toFixed(2)+'%</td><td>'+poiShortTotal.toFixed(2)+'</td><td>'+(poiShortTotal/daysInMonth).toFixed(2)+'</td><td>团购短视频引流</td></tr>'+
+    '<tr class="pl-total"><td>合计</td><td>100%</td><td>'+total.toFixed(2)+'</td><td>'+daily+'</td><td>总目标</td></tr></tbody></table>';
+  
+  // 四周拆分
+  var wh='<table class="plan-table"><thead><tr><th>周次</th><th>日期</th><th>天数</th><th>周目标(万)</th><th>日均(万)</th><th>占比</th></tr></thead><tbody>';
+  plan.weeks.forEach(function(w){
+    var wt=daily*w.days;
+    wh+='<tr><td>'+w.name+'</td><td>'+w.range+'</td><td>'+w.days+'天</td><td>'+wt.toFixed(2)+'</td><td>'+daily+'</td><td>'+(wt/total*100).toFixed(2)+'%</td></tr>';
+  });
+  wh+='<tr class="pl-total"><td>合计</td><td>-</td><td>'+daysInMonth+'天</td><td>'+total.toFixed(2)+'</td><td>'+daily+'</td><td>100%</td></tr></tbody></table>';
+  $('#plan-week-table').innerHTML=wh;
+  
+  // 门店目标
+  var sh='<table class="plan-table"><thead><tr><th>区域</th><th>门店</th><th>8月目标(万)</th><th>日均(万)</th></tr></thead><tbody>';
+  plan.stores.forEach(function(s){
+    var cls=s.area==='粤东'?'pl-yuedong':'pl-yuexi';
+    sh+='<tr class="'+cls+'"><td>'+s.area+'</td><td style="text-align:left">'+esc(s.name)+'</td><td>'+s.aug.toFixed(2)+'</td><td>'+(s.aug/daysInMonth).toFixed(2)+'</td></tr>';
+  });
+  if(plan.specialStore){
+    sh+='<tr style="background:#FFE4E1;font-weight:600"><td>其他</td><td style="text-align:left">'+plan.specialStore.name+'（固定）</td><td>'+plan.specialStore.aug.toFixed(2)+'</td><td>'+(plan.specialStore.aug/daysInMonth).toFixed(2)+'</td></tr>';
+  }
+  var storeTotal=plan.stores.reduce(function(s,r){return s+r.aug;},0)+(plan.specialStore?plan.specialStore.aug:0);
+  sh+='<tr class="pl-total"><td colspan="2">合计</td><td>'+storeTotal.toFixed(2)+'</td><td>'+daily+'</td></tr></tbody></table>';
+  $('#plan-store-table').innerHTML=sh;
+  
+  // 直播排期摘要
+  var lh='<div style="font-size:12px;line-height:1.8;margin-bottom:8px">';
+  lh+='<b>📅 直播概览：</b>直播'+liveDays+'天（周日休息）| 每日2场共'+(liveDays*2)+'场 | 日均成交'+plan.livePlan.dailyAmount+'万 | 总目标'+(liveDays*plan.livePlan.dailyAmount)+'万</div>';
+  lh+='<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">';
+  for(var d=1;d<=daysInMonth;d++){
+    var isRest=plan.livePlan.restDays&&plan.livePlan.restDays.indexOf(d)>=0;
+    var isSpecial=plan.livePlan.specialDays&&plan.livePlan.specialDays[d];
+    if(isRest)lh+='<span class="plan-live-day rest">'+d+'日 休</span>';
+    else if(isSpecial)lh+='<span class="plan-live-day special">'+d+'日 ⭐</span>';
+    else lh+='<span class="plan-live-day live">'+d+'日</span>';
+  }
+  lh+='</div>';
+  lh+='<div style="font-size:11px;color:#999">直播内容：'+plan.livePlan.content+'</div>';
+  if(plan.livePlan.specialDays){
+    lh+='<div style="font-size:11px;color:#E65100;margin-top:4px">⭐ 特殊节点：';
+    Object.keys(plan.livePlan.specialDays).forEach(function(d){lh+=d+'日 '+plan.livePlan.specialDays[d]+' | ';});
+    lh+='</div>';
+  }
+  $('#plan-live-summary').innerHTML=lh;
+  
+  // 达标手段
+  $('#plan-strategy').innerHTML='<ul class="plan-strategy"><li><span class="ps-tag key">维稳</span>按照上月模式进行维稳，保持各渠道稳定输出</li><li><span class="ps-tag warn">动态</span>时刻关注数据情况动态调整，发现缺口及时干预</li><li><span class="ps-tag key">投产</span>增加本地推投产增量，补齐每日缺口金额</li><li><span class="ps-tag ok">重点</span>POI超值券为核心产出渠道（占比'+(ch.poiCoupon.rate*100).toFixed(2)+'%），重点关注</li></ul>';
+}
 
 init();
 </script>
