@@ -336,6 +336,29 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 .reminder-item .rem-text{flex:1;line-height:1.4;}
 .reminder-item .rem-close{color:var(--tx3);cursor:pointer;font-size:16px;padding:2px 6px;}
 
+/* 门店目标 */
+.store-summary{display:flex;gap:10px;margin-bottom:12px;}
+.store-sum-item{flex:1;background:#f8fafc;border-radius:10px;padding:10px;text-align:center;}
+.store-sum-item .ss-label{font-size:11px;color:var(--tx3);margin-bottom:4px;}
+.store-sum-item .ss-val{font-size:20px;font-weight:700;color:var(--p);}
+.store-sum-item .ss-pct{font-size:11px;color:var(--tx3);margin-top:2px;}
+.store-target-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px;}
+.store-target-table th{background:var(--s);color:#fff;padding:6px 4px;text-align:center;font-size:10px;font-weight:600;}
+.store-target-table th:first-child{border-radius:6px 0 0 6px;}
+.store-target-table th:last-child{border-radius:0 6px 6px 0;}
+.store-target-table td{padding:5px 4px;text-align:center;border-bottom:1px solid var(--bd);}
+.store-target-table .st-yuedong td{background:#F0F9FF;}
+.store-target-table .st-yuexi td{background:#FFF8E1;}
+.store-target-table .st-pingnan td{background:#FFE4E1;font-weight:600;}
+.store-target-table .st-total td{background:#FF9800;color:#fff;font-weight:700;}
+.st-tag{display:inline-block;padding:1px 6px;border-radius:8px;font-size:9px;font-weight:700;}
+.st-tag-good{background:#E0F2E9;color:#2E7D32;}
+.st-tag-warn{background:#FFF3E0;color:#E65100;}
+.st-tag-bad{background:#FFE0E0;color:#C62828;}
+.store-insights{background:#FFF8E1;border-radius:8px;padding:10px 12px;font-size:11px;line-height:1.7;}
+.store-insights .si-title{font-weight:700;color:#E65100;margin-bottom:6px;}
+.store-insights .si-item{color:#795548;padding:2px 0;}
+
 ::-webkit-scrollbar{width:0;height:0;}
 </style>
 </head>
@@ -388,6 +411,24 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 
 <div class="card"><div class="card-title">🔔 智能提醒 <span class="more" id="reminder-refresh" style="cursor:pointer" onclick="renderReminders()">刷新</span></div>
 <div id="reminder-list"></div>
+</div>
+
+<div class="card" id="store-target-card"><div class="card-title">🏪 门店目标 <span class="more" style="cursor:pointer" onclick="toggleStoreTarget()">展开/收起</span></div>
+<div id="store-target-body">
+<div class="store-summary">
+<div class="store-sum-item"><span class="ss-label">粤东</span><span class="ss-val">957.32万</span><span class="ss-pct">64.5%</span></div>
+<div class="store-sum-item"><span class="ss-label">粤西</span><span class="ss-val">522.68万</span><span class="ss-pct">35.2%</span></div>
+<div class="store-sum-item"><span class="ss-label">平南</span><span class="ss-val">5.00万</span><span class="ss-pct">0.3%</span></div>
+</div>
+<div id="store-target-table"></div>
+<div class="store-insights">
+<div class="si-title">🎯 关键洞察</div>
+<div class="si-item">⭐ TOP3：海纳店210.98万 + 宝能新都荟204.20万 + 北海店156.83万（占38.5%）</div>
+<div class="si-item">⚠️ 攻坚：玉林万达(完成度69.2%)、罗定(81.3%)、宝能新都荟(83.1%)</div>
+<div class="si-item">📋 标杆：容州南城146.2%、平江购物广场127.6%、江门新会142.3%</div>
+<div class="si-item">🆕 平南店：固定5万元保底目标</div>
+</div>
+</div>
 </div>
 
 <div class="card"><div class="card-title">快捷入口</div><div class="quick-grid">
@@ -2132,6 +2173,8 @@ renderWeeklyReport();
 renderMonthlyPlan();
 // 渲染智能提醒
 renderReminders();
+// 渲染门店目标
+renderStoreTarget();
 }
 
 /* ===== 周报生成 ===== */
@@ -2324,6 +2367,52 @@ function copyMonthlyPlan(){
   var txt='📋 '+nm+'月抖音运营规划\n'+'━'.repeat(24)+'\n\n'+window._monthlyText;
   if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){st('月度规划已复制');});}
   else{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);st('月度规划已复制');}
+}
+
+/* ===== 门店目标展示 ===== */
+var STORE_TARGET_DATA=[
+  {area:'粤东',name:'鹏泰超市(海纳店)',jul:201.73,rate:110.7,wt:14.26,aug:210.98},
+  {area:'粤东',name:'鹏泰超市(宝能新都荟店)',jul:195.25,rate:83.1,wt:13.80,aug:204.20},
+  {area:'粤西',name:'鹏泰超市(北海店)',jul:149.96,rate:112.7,wt:10.60,aug:156.83},
+  {area:'粤东',name:'鹏泰超市(汕头金平万达广场店)',jul:144.95,rate:98.9,wt:10.24,aug:151.59},
+  {area:'粤东',name:'鹏泰超市(澄海卜蜂莲花城店)',jul:99.33,rate:116.9,wt:7.02,aug:103.88},
+  {area:'粤东',name:'鹏泰超市(皇汇店)',jul:98.65,rate:89.7,wt:6.97,aug:103.17},
+  {area:'粤西',name:'鹏泰超市(玉林万达广场店)',jul:96.87,rate:69.2,wt:6.85,aug:101.31},
+  {area:'粤东',name:'鹏泰超市购物广场(金辛店)',jul:76.47,rate:106.2,wt:5.40,aug:79.97},
+  {area:'粤西',name:'鹏泰超市(钦州店)',jul:77.61,rate:86.2,wt:5.48,aug:81.17},
+  {area:'粤西',name:'鹏泰超市(罗定店)',jul:74.79,rate:81.3,wt:5.29,aug:78.22},
+  {area:'粤东',name:'鹏泰超市(平江购物广场)',jul:66.01,rate:127.6,wt:4.66,aug:69.03},
+  {area:'粤西',name:'鹏泰超市(汇丰国际店)',jul:52.41,rate:112.7,wt:3.70,aug:54.81},
+  {area:'粤西',name:'鹏泰鲜生超市(容州南城店)',jul:43.86,rate:146.2,wt:3.10,aug:45.87},
+  {area:'粤东',name:'鹏泰百货(惠东店)',jul:32.99,rate:91.6,wt:2.33,aug:34.50},
+  {area:'粤西',name:'鹏泰购物广场(江门新会店)',jul:4.27,rate:142.3,wt:0.30,aug:4.46},
+];
+
+function renderStoreTarget(){
+  var h='<table class="store-target-table"><thead><tr><th>门店</th><th>7月实收</th><th>完成度</th><th>8月目标</th><th>日均</th></tr></thead><tbody>';
+  STORE_TARGET_DATA.forEach(function(s){
+    var cls='st-yuedong';if(s.area==='粤西')cls='st-yuexi';
+    var tag='';if(s.rate>=120)tag='<span class="st-tag st-tag-good">标杆</span>';
+    else if(s.rate<80)tag='<span class="st-tag st-tag-bad">攻坚</span>';
+    else if(s.rate<90)tag='<span class="st-tag st-tag-warn">关注</span>';
+    h+='<tr class="'+cls+'"><td style="text-align:left;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(s.name)+'</td>';
+    h+='<td>'+s.jul.toFixed(0)+'万</td>';
+    h+='<td>'+s.rate.toFixed(1)+'% '+tag+'</td>';
+    h+='<td><b>'+(Math.round(s.aug*100)/100).toFixed(2)+'万</b></td>';
+    h+='<td>'+(s.aug/31).toFixed(2)+'万</td></tr>';
+  });
+  // 平南店
+  h+='<tr class="st-pingnan"><td style="text-align:left">平南店（固定）</td><td>-</td><td>-</td><td><b>5.00万</b></td><td>0.16万</td></tr>';
+  // 合计
+  var totalAug=STORE_TARGET_DATA.reduce(function(s,r){return s+r.aug;},0)+5;
+  h+='<tr class="st-total"><td>合计（16+1店）</td><td>1,415.15万</td><td>97.3%</td><td><b>'+totalAug.toFixed(2)+'万</b></td><td>47.90万</td></tr>';
+  h+='</tbody></table>';
+  $('#store-target-table').innerHTML=h;
+}
+
+function toggleStoreTarget(){
+  var body=$('#store-target-body');
+  if(body.style.display==='none'){body.style.display='block';}else{body.style.display='none';}
 }
 
 /* ===== 通知调度（使用 Notification API + setInterval 检查） ===== */
