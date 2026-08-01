@@ -660,6 +660,45 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div id="plan-strategy"></div>
 </div>
 </section>
+
+<!-- ===== 本地推 ===== -->
+<section class="page" id="page-adt">
+<div class="page-header"><h1>本地推消耗投产</h1><div class="sub" id="adt-subtitle"></div></div>
+
+<div class="card">
+<div class="card-title">📊 今日投产概览 <span class="more" id="adt-total-roi"></span></div>
+<div class="acct-summary" style="margin-bottom:8px">
+<div class="box"><div class="lbl">总消耗</div><div class="val" id="adt-total-cost" style="color:#E91E63">¥0</div></div>
+<div class="box"><div class="lbl">总产出</div><div class="val" id="adt-total-revenue" style="color:#36D399">¥0</div></div>
+<div class="box"><div class="lbl">整体投产比</div><div class="val" id="adt-total-roi-val" style="color:#4096FF">-</div></div>
+</div>
+</div>
+
+<!-- 三个板块切换 -->
+<div class="todo-tabs">
+<div class="todo-tab active" onclick="switchAdtTab(0)">门店全域</div>
+<div class="todo-tab" onclick="switchAdtTab(1)">短视频投放</div>
+<div class="todo-tab" onclick="switchAdtTab(2)">直播间</div>
+</div>
+
+<div class="card" id="adt-input-card">
+<div class="card-title" id="adt-card-title">门店全域</div>
+<div class="row" style="gap:8px;margin-bottom:10px">
+<div class="field f1"><label>消耗金额 ¥</label><input type="number" class="input" id="adt-cost" placeholder="0.00" inputmode="decimal" step="0.01"></div>
+<div class="field f1"><label>产出金额 ¥</label><input type="number" class="input" id="adt-revenue" placeholder="0.00" inputmode="decimal" step="0.01"></div>
+</div>
+<div class="field"><label>备注（选填）</label><input class="input" id="adt-note" placeholder="如：千川投流、短视频加热"></div>
+<div class="row" style="gap:8px;margin-top:10px">
+<div class="field f1"><label>日期</label><input type="date" class="input" id="adt-date"></div>
+</div>
+<button class="btn btn-primary btn-block" onclick="addAdtRecord()">记录投产</button>
+</div>
+
+<div class="card">
+<div class="card-title">📋 历史记录 <span class="more" onclick="clearAdtRecords()" style="cursor:pointer">清空</span></div>
+<div id="adt-records"></div>
+</div>
+</section>
 </div>
 
 <!-- 底部导航 -->
@@ -671,6 +710,7 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="tab-item green" data-tab="ops" onclick="switchTab('ops')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span>调价</span></div>
 <div class="tab-item" data-tab="account" onclick="switchTab('account')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="12" y2="16"/></svg><span>记账</span></div>
 <div class="tab-item" data-tab="plan" onclick="switchTab('plan')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span>方案</span></div>
+<div class="tab-item" data-tab="adt" onclick="switchTab('adt')"><svg viewBox="0 0 24 24" fill="none" stroke="#8a909c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>本地推</span></div>
 </nav>
 </div>
 
@@ -700,8 +740,8 @@ function switchTab(t){
 curTab=t;$$('.page').forEach(p=>p.classList.remove('active'));$('#page-'+t).classList.add('active');
 $$('.tab-item').forEach(el=>{el.classList.toggle('active',el.dataset.tab===t);
 const sv=el.querySelector('svg');sv.setAttribute('stroke',el.classList.contains('active')?(t==='video'||t==='ops'||t==='account'?'#36D399':'#4096FF'):'#8a909c');});
-$('#fab').style.display=(t==='todo'||t==='ops'||t==='video'||t==='inspect'||t==='account')?'flex':'none';
-if(t==='home')rHome();if(t==='todo')rTodo();if(t==='video')rVideo();if(t==='inspect')rInsp();if(t==='ops')rOps();if(t==='account')rAccount();if(t==='plan')rPlan();
+$('#fab').style.display=(t==='todo'||t==='ops'||t==='video'||t==='inspect'||t==='account'||t==='adt')?'flex':'none';
+if(t==='home')rHome();if(t==='todo')rTodo();if(t==='video')rVideo();if(t==='inspect')rInsp();if(t==='ops')rOps();if(t==='account')rAccount();if(t==='plan')rPlan();if(t==='adt')rAdt();
 window.scrollTo(0,0);
 }
 function fabAction(){
@@ -710,6 +750,7 @@ if(curTab==='ops')$('#chat-input').focus();
 if(curTab==='video')openHotModal();
 if(curTab==='inspect')openInspRecordModal();
 if(curTab==='account'){$('#ac-amount').focus();}
+if(curTab==='adt'){$('#adt-cost').focus();}
 }
 </script>
 
@@ -2838,6 +2879,108 @@ function rPlan(){
   
   // 达标手段
   $('#plan-strategy').innerHTML='<ul class="plan-strategy"><li><span class="ps-tag key">维稳</span>按照上月模式进行维稳，保持各渠道稳定输出</li><li><span class="ps-tag warn">动态</span>时刻关注数据情况动态调整，发现缺口及时干预</li><li><span class="ps-tag key">投产</span>增加本地推投产增量，补齐每日缺口金额</li><li><span class="ps-tag ok">重点</span>POI超值券为核心产出渠道（占比'+(ch.poiCoupon.rate*100).toFixed(2)+'%），重点关注</li></ul>';
+}
+
+/* ===== 本地推消耗投产 ===== */
+var adtTab=0; // 0门店全域 1短视频 2直播间
+var ADT_TABS=['门店全域','短视频投放','直播间'];
+var ADT_KEYS=['adt_store','adt_video','adt_live'];
+
+function rAdt(){
+  var now=new Date();
+  $('#adt-subtitle').textContent='总部投放 · 消耗投产追踪 · '+now.getFullYear()+'年'+(now.getMonth()+1)+'月'+now.getDate()+'日';
+  $('#adt-date').value=ts();
+  switchAdtTab(adtTab);
+  renderAdtSummary();
+}
+
+function switchAdtTab(i){
+  adtTab=i;
+  $$('#page-adt .todo-tab').forEach(function(t,idx){t.classList.toggle('active',idx===i);});
+  $('#adt-card-title').textContent=ADT_TABS[i]+' · 消耗投产录入';
+  renderAdtRecords();
+}
+
+function addAdtRecord(){
+  var cost=parseFloat($('#adt-cost').value)||0;
+  var revenue=parseFloat($('#adt-revenue').value)||0;
+  if(cost<=0){st('请输入消耗金额');return;}
+  var date=$('#adt-date').value||ts();
+  var note=$('#adt-note').value||'';
+  var roi=cost>0?(revenue/cost).toFixed(2):0;
+  var records=DB.get(ADT_KEYS[adtTab],[]);
+  records.unshift({date:date,cost:cost,revenue:revenue,roi:parseFloat(roi),note:note,ts:Date.now()});
+  DB.set(ADT_KEYS[adtTab],records);
+  $('#adt-cost').value='';$('#adt-revenue').value='';$('#adt-note').value='';
+  renderAdtRecords();
+  renderAdtSummary();
+  st('已记录 · 投产比 '+roi);
+}
+
+function renderAdtRecords(){
+  var records=DB.get(ADT_KEYS[adtTab],[]);
+  if(!records.length){$('#adt-records').innerHTML='<div style="text-align:center;color:var(--tx3);padding:16px;font-size:13px">暂无'+ADT_TABS[adtTab]+'记录，上方录入第一条</div>';return;}
+  // 按日期分组
+  var groups={};
+  records.forEach(function(r){
+    if(!groups[r.date])groups[r.date]={date:r.date,cost:0,revenue:0,items:[]};
+    groups[r.date].cost+=r.cost;
+    groups[r.date].revenue+=r.revenue;
+    groups[r.date].items.push(r);
+  });
+  var dates=Object.keys(groups).sort().reverse();
+  var h='<table class="plan-table"><thead><tr><th>日期</th><th>消耗(元)</th><th>产出(元)</th><th>投产比</th><th>备注</th><th>删除</th></tr></thead><tbody>';
+  dates.forEach(function(d){
+    var g=groups[d];
+    var roi=g.cost>0?(g.revenue/g.cost).toFixed(2):'-';
+    var roiColor=g.cost>0?(parseFloat(roi)>=1?'#36D399':'#E91E63'):'#999';
+    // 当天多条则显示明细
+    if(g.items.length===1){
+      var r=g.items[0];
+      h+='<tr><td>'+d+'</td><td>¥'+r.cost.toFixed(2)+'</td><td>¥'+r.revenue.toFixed(2)+'</td><td style="color:'+roiColor+';font-weight:700">'+roi+'</td><td style="font-size:10px;max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(r.note||'-')+'</td><td><span style="cursor:pointer;color:#e91e63" onclick="delAdtRecord(\''+ADT_KEYS[adtTab]+'\','+r.ts+')">×</span></td></tr>';
+    }else{
+      h+='<tr style="background:#f8fafc"><td rowspan="'+(g.items.length+1)+'"><b>'+d+'</b></td><td colspan="4"><b>小计：消耗¥'+g.cost.toFixed(2)+' / 产出¥'+g.revenue.toFixed(2)+' / ROI '+roi+'</b></td><td></td></tr>';
+      g.items.forEach(function(r){
+        h+='<tr><td>¥'+r.cost.toFixed(2)+'</td><td>¥'+r.revenue.toFixed(2)+'</td><td style="color:'+roiColor+'">'+(r.cost>0?(r.revenue/r.cost).toFixed(2):'-')+'</td><td style="font-size:10px">'+esc(r.note||'-')+'</td><td><span style="cursor:pointer;color:#e91e63" onclick="delAdtRecord(\''+ADT_KEYS[adtTab]+'\','+r.ts+')">×</span></td></tr>';
+      });
+    }
+  });
+  h+='</tbody></table>';
+  $('#adt-records').innerHTML=h;
+}
+
+function delAdtRecord(key,ts){
+  var records=DB.get(key,[]);
+  records=records.filter(function(r){return r.ts!==ts;});
+  DB.set(key,records);
+  renderAdtRecords();
+  renderAdtSummary();
+}
+
+function clearAdtRecords(){
+  if(!confirm('确认清空'+ADT_TABS[adtTab]+'全部记录？'))return;
+  DB.set(ADT_KEYS[adtTab],[]);
+  renderAdtRecords();
+  renderAdtSummary();
+}
+
+function renderAdtSummary(){
+  // 汇总今日三个板块
+  var today=ts();
+  var totalCost=0,totalRev=0;
+  ADT_KEYS.forEach(function(k){
+    var records=DB.get(k,[]);
+    records.forEach(function(r){
+      if(r.date===today){totalCost+=r.cost;totalRev+=r.revenue;}
+    });
+  });
+  $('#adt-total-cost').textContent='¥'+totalCost.toFixed(0);
+  $('#adt-total-revenue').textContent='¥'+totalRev.toFixed(0);
+  var roi=totalCost>0?(totalRev/totalCost).toFixed(2):'-';
+  var roiColor=totalCost>0?(parseFloat(roi)>=1?'#36D399':'#E91E63'):'#4096FF';
+  $('#adt-total-roi-val').textContent=roi;
+  $('#adt-total-roi-val').style.color=roiColor;
+  $('#adt-total-roi').textContent='投产比 '+roi;
 }
 
 init();
