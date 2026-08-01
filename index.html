@@ -441,8 +441,7 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div id="store-target-body">
 <div class="store-summary" id="store-summary">
 <div class="store-sum-item"><span class="ss-label">粤东</span><span class="ss-val">957.32万</span><span class="ss-pct">64.5%</span></div>
-<div class="store-sum-item"><span class="ss-label">粤西</span><span class="ss-val">522.68万</span><span class="ss-pct">35.2%</span></div>
-<div class="store-sum-item"><span class="ss-label">平南</span><span class="ss-val">5.00万</span><span class="ss-pct">0.3%</span></div>
+<div class="store-sum-item"><span class="ss-label">粤西</span><span class="ss-val">527.68万</span><span class="ss-pct">35.5%</span></div>
 <div class="store-sum-item" id="store-today-sum"><span class="ss-label">今日完成</span><span class="ss-val" style="color:#36D399">--</span><span class="ss-pct">点击输入</span></div>
 </div>
 <div id="store-target-table"></div>
@@ -450,8 +449,7 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="si-title">🎯 关键洞察</div>
 <div class="si-item">⭐ TOP3：海纳店210.98万 + 宝能新都荟204.20万 + 北海店156.83万（占38.5%）</div>
 <div class="si-item">⚠️ 攻坚：玉林万达(完成度69.2%)、罗定(81.3%)、宝能新都荟(83.1%)</div>
-<div class="si-item">📋 标杆：容州南城146.2%、平江购物广场127.6%、江门新会142.3%</div>
-<div class="si-item">🆕 平南店：固定5万元保底目标</div>
+<div class="si-item">📋 标杆：容县店146.2%、千江购物广场127.6%、江门新会142.3%</div>
 </div>
 </div>
 </div>
@@ -2430,17 +2428,18 @@ var STORE_TARGET_DATA=[
   {area:'粤东',name:'鹏泰超市(宝能新都荟店)',jul:195.25,rate:83.1,wt:13.80,aug:204.20},
   {area:'粤西',name:'鹏泰超市(北海店)',jul:149.96,rate:112.7,wt:10.60,aug:156.83},
   {area:'粤东',name:'鹏泰超市(汕头金平万达广场店)',jul:144.95,rate:98.9,wt:10.24,aug:151.59},
-  {area:'粤东',name:'鹏泰超市(澄海卜蜂莲花城店)',jul:99.33,rate:116.9,wt:7.02,aug:103.88},
-  {area:'粤东',name:'鹏泰超市(皇汇店)',jul:98.65,rate:89.7,wt:6.97,aug:103.17},
+  {area:'粤东',name:'鹏泰超市(中骏店)',jul:99.33,rate:116.9,wt:7.02,aug:103.88},
+  {area:'粤东',name:'鹏泰超市(星汇店)',jul:98.65,rate:89.7,wt:6.97,aug:103.17},
   {area:'粤西',name:'鹏泰超市(玉林万达广场店)',jul:96.87,rate:69.2,wt:6.85,aug:101.31},
-  {area:'粤东',name:'鹏泰超市购物广场(金辛店)',jul:76.47,rate:106.2,wt:5.40,aug:79.97},
+  {area:'粤东',name:'鹏泰超市购物广场(金丰店)',jul:76.47,rate:106.2,wt:5.40,aug:79.97},
   {area:'粤西',name:'鹏泰超市(钦州店)',jul:77.61,rate:86.2,wt:5.48,aug:81.17},
   {area:'粤西',name:'鹏泰超市(罗定店)',jul:74.79,rate:81.3,wt:5.29,aug:78.22},
-  {area:'粤东',name:'鹏泰超市(平江购物广场)',jul:66.01,rate:127.6,wt:4.66,aug:69.03},
+  {area:'粤东',name:'鹏泰超市(千江购物广场)',jul:66.01,rate:127.6,wt:4.66,aug:69.03},
   {area:'粤西',name:'鹏泰超市(汇丰国际店)',jul:52.41,rate:112.7,wt:3.70,aug:54.81},
-  {area:'粤西',name:'鹏泰鲜生超市(容州南城店)',jul:43.86,rate:146.2,wt:3.10,aug:45.87},
+  {area:'粤西',name:'鹏泰鲜生超市(容县店)',jul:43.86,rate:146.2,wt:3.10,aug:45.87},
   {area:'粤东',name:'鹏泰百货(惠东店)',jul:32.99,rate:91.6,wt:2.33,aug:34.50},
   {area:'粤西',name:'鹏泰购物广场(江门新会店)',jul:4.27,rate:142.3,wt:0.30,aug:4.46},
+  {area:'其他',name:'鹏泰超市(平南店)',jul:0,rate:0,wt:0,aug:0},
 ];
 
 function renderStoreTarget(){
@@ -2470,17 +2469,6 @@ function renderStoreTarget(){
     h+='<td style="color:'+gapColor+';font-weight:700">'+(gap<=0?'✅ 达标':'-'+gap.toFixed(2)+'万')+'</td>';
     h+='<td><button onclick="quickFillStore('+i+','+dailyTarget+')" style="padding:2px 6px;font-size:10px;border-radius:4px;border:1px solid #36D399;background:#fff;color:#36D399;cursor:pointer">达标</button></td></tr>';
   });
-  // 平南店
-  var pnDaily=(5/daysInMonth).toFixed(2);
-  var pnDone=dailyData['pn']||0;
-  var pnGap=pnDaily-pnDone;
-  var pnGapColor=pnGap<=0?'#2E7D32':'#E91E63';
-  totalDailyTarget+=parseFloat(pnDaily); totalDailyDone+=pnDone;
-  h+='<tr class="st-pingnan"><td style="text-align:left">平南店（固定）</td><td>-</td><td>-</td><td>5.00万</td>';
-  h+='<td>'+pnDaily+'万</td>';
-  h+='<td><input type="number" class="store-daily-input" id="sdi-pn" value="'+(pnDone||'')+'" placeholder="0" step="0.01" inputmode="decimal" onchange="updateStoreDaily(\'pn\',this.value)" style="width:60px;padding:4px;border:1px solid #ddd;border-radius:6px;font-size:11px;text-align:center"></td>';
-  h+='<td style="color:'+pnGapColor+';font-weight:700">'+(pnGap<=0?'✅ 达标':'-'+pnGap.toFixed(2)+'万')+'</td>';
-  h+='<td><button onclick="quickFillStore(\'pn\','+pnDaily+')" style="padding:2px 6px;font-size:10px;border-radius:4px;border:1px solid #36D399;background:#fff;color:#36D399;cursor:pointer">达标</button></td></tr>';
   // 合计行
   var totalGap=totalDailyTarget-totalDailyDone;
   var totalGapColor=totalGap<=0?'#2E7D32':'#E91E63';
@@ -2521,9 +2509,9 @@ function quickFillAll(){
   var today=ts();
   var dailyData=DB.get('store_daily_'+today,{});
   STORE_TARGET_DATA.forEach(function(s,i){
-    dailyData['s'+i]=parseFloat((s.aug/daysInMonth).toFixed(2));
+    if(s.aug>0)dailyData['s'+i]=parseFloat((s.aug/daysInMonth).toFixed(2));
+    else dailyData['s'+i]=0;
   });
-  dailyData['pn']=parseFloat((5/daysInMonth).toFixed(2));
   DB.set('store_daily_'+today,dailyData);
   renderStoreTarget();
   updateStoreSummary();
@@ -2539,8 +2527,6 @@ function updateStoreSummary(){
     totalTarget+=s.aug/daysInMonth;
     totalDone+=(dailyData['s'+i]||0);
   });
-  totalTarget+=5/daysInMonth;
-  totalDone+=(dailyData['pn']||0);
   var pct=totalTarget>0?Math.min(100,(totalDone/totalTarget*100)):0;
   var el=$('#store-today-sum');
   if(el){
@@ -2757,13 +2743,19 @@ function getPlanTemplate(ym){
       {area:'粤东',name:'鹏泰超市购物广场(金辛店)',aug:79.97},
       {area:'粤西',name:'鹏泰超市(钦州店)',aug:81.17},
       {area:'粤西',name:'鹏泰超市(罗定店)',aug:78.22},
-      {area:'粤东',name:'鹏泰超市(平江购物广场)',aug:69.03},
+      {area:'粤东',name:'鹏泰超市(中骏店)',aug:103.88},
+      {area:'粤东',name:'鹏泰超市(星汇店)',aug:103.17},
+      {area:'粤西',name:'鹏泰超市(玉林万达广场店)',aug:101.31},
+      {area:'粤东',name:'鹏泰超市购物广场(金丰店)',aug:79.97},
+      {area:'粤西',name:'鹏泰超市(钦州店)',aug:81.17},
+      {area:'粤西',name:'鹏泰超市(罗定店)',aug:78.22},
+      {area:'粤东',name:'鹏泰超市(千江购物广场)',aug:69.03},
       {area:'粤西',name:'鹏泰超市(汇丰国际店)',aug:54.81},
-      {area:'粤西',name:'鹏泰鲜生超市(容州南城店)',aug:45.87},
+      {area:'粤西',name:'鹏泰鲜生超市(容县店)',aug:45.87},
       {area:'粤东',name:'鹏泰百货(惠东店)',aug:34.50},
       {area:'粤西',name:'鹏泰购物广场(江门新会店)',aug:4.46},
+      {area:'其他',name:'鹏泰超市(平南店)',aug:0},
     ],
-    specialStore:{name:'平南店',aug:5},
     livePlan:{
       restDays:[2,9,16,23,30], // 周日
       specialDays:{7:'宝能店榴莲引流专场',8:'宝能店榴莲引流专场',29:'七夕节点活动'},
@@ -2817,13 +2809,10 @@ function rPlan(){
   // 门店目标
   var sh='<table class="plan-table"><thead><tr><th>区域</th><th>门店</th><th>8月目标(万)</th><th>日均(万)</th></tr></thead><tbody>';
   plan.stores.forEach(function(s){
-    var cls=s.area==='粤东'?'pl-yuedong':'pl-yuexi';
-    sh+='<tr class="'+cls+'"><td>'+s.area+'</td><td style="text-align:left">'+esc(s.name)+'</td><td>'+s.aug.toFixed(2)+'</td><td>'+(s.aug/daysInMonth).toFixed(2)+'</td></tr>';
+    var cls=s.area==='粤东'?'pl-yuedong':(s.area==='粤西'?'pl-yuexi':'');
+    sh+='<tr class="'+cls+'"><td>'+s.area+'</td><td style="text-align:left">'+esc(s.name)+'</td><td>'+(s.aug>0?s.aug.toFixed(2)+'万':'待定')+'</td><td>'+(s.aug>0?(s.aug/daysInMonth).toFixed(2)+'万':'-')+'</td></tr>';
   });
-  if(plan.specialStore){
-    sh+='<tr style="background:#FFE4E1;font-weight:600"><td>其他</td><td style="text-align:left">'+plan.specialStore.name+'（固定）</td><td>'+plan.specialStore.aug.toFixed(2)+'</td><td>'+(plan.specialStore.aug/daysInMonth).toFixed(2)+'</td></tr>';
-  }
-  var storeTotal=plan.stores.reduce(function(s,r){return s+r.aug;},0)+(plan.specialStore?plan.specialStore.aug:0);
+  var storeTotal=plan.stores.reduce(function(s,r){return s+r.aug;},0);
   sh+='<tr class="pl-total"><td colspan="2">合计</td><td>'+storeTotal.toFixed(2)+'</td><td>'+daily+'</td></tr></tbody></table>';
   $('#plan-store-table').innerHTML=sh;
   
