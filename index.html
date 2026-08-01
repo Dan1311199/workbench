@@ -448,8 +448,8 @@ border-top:1px solid var(--bd);display:flex;z-index:100;
 <div class="store-insights">
 <div class="si-title">🎯 关键洞察</div>
 <div class="si-item">⭐ TOP3：海纳店210.98万 + 宝能新都荟204.20万 + 北海店156.83万（占38.5%）</div>
-<div class="si-item">⚠️ 攻坚：玉林万达(完成度69.2%)、罗定(81.3%)、宝能新都荟(83.1%)</div>
-<div class="si-item">📋 标杆：容县店146.2%、千江购物广场127.6%、江门新会142.3%</div>
+<div class="si-item">⚠️ 攻坚：玉林万达（目标101.31万）、罗定（78.22万）、宝能新都荟（204.20万）需重点关注</div>
+<div class="si-item">📋 标杆门店：容县店、千江购物广场、江门新会</div>
 </div>
 </div>
 </div>
@@ -2489,21 +2489,16 @@ function renderStoreTarget(){
   // 读取今日各门店完成数据
   var dailyData=DB.get('store_daily_'+today,{});
   
-  var h='<table class="store-target-table"><thead><tr><th>门店</th><th>7月实收</th><th>完成度</th><th>月目标</th><th>今日目标</th><th>今日完成</th><th>缺口</th><th>操作</th></tr></thead><tbody>';
+  var h='<table class="store-target-table"><thead><tr><th>门店</th><th>月目标</th><th>今日目标</th><th>今日完成</th><th>缺口</th><th>操作</th></tr></thead><tbody>';
   var totalDailyTarget=0, totalDailyDone=0;
   STORE_TARGET_DATA.forEach(function(s,i){
     var cls='st-yuedong';if(s.area==='粤西')cls='st-yuexi';
-    var tag='';if(s.rate>=120)tag='<span class="st-tag st-tag-good">标杆</span>';
-    else if(s.rate<80)tag='<span class="st-tag st-tag-bad">攻坚</span>';
-    else if(s.rate<90)tag='<span class="st-tag st-tag-warn">关注</span>';
     var dailyTarget=(s.aug/daysInMonth).toFixed(2);
     var done=dailyData['s'+i]||0;
     var gap=dailyTarget-done;
     var gapColor=gap<=0?'#2E7D32':'#E91E63';
     totalDailyTarget+=parseFloat(dailyTarget); totalDailyDone+=done;
-    h+='<tr class="'+cls+'"><td style="text-align:left;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(s.name)+'</td>';
-    h+='<td>'+s.jul.toFixed(0)+'万</td>';
-    h+='<td>'+s.rate.toFixed(1)+'% '+tag+'</td>';
+    h+='<tr class="'+cls+'"><td style="text-align:left;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(s.name)+'</td>';
     h+='<td>'+(Math.round(s.aug*100)/100).toFixed(2)+'万</td>';
     h+='<td>'+dailyTarget+'万</td>';
     h+='<td><input type="number" class="store-daily-input" id="sdi-'+i+'" value="'+(done||'')+'" placeholder="0" step="0.01" inputmode="decimal" onchange="updateStoreDaily('+i+',this.value)" style="width:60px;padding:4px;border:1px solid #ddd;border-radius:6px;font-size:11px;text-align:center"></td>';
@@ -2513,7 +2508,7 @@ function renderStoreTarget(){
   // 合计行
   var totalGap=totalDailyTarget-totalDailyDone;
   var totalGapColor=totalGap<=0?'#2E7D32':'#E91E63';
-  h+='<tr class="st-total"><td>今日合计</td><td colspan="3">-</td>';
+  h+='<tr class="st-total"><td>今日合计</td><td>-</td>';
   h+='<td><b>'+totalDailyTarget.toFixed(2)+'万</b></td>';
   h+='<td><b>'+totalDailyDone.toFixed(2)+'万</b></td>';
   h+='<td style="color:'+totalGapColor+'"><b>'+(totalGap<=0?'✅ 超额'+(Math.abs(totalGap)).toFixed(2)+'万':'-'+totalGap.toFixed(2)+'万')+'</b></td>';
