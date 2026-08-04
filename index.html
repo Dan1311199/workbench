@@ -845,8 +845,9 @@ function genTopics(count=6){
 }
 
 function refreshTopics(){
-  const today=ts();DB.set('topics_'+today,null);
-  // 清除后立即重新渲染
+  const today=ts();localStorage.removeItem('mk_topics_'+today);
+  // 清除后立即重新生成并渲染
+  DB.set('topics_'+today,genTopics(6));
   rVideo();rHome();st('选题已刷新，脚本已就绪');
 }
 
