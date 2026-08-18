@@ -1305,7 +1305,40 @@ function rTodo(){if(todoSub==='daily'){renderDailyList();renderWeekStat();}else 
 const SCRIPT_TPL=[{name:'特价爆款',blocks:['【开场hook】价格反差+大字','【产品展示】近景特写+卖点字幕','【价格对比】原价划线→现价放大','【促销信息】限时/限购/活动','【引导关注】关注领券+定位']},{name:'生鲜实拍',blocks:['【清晨场景】上货/整理过程','【新鲜特写】水滴/色泽/手感','【价格播报】口语化报价','【做法建议】一句话烹饪','【门店引导】今日到货+地址']},{name:'囤货攻略',blocks:['【痛点引入】涨价/断货话题','【清单展示】3-5款囤货品','【单价对比】算账式说明','【保存技巧】一句话储存','【行动号召】周末来囤']},{name:'顾客反馈',blocks:['【真实采访】顾客拿起商品','【使用感受】口语化评价','【价格惊喜】反应特写','【复购证明】多次购买','【引导】同款链接/门店']},{name:'节日营销',blocks:['【节日氛围】场景布置','【主推商品】礼盒/套装','【优惠组合】满减/赠品','【限时强调】倒计时','【到店引导】活动期+地址']}];
 let curScriptDate=ts();
 
-function rVideo(){$('#script-date-label').textContent=fD(curScriptDate);$('#script-templates').innerHTML=SCRIPT_TPL.map((t,i)=>`<span class="tpl-chip" onclick="applyTpl(${i})">${t.name}</span>`).join('');renderScriptContent();renderTopicList();renderHotList();renderInspoList();renderScriptHistory();renderTopicChatHistory();renderTopicQuickChips();}
+function autoFillScript(){
+  var scripts=DB.get('scripts',{});
+  if(scripts[curScriptDate]&&scripts[curScriptDate].blocks&&scripts[curScriptDate].blocks.length)return;
+  var blocks=[];
+  // 优先：今日节点模板
+  var node=getTodayNode();
+  if(node&&NODE_SCRIPT_TEMPLATES[node.key]){
+    var tpl=NODE_SCRIPT_TEMPLATES[node.key];
+    var t=(tpl.topics&&tpl.topics.length)?tpl.topics[0]:null;
+    if(t&&t.script&&t.script.length){
+      blocks=t.script.map(function(b){return {label:b[0],content:b[1]};});
+      scripts[curScriptDate]={template:tpl.category+'·'+t.title.substring(0,20),blocks:blocks,savedAt:Date.now()};
+      DB.set('scripts',scripts);
+      return;
+    }
+  }
+  // 其次：今日选题TOP1
+  var topics=genTopics(6);
+  if(topics&&topics.length){
+    var t=topics[0];
+    if(t.script&&t.script.length){
+      blocks=t.script.map(function(b){return {label:b[0],content:b[1]};});
+    }else{
+      blocks=[
+        {label:'【标题】',content:t.title},{label:'【备选标题】',content:(t.subTitles||[]).join('\n')},
+        {label:'【开头钩子】',content:t.hook||''},{label:'【拍摄思路】',content:t.shoot||''},
+        {label:'【同城话题标签】',content:(t.tags||[]).join(' ')},{label:'【发布时段建议】',content:'建议 18:00-21:00 发布，同城流量高峰期'}
+      ];
+    }
+    scripts[curScriptDate]={template:(t.type||'今日选题')+'·'+(t.title||'').substring(0,20),blocks:blocks,savedAt:Date.now()};
+    DB.set('scripts',scripts);
+  }
+}
+function rVideo(){autoFillScript();$('#script-date-label').textContent=fD(curScriptDate);$('#script-templates').innerHTML=SCRIPT_TPL.map((t,i)=>`<span class="tpl-chip" onclick="applyTpl(${i})">${t.name}</span>`).join('');renderScriptContent();renderTopicList();renderHotList();renderInspList();renderScriptHistory();renderTopicChatHistory();renderTopicQuickChips();}
 function applyTpl(i){const tpl=SCRIPT_TPL[i];let scripts=DB.get('scripts',{});scripts[curScriptDate]={template:tpl.name,blocks:tpl.blocks.map(l=>({label:l,content:''})),savedAt:Date.now()};DB.set('scripts',scripts);renderScriptContent();st('已套用「'+tpl.name+'」模板');}
 function renderScriptContent(){let scripts=DB.get('scripts',{});const s=scripts[curScriptDate];const el=$('#script-content');if(!s||!s.blocks||!s.blocks.length){el.innerHTML='<div class="empty">点击上方模板或选题快速开始</div>';return;}el.innerHTML=s.blocks.map((b,i)=>`<div class="script-block"><div class="lbl">${esc(b.label)}</div><textarea class="textarea" rows="2" placeholder="输入内容..." onchange="updSB(${i},this.value)">${esc(b.content)}</textarea></div>`).join('');}
 function updSB(i,val){let scripts=DB.get('scripts',{});let s=scripts[curScriptDate];if(s&&s.blocks[i])s.blocks[i].content=val;DB.set('scripts',scripts);}
